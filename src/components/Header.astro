@@ -1,0 +1,72 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { profile } from "../data/site";
+import LangSwitcher from "./LangSwitcher.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const base = `/${lang}`;
+
+const links = [
+  { href: `${base}/`, label: t("nav.home") },
+  { href: `${base}/projects`, label: t("nav.projects") },
+  { href: `${base}/#about`, label: t("nav.about") },
+  { href: `${base}/#contact`, label: t("nav.contact") },
+];
+---
+
+<header
+  class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/80 backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/80"
+>
+  <nav
+    class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6"
+    aria-label={lang === "es" ? "Principal" : "Main"}
+  >
+    <a
+      href={`${base}/`}
+      class="text-lg font-bold tracking-tight text-slate-900 dark:text-white"
+    >
+      {profile.name}
+    </a>
+
+    <div class="flex items-center gap-1 sm:gap-2">
+      <ul class="hidden items-center gap-1 sm:flex">
+        {
+          links.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="rounded-md px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="flex items-center gap-1 border-slate-200 sm:ml-2 sm:border-l sm:pl-2 dark:border-slate-800">
+        <LangSwitcher />
+        <ThemeToggle />
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <ul
+    class="flex items-center justify-center gap-1 border-t border-slate-200/70 px-4 py-2 sm:hidden dark:border-slate-800/70"
+  >
+    {
+      links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="rounded-md px-2.5 py-1.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</header>

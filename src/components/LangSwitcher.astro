@@ -1,0 +1,15 @@
+---
+import { getLangFromUrl, getAlternateLang, switchLangPath } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const alternate = getAlternateLang(lang);
+const href = switchLangPath(Astro.url, alternate);
+---
+
+<a
+  href={href}
+  class="rounded-md px-2 py-1 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+  aria-label={alternate === "en" ? "Switch to English" : "Cambiar a Español"}
+>
+  {alternate.toUpperCase()}
+</a>
