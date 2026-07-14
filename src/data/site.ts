@@ -4,10 +4,10 @@ import type { Lang } from "../i18n/ui";
 export const profile = {
   name: "Juan Giménez",
   email: "jgimenezeee@gmail.com",
-  location: "España",
+  location: "Venezuela",
   social: {
-    github: "https://github.com/JuanGimenez7",
-    linkedin: "https://www.linkedin.com/",
+    github: "https://github.com/jscalon",
+    linkedin: "https://www.linkedin.com/in/jscalon",
   },
   /** PDF CVs served from /public. Drop the files there with these names. */
   cv: {
@@ -33,19 +33,49 @@ export interface EducationItem {
 
 /** Short bio shown in the About section. EDIT ME. */
 export const bio: LocalizedText = {
-  es: "Desarrollador de software apasionado por crear productos web cuidados, accesibles y con buen rendimiento. Me gusta aprender, resolver problemas reales y cuidar los detalles.",
-  en: "Software developer passionate about building polished, accessible and performant web products. I enjoy learning, solving real problems and caring about the details.",
+  es: "Desarrollador de software apasionado por crear aplicaciones web funcionales, atractivas e intuitivas. Me gusta hacer las cosas con excelencia, resolver problemas reales y cuidar los detalles. Integro la IA de forma activa en mi flujo de trabajo como una herramienta más para desarrollar con mayor calidad y velocidad, además de automatizar tareas y procesos.",
+  en: "Software developer passionate about building functional, attractive and intuitive web applications. I like doing things with excellence, solving real problems and caring about the details. I actively integrate AI into my workflow as one more tool to build with greater quality and speed, as well as to automate tasks and processes.",
 };
 
 /** EDIT ME with your real experience. */
 export const experience: ExperienceItem[] = [
   {
-    role: { es: "Desarrollador Web", en: "Web Developer" },
-    company: "Empresa / Freelance",
-    period: { es: "2024 — Actualidad", en: "2024 — Present" },
+    role: {
+      es: "Analista de Datos — Administración de Ventas",
+      en: "Data Analyst — Sales Administration",
+    },
+    company: "Febeca",
+    period: {
+      es: "Abril 2026 — Actualidad",
+      en: "April 2026 — Present",
+    },
     description: {
-      es: "Desarrollo de aplicaciones web modernas con foco en rendimiento y experiencia de usuario.",
-      en: "Development of modern web applications with a focus on performance and user experience.",
+      es: "Desarrollo de aplicaciones para el análisis estadístico de los datos de ventas de la empresa, cálculo de presupuestos, cotizaciones y automatización de tareas.",
+      en: "Development of applications for the statistical analysis of the company's sales data, budget and quote calculation, and task automation.",
+    },
+  },
+  {
+    role: { es: "Desarrollador de software", en: "Software Developer" },
+    company: "Botinfy",
+    period: {
+      es: "Febrero 2026 — Abril 2026",
+      en: "February 2026 — April 2026",
+    },
+    description: {
+      es: "Desarrollo de chatbots de IA, gestión automatizada de tickets, web scraping, diseño y creación de páginas web modernas, generación y edición de imágenes y videos con IA.",
+      en: "Development of AI chatbots, automated ticket management, web scraping, design and creation of modern websites, and AI-powered image and video generation and editing.",
+    },
+  },
+  {
+    role: { es: "Pasante", en: "Intern" },
+    company: "Protinal Proagro",
+    period: {
+      es: "Junio 2025 — Febrero 2026",
+      en: "June 2025 — February 2026",
+    },
+    description: {
+      es: "Proyecto de pasantía y trabajo de grado en el departamento de Tecnología: desarrollo de una aplicación web para la gestión remota de productos y precios de las tiendas minoristas de la empresa.",
+      en: "Internship and thesis project in the Technology department: development of a web application for the remote management of products and prices across the company's retail stores.",
     },
   },
 ];
@@ -54,23 +84,33 @@ export const experience: ExperienceItem[] = [
 export const education: EducationItem[] = [
   {
     title: {
-      es: "Desarrollo de Aplicaciones Web",
-      en: "Web Application Development",
+      es: "Ingeniería de Computación",
+      en: "Computer Engineering",
     },
-    institution: "Centro de formación",
-    period: { es: "2022 — 2024", en: "2022 — 2024" },
+    institution: "Universidad José Antonio Páez",
+    period: { es: "2022 — 2026", en: "2022 — 2026" },
   },
 ];
 
 /** Skills shown as chips. EDIT ME. */
 export const skills: string[] = [
-  "JavaScript",
+  // Frontend
   "TypeScript",
-  "React",
+  "Next.js + React",
   "Astro",
-  "Node.js",
-  "HTML & CSS",
   "Tailwind CSS",
-  "Git",
-  "PostgreSQL",
+  // Backend
+  "Node.js",
+  "Python",
+  "Django",
+  // Datos
+  "SQL",
+  "Supabase",
+  "Excel",
+  // IA / Automatización
+  "LLM Integration",
+  "Generative AI",
+  "n8n",
+  // Tooling
+  "Docker",
 ];
