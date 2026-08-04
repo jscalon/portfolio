@@ -4,3 +4,10 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+# Server-side redirect from the root to the default locale (no flash, SEO-friendly).
+[[redirects]]
+  from = "/"
+  to = "/es/"
+  status = 302
+  force = true
