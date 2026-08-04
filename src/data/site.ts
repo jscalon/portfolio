@@ -113,4 +113,5 @@ export const skills: string[] = [
   "n8n",
   // Tooling
   "Docker",
+  "Figma",
 ];
