@@ -1,15 +1,15 @@
 ---
 lang: es
 title: "ServiFrescos — Gestión centralizada de productos y precios"
-description: "Plataforma web que unifica la gestión de productos y precios de las tiendas minoristas de Protinal Proagro, eliminando las discrepancias entre las bases de datos locales de cada tienda y la sede central."
+description: "Aplicación web que centraliza la gestión (CRUD) de productos, precios, usuarios y tiendas de Protinal Proagro, eliminando las discrepancias entre las bases de datos locales de cada tienda y la sede central."
 stack: ["React", "TypeScript", "Django REST Framework", "SQL Server", "CSS", "Figma"]
 repoUrl: https://github.com/jscalon/servifrescos
 featured: true
-order: 1
+order: 2
 date: 2026-02-01
 ---
 
-ServiFrescos es una plataforma web desarrollada como proyecto de pasantía y trabajo de
+ServiFrescos es una aplicación web desarrollada como proyecto de pasantía y trabajo de
 grado para **Protinal Proagro, C.A.**, orientada a centralizar la gestión de los productos
 y sus precios en las tiendas minoristas de la empresa.
 
@@ -22,17 +22,25 @@ lentos, manuales y propensos a errores.
 
 ## La solución
 
-Un sistema web que unifica toda esa información en una **base de datos centralizada**,
-permitiendo gestionar productos y precios de forma remota y consistente para todas las
-tiendas desde un único punto, con actualizaciones ágiles y datos siempre sincronizados.
+Una **aplicación web** que centraliza toda la información en una **base de datos única** y
+permite gestionarla mediante operaciones **CRUD** desde una interfaz amigable. Módulos
+principales: **productos, precios, usuarios, categorías** (marcas, tipos, departamentos,
+grupos y subgrupos) **y tiendas**.
+
+Funcionalidades destacadas:
+
+- **Precios programados:** al crear un precio se define la **fecha y hora** desde la que
+  entra en vigencia.
+- **Permisos por rol:** cada usuario tiene roles que determinan a qué módulos accede y qué
+  operaciones CRUD puede realizar (p. ej. solo lectura, o lectura y creación sin eliminación).
 
 ## Mi rol
 
-Desarrollador **full stack** del proyecto de principio a fin: diseño de la interfaz,
-desarrollo del frontend, del backend y de la base de datos centralizada.
+Fui el desarrollador **full stack** del proyecto de principio a fin: diseñé la interfaz y
+desarrollé el frontend, el backend y la base de datos centralizada.
 
 - **Diseño (UI):** prototipado de la interfaz en Figma.
-- **Frontend:** React con TypeScript y CSS.
+- **Frontend:** React, TypeScript y CSS.
 - **Backend:** API REST con Django REST Framework.
 - **Base de datos:** SQL Server centralizada.
 

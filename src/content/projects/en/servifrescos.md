@@ -1,15 +1,15 @@
 ---
 lang: en
 title: "ServiFrescos — Centralized Product & Price Management"
-description: "Web platform that unifies product and price management across Protinal Proagro's retail stores, eliminating the discrepancies between each store's local database and headquarters."
+description: "Web application that centralizes the management (CRUD) of products, prices, users and stores for Protinal Proagro, eliminating the discrepancies between each store's local database and headquarters."
 stack: ["React", "TypeScript", "Django REST Framework", "SQL Server", "CSS", "Figma"]
 repoUrl: https://github.com/jscalon/servifrescos
 featured: true
-order: 1
+order: 2
 date: 2026-02-01
 ---
 
-ServiFrescos is a web platform built as an internship and thesis project for
+ServiFrescos is a web application built as an internship and thesis project for
 **Protinal Proagro, C.A.**, designed to centralize the management of products and their
 prices across the company's retail stores.
 
@@ -21,17 +21,26 @@ headquarters, along with slow, manual and error-prone update processes.
 
 ## The solution
 
-A web system that unifies all that information into a **centralized database**, making it
-possible to manage products and prices remotely and consistently for every store from a
-single place, with fast updates and always-synchronized data.
+A **web application** that centralizes all the information into a **single database** and
+lets users manage it through **CRUD** operations from a friendly interface. Main modules:
+**products, prices, users, categories** (brands, types, departments, groups and subgroups)
+**and stores**.
+
+Key features:
+
+- **Scheduled prices:** when creating a price, you set the **date and time** from which it
+  takes effect.
+- **Role-based permissions:** each user has roles that determine which modules they can
+  access and which CRUD operations they can perform (e.g. read-only, or read and create
+  without delete).
 
 ## My role
 
-**Full stack** developer of the project from start to finish: interface design, frontend,
-backend and the centralized database.
+I was the **full stack** developer of the project from start to finish: I designed the
+interface and built the frontend, the backend and the centralized database.
 
 - **Design (UI):** interface prototyping in Figma.
-- **Frontend:** React with TypeScript and CSS.
+- **Frontend:** React, TypeScript and CSS.
 - **Backend:** REST API with Django REST Framework.
 - **Database:** centralized SQL Server.
 
