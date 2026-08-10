@@ -101,6 +101,7 @@ export const skills: string[] = [
   "Tailwind CSS",
   // Backend
   "Node.js",
+  "Express",
   "Python",
   "Django",
   // Datos
