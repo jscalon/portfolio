@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { getLangFromUrl } from "../i18n/utils";
+import { getLangFromUrl, switchLangPath } from "../i18n/utils";
 import { profile } from "../data/site";
 
 interface Props {
@@ -18,6 +18,17 @@ const lang = getLangFromUrl(Astro.url);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImage = new URL(image, Astro.site);
 const fullTitle = `${title} · ${profile.name}`;
+
+// hreflang alternates — only on localized routes (skipped on the root 404).
+const firstSegment = Astro.url.pathname.split("/")[1];
+const hasLocalePrefix = firstSegment === "es" || firstSegment === "en";
+const alternates = hasLocalePrefix
+  ? [
+      { hreflang: "es", href: new URL(switchLangPath(Astro.url, "es"), Astro.site) },
+      { hreflang: "en", href: new URL(switchLangPath(Astro.url, "en"), Astro.site) },
+      { hreflang: "x-default", href: new URL(switchLangPath(Astro.url, "es"), Astro.site) },
+    ]
+  : [];
 ---
 
 <!doctype html>
@@ -32,6 +43,13 @@ const fullTitle = `${title} · ${profile.name}`;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     <meta name="author" content={profile.name} />
+
+    <!-- hreflang: tell search engines about the ES/EN versions -->
+    {
+      alternates.map((alt) => (
+        <link rel="alternate" hreflang={alt.hreflang} href={alt.href.href} />
+      ))
+    }
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -63,7 +81,7 @@ const fullTitle = `${title} · ${profile.name}`;
     </script>
   </head>
   <body
-    class="min-h-screen bg-white text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-200"
+    class="flex min-h-screen flex-col bg-white text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-200"
   >
     <a
       href="#main"
@@ -72,7 +90,7 @@ const fullTitle = `${title} · ${profile.name}`;
       {lang === "es" ? "Saltar al contenido" : "Skip to content"}
     </a>
     <Header />
-    <main id="main">
+    <main id="main" class="flex flex-1 flex-col">
       <slot />
     </main>
     <Footer />

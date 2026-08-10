@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// Static root 404: Netlify serves this for any unmatched route, so it has no
+// locale prefix. It renders in Spanish by default (the default locale, works
+// without JS) and a small inline script swaps to English when the failed URL
+// starts with /en/ (or the browser prefers English).
+---
+
+<BaseLayout title="404" description="Página no encontrada · Page not found">
+  <section
+    class="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center justify-center px-4 py-20 text-center sm:px-6"
+  >
+    <p class="text-7xl font-extrabold tracking-tight text-brand-600 sm:text-8xl dark:text-brand-400">
+      404
+    </p>
+    <h1
+      class="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl dark:text-white"
+      data-en="Page not found"
+    >
+      Página no encontrada
+    </h1>
+    <p
+      class="mt-4 max-w-xl text-slate-600 dark:text-slate-300"
+      data-en="The page you're looking for doesn't exist or has moved."
+    >
+      La página que buscas no existe o fue movida.
+    </p>
+    <div class="mt-8">
+      <a
+        id="home-link"
+        href="/es/"
+        class="rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700"
+        data-en="Go home"
+      >
+        Ir al inicio
+      </a>
+    </div>
+  </section>
+
+  <script is:inline>
+    (() => {
+      const path = location.pathname;
+      const lang = path.startsWith("/en")
+        ? "en"
+        : path.startsWith("/es")
+          ? "es"
+          : (navigator.language || "").toLowerCase().startsWith("en")
+            ? "en"
+            : "es";
+
+      if (lang !== "en") return;
+
+      document.documentElement.lang = "en";
+      document.querySelectorAll("[data-en]").forEach((el) => {
+        el.textContent = el.getAttribute("data-en");
+      });
+      const home = document.getElementById("home-link");
+      if (home) home.setAttribute("href", "/en/");
+    })();
+  </script>
+</BaseLayout>
