@@ -44,6 +44,15 @@ export const ui = {
     "contact.subtitle":
       "Disponible para nuevas oportunidades y colaboraciones.",
     "contact.email": "Enviar email",
+    "contact.form.name": "Nombre",
+    "contact.form.email": "Email",
+    "contact.form.message": "Mensaje",
+    "contact.form.send": "Enviar mensaje",
+    "contact.form.sending": "Enviando…",
+    "contact.form.success": "¡Gracias! Te responderé pronto.",
+    "contact.form.error":
+      "Algo salió mal. Inténtalo de nuevo o escríbeme por email.",
+    "contact.form.or": "o escríbeme directamente por email",
 
     "footer.builtWith": "Hecho con Astro y Tailwind CSS",
     "lang.switch": "English",
@@ -80,6 +89,15 @@ export const ui = {
     "contact.title": "Let's talk",
     "contact.subtitle": "Available for new opportunities and collaborations.",
     "contact.email": "Send email",
+    "contact.form.name": "Name",
+    "contact.form.email": "Email",
+    "contact.form.message": "Message",
+    "contact.form.send": "Send message",
+    "contact.form.sending": "Sending…",
+    "contact.form.success": "Thanks! I'll get back to you soon.",
+    "contact.form.error":
+      "Something went wrong. Please try again or email me directly.",
+    "contact.form.or": "or email me directly",
 
     "footer.builtWith": "Built with Astro and Tailwind CSS",
     "lang.switch": "Español",

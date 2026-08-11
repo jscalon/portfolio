@@ -1,0 +1,116 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const inputClass =
+  "w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm transition placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/30 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder:text-slate-500";
+---
+
+<form
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="mx-auto mt-10 max-w-xl text-left"
+  data-sending={t("contact.form.sending")}
+  data-success={t("contact.form.success")}
+  data-error={t("contact.form.error")}
+>
+  {/* Netlify needs this hidden input to match the form on submit. */}
+  <input type="hidden" name="form-name" value="contact" />
+  {/* Honeypot: bots fill this, humans never see it. */}
+  <p class="hidden">
+    <label>
+      Don't fill this out if you're human: <input name="bot-field" />
+    </label>
+  </p>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div>
+      <label
+        for="name"
+        class="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300"
+      >
+        {t("contact.form.name")}
+      </label>
+      <input id="name" type="text" name="name" required class={inputClass} />
+    </div>
+    <div>
+      <label
+        for="email"
+        class="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300"
+      >
+        {t("contact.form.email")}
+      </label>
+      <input id="email" type="email" name="email" required class={inputClass} />
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <label
+      for="message"
+      class="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300"
+    >
+      {t("contact.form.message")}
+    </label>
+    <textarea id="message" name="message" rows="5" required class={inputClass}
+    ></textarea>
+  </div>
+
+  <div class="mt-6 flex flex-col items-center gap-3">
+    <button
+      type="submit"
+      class="rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
+    >
+      {t("contact.form.send")}
+    </button>
+    <p
+      data-form-status
+      role="status"
+      aria-live="polite"
+      class="text-sm font-medium"
+    >
+    </p>
+  </div>
+</form>
+
+<script is:inline>
+  (() => {
+    const form = document.querySelector('form[name="contact"]');
+    if (!form) return;
+    const button = form.querySelector('button[type="submit"]');
+    const status = form.querySelector("[data-form-status]");
+    const label = button.textContent;
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      button.disabled = true;
+      button.textContent = form.dataset.sending;
+      status.textContent = "";
+      status.className = "text-sm font-medium";
+
+      try {
+        const body = new URLSearchParams(new FormData(form)).toString();
+        // Post to the current page (not "/"), which netlify.toml force-redirects.
+        const res = await fetch(location.pathname, {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body,
+        });
+        if (!res.ok) throw new Error("Request failed");
+        form.reset();
+        status.textContent = form.dataset.success;
+        status.className =
+          "text-sm font-medium text-green-600 dark:text-green-400";
+      } catch {
+        status.textContent = form.dataset.error;
+        status.className = "text-sm font-medium text-red-600 dark:text-red-400";
+      } finally {
+        button.disabled = false;
+        button.textContent = label;
+      }
+    });
+  })();
+</script>
