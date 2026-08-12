@@ -3,6 +3,7 @@ lang: en
 title: "ServiFrescos — Centralized Product & Price Management"
 description: "Web application that centralizes the management (CRUD) of products, prices, users and stores for Protinal Proagro, eliminating the discrepancies between each store's local database and headquarters."
 stack: ["React", "TypeScript", "Django REST Framework", "SQL Server", "CSS", "Figma"]
+cover: /covers/servifrescos.webp
 repoUrl: https://github.com/jscalon/servifrescos
 featured: true
 order: 2

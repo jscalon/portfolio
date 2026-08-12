@@ -3,6 +3,7 @@ lang: en
 title: "Botinfy Corporate Website"
 description: "Redesign and development of Botinfy's official website, a software development company, to replace an outdated site with a modern, professional presence in line with the standard expected from the sector."
 stack: ["Next.js", "TypeScript", "Tailwind CSS", "Figma"]
+cover: /covers/botinfy.webp
 liveUrl: https://botinfy.com
 featured: true
 order: 1
