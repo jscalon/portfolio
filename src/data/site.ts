@@ -5,14 +5,12 @@ export const profile = {
   name: "Juan Giménez",
   email: "jgimenezeee@gmail.com",
   location: "Venezuela",
+  /** Display form; `whatsapp` is the same number normalized for wa.me links. */
+  phone: "+58 414 4272854",
+  whatsapp: "https://wa.me/584144272854",
   social: {
     github: "https://github.com/jscalon",
     linkedin: "https://www.linkedin.com/in/jscalon",
-  },
-  /** PDF CVs served from /public. Drop the files there with these names. */
-  cv: {
-    es: "/cv-es.pdf",
-    en: "/cv-en.pdf",
   },
 } as const;
 
@@ -89,6 +87,18 @@ export const education: EducationItem[] = [
     },
     institution: "Universidad José Antonio Páez",
     period: { es: "2022 — 2026", en: "2022 — 2026" },
+  },
+];
+
+/** Spoken languages — shown on the CV. */
+export const spokenLanguages: { name: LocalizedText; level: LocalizedText }[] = [
+  {
+    name: { es: "Español", en: "Spanish" },
+    level: { es: "Nativo", en: "Native" },
+  },
+  {
+    name: { es: "Inglés", en: "English" },
+    level: { es: "Básico / Intermedio", en: "Basic / Intermediate" },
   },
 ];
 

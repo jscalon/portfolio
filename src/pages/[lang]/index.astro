@@ -22,7 +22,7 @@ const t = useTranslations(lang);
 
 const projects = await getProjectsByLang(lang);
 const featured = projects.filter((p) => p.data.featured);
-const cvHref = profile.cv[lang];
+const cvHref = `/${lang}/cv`;
 ---
 
 <BaseLayout description={bio[lang]}>
@@ -50,8 +50,6 @@ const cvHref = profile.cv[lang];
       </a>
       <a
         href={cvHref}
-        target="_blank"
-        rel="noopener noreferrer"
         class="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
       >
         {t("hero.cta.cv")}
@@ -143,11 +141,9 @@ const cvHref = profile.cv[lang];
 
       <a
         href={cvHref}
-        target="_blank"
-        rel="noopener noreferrer"
         class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:text-brand-700 dark:text-brand-400"
       >
-        {t("about.downloadCv")} &darr;
+        {t("about.downloadCv")} &rarr;
       </a>
     </div>
   </section>
@@ -204,6 +200,15 @@ const cvHref = profile.cv[lang];
           class="font-medium text-brand-600 hover:text-brand-700 dark:text-brand-400"
         >
           {profile.email}
+        </a>
+        <span class="mx-2 text-slate-300 dark:text-slate-600">·</span>
+        <a
+          href={profile.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-medium text-brand-600 hover:text-brand-700 dark:text-brand-400"
+        >
+          WhatsApp
         </a>
       </p>
     </div>

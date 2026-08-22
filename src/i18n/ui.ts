@@ -22,14 +22,23 @@ export const ui = {
     "hero.tagline":
       "Construyo aplicaciones web rápidas, accesibles y bien diseñadas.",
     "hero.cta.projects": "Ver proyectos",
-    "hero.cta.cv": "Descargar CV",
+    "hero.cta.cv": "Ver CV",
     "hero.cta.contact": "Contacto",
 
     "about.title": "Sobre mí",
     "about.experience": "Experiencia",
     "about.education": "Formación",
     "about.skills": "Tecnologías",
-    "about.downloadCv": "Descargar CV (PDF)",
+    "about.downloadCv": "Ver CV completo",
+
+    "cv.title": "Currículum",
+    "cv.description":
+      "Currículum de Juan Giménez: experiencia, formación, tecnologías y proyectos.",
+    "cv.print": "Imprimir / Guardar PDF",
+    "cv.profile": "Perfil",
+    "cv.projects": "Proyectos",
+    "cv.languages": "Idiomas",
+    "cv.backToSite": "Volver al inicio",
 
     "projects.title": "Proyectos",
     "projects.featured": "Proyectos destacados",
@@ -52,7 +61,7 @@ export const ui = {
     "contact.form.success": "¡Gracias! Te responderé pronto.",
     "contact.form.error":
       "Algo salió mal. Inténtalo de nuevo o escríbeme por email.",
-    "contact.form.or": "o escríbeme directamente por email",
+    "contact.form.or": "o escríbeme directamente",
 
     "footer.builtWith": "Hecho con Astro y Tailwind CSS",
     "lang.switch": "English",
@@ -68,14 +77,23 @@ export const ui = {
     "hero.tagline":
       "I build fast, accessible and well-designed web applications.",
     "hero.cta.projects": "View projects",
-    "hero.cta.cv": "Download CV",
+    "hero.cta.cv": "View CV",
     "hero.cta.contact": "Contact",
 
     "about.title": "About me",
     "about.experience": "Experience",
     "about.education": "Education",
     "about.skills": "Technologies",
-    "about.downloadCv": "Download CV (PDF)",
+    "about.downloadCv": "View full CV",
+
+    "cv.title": "Résumé",
+    "cv.description":
+      "Juan Giménez's résumé: experience, education, technologies and projects.",
+    "cv.print": "Print / Save as PDF",
+    "cv.profile": "Profile",
+    "cv.projects": "Projects",
+    "cv.languages": "Languages",
+    "cv.backToSite": "Back to home",
 
     "projects.title": "Projects",
     "projects.featured": "Featured projects",
@@ -97,7 +115,7 @@ export const ui = {
     "contact.form.success": "Thanks! I'll get back to you soon.",
     "contact.form.error":
       "Something went wrong. Please try again or email me directly.",
-    "contact.form.or": "or email me directly",
+    "contact.form.or": "or reach me directly",
 
     "footer.builtWith": "Built with Astro and Tailwind CSS",
     "lang.switch": "Español",
