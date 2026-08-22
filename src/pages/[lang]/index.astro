@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ProjectCard from "../../components/ProjectCard.astro";
 import ContactForm from "../../components/ContactForm.astro";
+import PersonSchema from "../../components/PersonSchema.astro";
 import { useTranslations } from "../../i18n/utils";
 import type { Lang } from "../../i18n/ui";
 import {
@@ -26,6 +27,8 @@ const cvHref = `/${lang}/cv`;
 ---
 
 <BaseLayout description={bio[lang]}>
+  <PersonSchema />
+
   <!-- Hero -->
   <section
     class="reveal-stagger mx-auto max-w-5xl px-4 pb-16 pt-16 sm:px-6 sm:pt-24"

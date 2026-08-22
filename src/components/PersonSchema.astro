@@ -1,0 +1,54 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import {
+  profile,
+  bio,
+  experience,
+  education,
+  skills,
+  spokenLanguages,
+} from "../data/site";
+
+/**
+ * schema.org Person structured data (JSON-LD). Tells search engines who this
+ * site is about — name, role, employer, skills and social profiles — so they
+ * can show a richer result instead of guessing from the page text.
+ */
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const siteUrl = Astro.site?.href ?? "https://jscalon.dev/";
+const currentJob = experience[0];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  url: new URL(`/${lang}/`, siteUrl).href,
+  image: new URL("/og-image.png", siteUrl).href,
+  jobTitle: t("hero.role"),
+  description: bio[lang],
+  email: `mailto:${profile.email}`,
+  telephone: profile.phone,
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: profile.location,
+  },
+  worksFor: currentJob
+    ? { "@type": "Organization", name: currentJob.company }
+    : undefined,
+  alumniOf: education.map((item) => ({
+    "@type": "CollegeOrUniversity",
+    name: item.institution,
+  })),
+  knowsAbout: skills,
+  knowsLanguage: spokenLanguages.map((item) => item.name[lang]),
+  sameAs: [profile.social.github, profile.social.linkedin],
+};
+---
+
+<script
+  type="application/ld+json"
+  is:inline
+  set:html={JSON.stringify(schema)}
+/>
