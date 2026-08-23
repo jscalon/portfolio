@@ -53,16 +53,16 @@ const links = [
     </div>
   </nav>
 
-  <!-- Mobile nav -->
+  <!-- Mobile nav. Labels never wrap; on very narrow screens the row scrolls. -->
   <ul
-    class="flex items-center justify-center gap-1 border-t border-slate-200/70 px-4 py-2 sm:hidden dark:border-slate-800/70"
+    class="flex items-center justify-center gap-0.5 overflow-x-auto border-t border-slate-200/70 px-2 py-2 sm:hidden dark:border-slate-800/70"
   >
     {
       links.map((link) => (
         <li>
           <a
             href={link.href}
-            class="rounded-md px-2.5 py-1.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+            class="block whitespace-nowrap rounded-md px-2 py-1.5 text-xs font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
           >
             {link.label}
           </a>

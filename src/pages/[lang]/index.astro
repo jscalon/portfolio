@@ -32,7 +32,7 @@ const cvHref = `/${lang}/cv`;
   <!-- Hero -->
   <section class="mx-auto max-w-5xl px-4 pb-16 pt-16 sm:px-6 sm:pt-24">
     <div
-      class="flex flex-col-reverse items-start gap-8 sm:flex-row sm:items-center sm:justify-between sm:gap-12"
+      class="flex flex-col-reverse items-center gap-8 text-center sm:flex-row sm:items-center sm:justify-between sm:gap-12 sm:text-left"
     >
       <div class="reveal-stagger">
         <p class="text-sm font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400">
@@ -46,7 +46,7 @@ const cvHref = `/${lang}/cv`;
         <p class="mt-6 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
           {t("hero.tagline")}
         </p>
-        <div class="mt-8 flex flex-wrap gap-3">
+        <div class="mt-8 flex flex-wrap justify-center gap-3 sm:justify-start">
           <a
             href={`/${lang}/projects`}
             class="rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700"
@@ -209,24 +209,43 @@ const cvHref = `/${lang}/cv`;
 
       <ContactForm />
 
-      <p class="mt-6 text-sm text-slate-500 dark:text-slate-400">
-        {t("contact.form.or")}:{" "}
-        <a
-          href={`mailto:${profile.email}`}
-          class="font-medium text-brand-600 hover:text-brand-700 dark:text-brand-400"
-        >
-          {profile.email}
-        </a>
-        <span class="mx-2 text-slate-300 dark:text-slate-600">·</span>
-        <a
-          href={profile.whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="font-medium text-brand-600 hover:text-brand-700 dark:text-brand-400"
-        >
-          WhatsApp
-        </a>
+      <p class="mt-8 text-sm text-slate-500 dark:text-slate-400">
+        {t("contact.form.or")}:
       </p>
+      <ul
+        class="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm"
+      >
+        <li>
+          <a
+            href={`mailto:${profile.email}`}
+            class="font-medium text-brand-600 hover:text-brand-700 dark:text-brand-400"
+          >
+            Email
+          </a>
+        </li>
+        <li aria-hidden="true" class="text-slate-300 dark:text-slate-600">·</li>
+        <li>
+          <a
+            href={profile.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-medium text-brand-600 hover:text-brand-700 dark:text-brand-400"
+          >
+            WhatsApp
+          </a>
+        </li>
+        <li aria-hidden="true" class="text-slate-300 dark:text-slate-600">·</li>
+        <li>
+          <a
+            href={profile.social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-medium text-brand-600 hover:text-brand-700 dark:text-brand-400"
+          >
+            LinkedIn
+          </a>
+        </li>
+      </ul>
     </div>
   </section>
 </BaseLayout>

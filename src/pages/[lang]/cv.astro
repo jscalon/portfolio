@@ -169,19 +169,17 @@ const sectionTitle =
             <ul class="mt-3 space-y-4">
               {projects.map((project) => (
                 <li class="cv-item">
-                  <div class="flex flex-wrap items-baseline justify-between gap-x-3">
-                    <h3 class="font-semibold text-slate-900 dark:text-white">
-                      {project.data.title}
-                    </h3>
-                    {(project.data.liveUrl || project.data.repoUrl) && (
-                      <a
-                        href={project.data.liveUrl || project.data.repoUrl}
-                        class="text-xs text-brand-600 dark:text-brand-400"
-                      >
-                        {bare(project.data.liveUrl || project.data.repoUrl || "")}
-                      </a>
-                    )}
-                  </div>
+                  <h3 class="font-semibold text-slate-900 dark:text-white">
+                    {project.data.title}
+                  </h3>
+                  {(project.data.liveUrl || project.data.repoUrl) && (
+                    <a
+                      href={project.data.liveUrl || project.data.repoUrl}
+                      class="block text-xs text-brand-600 dark:text-brand-400"
+                    >
+                      {bare(project.data.liveUrl || project.data.repoUrl || "")}
+                    </a>
+                  )}
                   <p class="mt-1 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
                     {project.data.description}
                   </p>
