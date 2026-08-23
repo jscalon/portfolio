@@ -18,11 +18,13 @@ Requiere Node 20+.
 
 | Qué | Dónde |
 | --- | --- |
-| Datos personales, redes, CV, experiencia, formación, skills | `src/data/site.ts` |
+| Datos personales, contacto, experiencia, formación, skills, idiomas | `src/data/site.ts` |
 | Textos de la interfaz (botones, títulos, navegación) | `src/i18n/ui.ts` |
 | Proyectos | `src/content/projects/<es\|en>/<slug>.md` |
-| CV en PDF | `public/cv-es.pdf` y `public/cv-en.pdf` (reemplaza los placeholder) |
-| Imagen social (Open Graph) | `public/og-image.png` (1200×630, **pendiente de añadir**) |
+| CV | Se genera solo desde `src/data/site.ts` → `/es/cv`, `/en/cv` |
+| Portadas de proyectos | `public/covers/<slug>.webp` |
+| Foto de perfil | `public/profile.webp` (800×800) |
+| Imagen social (Open Graph) | `public/og-image.png` (1200×630) |
 | Favicon | `public/favicon.svg` |
 | Colores / tipografía | `src/styles/global.css` (bloque `@theme`) |
 
@@ -43,7 +45,7 @@ description: Descripción breve.
 stack: ["Astro", "TypeScript"]
 repoUrl: https://github.com/...   # opcional
 liveUrl: https://...              # opcional
-cover: /proyectos/mi-proyecto.png # opcional (imagen en public/)
+cover: /covers/mi-proyecto.webp   # opcional (imagen en public/covers/)
 featured: true        # aparece en la home
 order: 1              # orden de aparición (menor primero)
 date: 2026-01-01
@@ -57,9 +59,11 @@ Contenido en Markdown...
 Netlify está conectado a este repo. Cada `push` a `main` dispara un build
 (`pnpm build` → `dist/`) y publica en **jscalon.dev**. Config en `netlify.toml`.
 
-## Pendiente (opcional, fase 2)
+## Pendiente
 
-- Añadir `public/og-image.png` (1200×630) para las tarjetas sociales.
-- Reemplazar los CV PDF placeholder por los reales.
-- Rellenar experiencia/formación reales en `src/data/site.ts`.
-- Formulario de contacto (Netlify Forms), blog, animaciones, analytics.
+- Más casos de estudio de proyectos.
+- Analytics (Netlify Analytics, Plausible o Umami).
+- Opcional: blog, imágenes OG por proyecto.
+
+Ver `AGENTS.md` para las convenciones técnicas y `CONTENT_GUIDE.md` para la guía
+detallada de edición de contenido.
