@@ -14,22 +14,14 @@ const year = new Date().getFullYear();
     class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-3 px-4 py-8 text-sm text-slate-500 sm:flex-row sm:px-6 dark:text-slate-400"
   >
     <p>&copy; {year} {profile.name}</p>
+    {/* Canonical channel order, shared with the contact section:
+        most direct contact first, most passive profile last. */}
     <div class="flex items-center gap-4">
       <a
-        href={profile.social.github}
-        target="_blank"
-        rel="noopener noreferrer"
+        href={`mailto:${profile.email}`}
         class="transition hover:text-slate-900 dark:hover:text-white"
       >
-        GitHub
-      </a>
-      <a
-        href={profile.social.linkedin}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="transition hover:text-slate-900 dark:hover:text-white"
-      >
-        LinkedIn
+        Email
       </a>
       <a
         href={profile.whatsapp}
@@ -40,10 +32,20 @@ const year = new Date().getFullYear();
         WhatsApp
       </a>
       <a
-        href={`mailto:${profile.email}`}
+        href={profile.social.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
         class="transition hover:text-slate-900 dark:hover:text-white"
       >
-        Email
+        LinkedIn
+      </a>
+      <a
+        href={profile.social.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition hover:text-slate-900 dark:hover:text-white"
+      >
+        GitHub
       </a>
     </div>
     <p class="text-xs">{t("footer.builtWith")}</p>

@@ -21,8 +21,10 @@ const lang = Astro.params.lang as Lang;
 const t = useTranslations(lang);
 const projects = await getProjectsByLang(lang);
 
-// Strip the protocol so links read cleanly on paper.
-const bare = (url: string) => url.replace(/^https?:\/\//, "");
+// Strip protocol, "www." and trailing slash so links read cleanly on paper.
+const bare = (url: string) =>
+  url.replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/$/, "");
+const siteHome = Astro.site?.href ?? "https://jscalon.dev/";
 
 const sectionTitle =
   "cv-heading text-sm font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400";
@@ -65,7 +67,7 @@ const sectionTitle =
         <ul
           class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-600 dark:text-slate-400"
         >
-          <li>{profile.location}</li>
+          <li>{profile.location.city}, {profile.location.country}</li>
           <li>
             <a href={profile.whatsapp} class="hover:text-brand-600">
               {profile.phone}
@@ -77,13 +79,18 @@ const sectionTitle =
             </a>
           </li>
           <li>
-            <a href={profile.social.github} class="hover:text-brand-600">
-              {bare(profile.social.github)}
+            <a href={siteHome} class="font-medium hover:text-brand-600">
+              {bare(siteHome)}
             </a>
           </li>
           <li>
             <a href={profile.social.linkedin} class="hover:text-brand-600">
               {bare(profile.social.linkedin)}
+            </a>
+          </li>
+          <li>
+            <a href={profile.social.github} class="hover:text-brand-600">
+              {bare(profile.social.github)}
             </a>
           </li>
         </ul>
@@ -252,8 +259,18 @@ const sectionTitle =
       color: #000 !important;
     }
 
+    /* Tighter vertical margins keep the CV on a single A4 page. */
     .cv-sheet {
-      padding: 14mm 14mm;
+      padding: 9mm 13mm;
+    }
+
+    /* Compact the header block and the gaps between entries. */
+    .cv-sheet > header {
+      padding-bottom: 8pt !important;
+    }
+
+    .cv-item + .cv-item {
+      margin-top: 7pt !important;
     }
 
     /* Force light colors regardless of the active theme. */
@@ -290,7 +307,7 @@ const sectionTitle =
     }
 
     .cv-section {
-      margin-top: 10pt !important;
+      margin-top: 8pt !important;
     }
 
     /* Never split an entry across pages. */

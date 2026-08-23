@@ -4,7 +4,8 @@ import type { Lang } from "../i18n/ui";
 export const profile = {
   name: "Juan Giménez",
   email: "jgimenezeee@gmail.com",
-  location: "Venezuela",
+  /** Split so structured data can use locality and country separately. */
+  location: { city: "Valencia", country: "Venezuela" },
   /** Display form; `whatsapp` is the same number normalized for wa.me links. */
   phone: "+58 414 4272854",
   whatsapp: "https://wa.me/584144272854",

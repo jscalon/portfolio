@@ -32,7 +32,8 @@ const schema = {
   telephone: profile.phone,
   address: {
     "@type": "PostalAddress",
-    addressCountry: profile.location,
+    addressLocality: profile.location.city,
+    addressCountry: profile.location.country,
   },
   worksFor: currentJob
     ? { "@type": "Organization", name: currentJob.company }
