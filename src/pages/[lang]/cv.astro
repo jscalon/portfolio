@@ -21,6 +21,13 @@ const lang = Astro.params.lang as Lang;
 const t = useTranslations(lang);
 const projects = await getProjectsByLang(lang);
 
+// Build date, at month granularity. The site rebuilds on every content push,
+// so this stays accurate without anyone having to maintain it by hand.
+const updated = new Date().toLocaleDateString(
+  lang === "es" ? "es-ES" : "en-GB",
+  { month: "long", year: "numeric" },
+);
+
 // Strip protocol, "www." and trailing slash so links read cleanly on paper.
 const bare = (url: string) =>
   url.replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/$/, "");
@@ -28,12 +35,15 @@ const siteHome = Astro.site?.href ?? "https://jscalon.dev/";
 
 const sectionTitle =
   "cv-heading text-sm font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400";
+
+const contactRow =
+  "cv-muted flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-600 dark:text-slate-400";
 ---
 
 <BaseLayout title={t("cv.title")} description={t("cv.description")}>
   <PersonSchema />
 
-  <div class="mx-auto w-full max-w-3xl px-4 py-12 sm:px-6">
+  <div class="cv-page mx-auto w-full max-w-3xl px-4 py-12 sm:px-6">
     <!-- Screen-only toolbar -->
     <div class="no-print mb-8 flex flex-wrap items-center justify-between gap-3">
       <a
@@ -64,9 +74,8 @@ const sectionTitle =
         <p class="mt-1 text-lg font-medium text-brand-600 dark:text-brand-400">
           {t("hero.role")}
         </p>
-        <ul
-          class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-600 dark:text-slate-400"
-        >
+        {/* Contact details on one row, links on the next. */}
+        <ul class={`${contactRow} mt-3`}>
           <li>{profile.location.city}, {profile.location.country}</li>
           <li>
             <a href={profile.whatsapp} class="hover:text-brand-600">
@@ -78,8 +87,10 @@ const sectionTitle =
               {profile.email}
             </a>
           </li>
+        </ul>
+        <ul class={`${contactRow} mt-1`}>
           <li>
-            <a href={siteHome} class="font-medium hover:text-brand-600">
+            <a href={siteHome} class="hover:text-brand-600">
               {bare(siteHome)}
             </a>
           </li>
@@ -127,12 +138,12 @@ const sectionTitle =
                 <div class="flex flex-wrap items-baseline justify-between gap-x-3">
                   <h3 class="font-semibold text-slate-900 dark:text-white">
                     {item.role[lang]}
-                    <span class="font-normal text-slate-600 dark:text-slate-400">
+                    <span class="cv-muted font-normal text-slate-600 dark:text-slate-400">
                       {" · "}
                       {item.company}
                     </span>
                   </h3>
-                  <span class="text-xs text-slate-500 dark:text-slate-400">
+                  <span class="cv-muted text-xs text-slate-500 dark:text-slate-400">
                     {item.period[lang]}
                   </span>
                 </div>
@@ -154,12 +165,12 @@ const sectionTitle =
               <li class="cv-item flex flex-wrap items-baseline justify-between gap-x-3">
                 <h3 class="font-semibold text-slate-900 dark:text-white">
                   {item.title[lang]}
-                  <span class="font-normal text-slate-600 dark:text-slate-400">
+                  <span class="cv-muted font-normal text-slate-600 dark:text-slate-400">
                     {" · "}
                     {item.institution}
                   </span>
                 </h3>
-                <span class="text-xs text-slate-500 dark:text-slate-400">
+                <span class="cv-muted text-xs text-slate-500 dark:text-slate-400">
                   {item.period[lang]}
                 </span>
               </li>
@@ -182,7 +193,7 @@ const sectionTitle =
                   {(project.data.liveUrl || project.data.repoUrl) && (
                     <a
                       href={project.data.liveUrl || project.data.repoUrl}
-                      class="block text-xs text-brand-600 dark:text-brand-400"
+                      class="cv-link block text-xs text-brand-600 dark:text-brand-400"
                     >
                       {bare(project.data.liveUrl || project.data.repoUrl || "")}
                     </a>
@@ -190,7 +201,7 @@ const sectionTitle =
                   <p class="mt-1 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
                     {project.data.description}
                   </p>
-                  <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                  <p class="cv-muted mt-1 text-xs text-slate-500 dark:text-slate-400">
                     {project.data.stack.join(" · ")}
                   </p>
                 </li>
@@ -219,6 +230,12 @@ const sectionTitle =
           }
         </p>
       </section>
+
+      <p
+        class="cv-updated mt-8 text-right text-xs text-slate-400 dark:text-slate-500"
+      >
+        {t("cv.updated")}: {updated}
+      </p>
     </article>
   </div>
 </BaseLayout>
@@ -259,9 +276,18 @@ const sectionTitle =
       color: #000 !important;
     }
 
-    /* Tighter vertical margins keep the CV on a single A4 page. */
+    /*
+     * The wrapper's screen padding (py-12 ≈ 12.7mm) would stack on top of the
+     * sheet's own margin when printing, so it is zeroed here: `.cv-sheet` is
+     * the single source of the printed margin.
+     */
+    .cv-page {
+      max-width: none !important;
+      padding: 0 !important;
+    }
+
     .cv-sheet {
-      padding: 9mm 13mm;
+      padding: 10mm 13mm;
     }
 
     /* Compact the header block and the gaps between entries. */
@@ -273,12 +299,27 @@ const sectionTitle =
       margin-top: 7pt !important;
     }
 
-    /* Force light colors regardless of the active theme. */
+    /*
+     * Reset to a light palette so printing from dark mode doesn't produce
+     * white-on-white. This flattens every shade, so the rules right below
+     * restore the hierarchy (muted secondary text, blue headings/links) —
+     * they are more specific, so they win regardless of order.
+     */
     .cv-sheet,
     .cv-sheet * {
       color: #111 !important;
       background: transparent !important;
       border-color: #ccc !important;
+    }
+
+    /* Secondary text: contact line, company/institution, dates, stack. */
+    .cv-sheet .cv-muted,
+    .cv-sheet .cv-muted * {
+      color: #595959 !important;
+    }
+
+    .cv-sheet .cv-link {
+      color: #1f60f1 !important;
     }
 
     .cv-sheet a {
@@ -308,6 +349,12 @@ const sectionTitle =
 
     .cv-section {
       margin-top: 8pt !important;
+    }
+
+    .cv-sheet .cv-updated {
+      margin-top: 10pt !important;
+      font-size: 8pt !important;
+      color: #8a8a8a !important;
     }
 
     /* Never split an entry across pages. */

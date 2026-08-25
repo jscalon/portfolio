@@ -38,6 +38,7 @@ export const ui = {
     "cv.profile": "Perfil",
     "cv.projects": "Proyectos",
     "cv.languages": "Idiomas",
+    "cv.updated": "Actualizado",
     "cv.backToSite": "Volver al inicio",
 
     "projects.title": "Proyectos",
@@ -86,13 +87,14 @@ export const ui = {
     "about.skills": "Technologies",
     "about.downloadCv": "View full CV",
 
-    "cv.title": "Résumé",
+    "cv.title": "CV",
     "cv.description":
-      "Juan Giménez's résumé: experience, education, technologies and projects.",
+      "Juan Giménez's CV: experience, education, technologies and projects.",
     "cv.print": "Print / Save as PDF",
     "cv.profile": "Profile",
     "cv.projects": "Projects",
     "cv.languages": "Languages",
+    "cv.updated": "Last updated",
     "cv.backToSite": "Back to home",
 
     "projects.title": "Projects",
