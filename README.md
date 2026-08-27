@@ -62,7 +62,6 @@ Netlify está conectado a este repo. Cada `push` a `main` dispara un build
 ## Pendiente
 
 - Más casos de estudio de proyectos.
-- Analytics (Netlify Analytics, Plausible o Umami).
 - Opcional: blog, imágenes OG por proyecto.
 
 Ver `AGENTS.md` para las convenciones técnicas y `CONTENT_GUIDE.md` para la guía

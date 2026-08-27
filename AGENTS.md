@@ -42,12 +42,13 @@ frontmatter and types, catching format errors before they reach the deploy.
 - `src/utils/projects.ts` — collection helpers (`getProjectsByLang`, `projectUrl`, `projectSlug`)
 - `src/layouts/BaseLayout.astro` — head, SEO/OpenGraph, hreflang, theme + reveal scripts
 - `src/components/` — Header, Footer, LangSwitcher, ThemeToggle, ProjectCard,
-  ContactForm, PersonSchema
+  ContactForm, PersonSchema, Analytics
 - `src/pages/[lang]/` — home, `cv`, projects list, project detail
 - `src/pages/404.astro` — language-aware 404 (no locale prefix)
 - `src/styles/global.css` — Tailwind theme tokens, dark variant, reveal animations
 - `public/` — `favicon.svg`, `og-image.png`, `profile.webp`, `covers/`, `robots.txt`
 - `netlify.toml` — build config + root redirect
+- `.env.example` — documents the optional analytics variables
 
 `CONTENT_GUIDE.md` has the full, human-friendly guide to editing content.
 
@@ -115,6 +116,17 @@ Netlify Forms — no backend. The `data-netlify`, hidden `form-name` input and
 handler posts to `location.pathname` (not `/`, which `netlify.toml` force-
 redirects). **It only works on the deployed site**, never in `pnpm dev`.
 
+### Analytics
+
+`Analytics.astro` renders the tracking script only when **both**
+`PUBLIC_ANALYTICS_SRC` and `PUBLIC_ANALYTICS_ID` are set **and** the build is a
+production build — so `pnpm dev` never sends data, and the site degrades to zero
+third-party requests if analytics are dropped. The values live in Netlify's
+environment variables, never in the repo; `.env.example` documents them.
+
+Provider is Umami (cookieless, so no consent banner is needed). The markup assumes
+an Umami-style `data-website-id` attribute — Plausible uses `data-domain` instead.
+
 ### Images
 
 Optimize before committing: resize to ~1200px wide (800×800 for the portrait) and
@@ -154,12 +166,11 @@ solution** → **Mi rol / My role** (first-person lead + technical breakdown) �
 ## Roadmap / pending
 
 - **More real project case studies** — only ServiFrescos and Botinfy so far.
-- **Analytics** — not set up yet (Netlify Analytics, Plausible or Umami).
 - **Optional:** a downloadable `.pdf` exported from `/cv` and committed to
   `public/`, for attaching to emails. Generating it in CI would require a headless
   browser (heavy, fragile) — exporting manually and committing is the pragmatic
   route if it's ever needed.
-- **Nice to have:** per-project OG images; a "last updated" date on the CV.
+- **Nice to have:** per-project OG images.
 
 Done (do not re-suggest): custom 404, contact form, `hreflang`, JSON-LD, scroll
-animations, OG image, project covers, profile photo, CV page.
+animations, OG image, project covers, profile photo, CV page, analytics.

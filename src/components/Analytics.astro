@@ -1,0 +1,21 @@
+---
+/**
+ * Privacy-friendly analytics beacon.
+ *
+ * Renders nothing unless both env vars are set AND we're in a production
+ * build, so `pnpm dev` never pollutes the stats and the site keeps working
+ * (with zero third-party requests) if analytics are removed.
+ *
+ * Configured for Umami-style providers:
+ *   PUBLIC_ANALYTICS_SRC=https://cloud.umami.is/script.js
+ *   PUBLIC_ANALYTICS_ID=<website id>
+ *
+ * For Plausible, the id attribute is `data-domain` instead — swap the
+ * attribute below and set PUBLIC_ANALYTICS_ID to the domain.
+ */
+const src = import.meta.env.PUBLIC_ANALYTICS_SRC;
+const websiteId = import.meta.env.PUBLIC_ANALYTICS_ID;
+const enabled = Boolean(import.meta.env.PROD && src && websiteId);
+---
+
+{enabled && <script is:inline defer src={src} data-website-id={websiteId} />}
