@@ -25,9 +25,10 @@ Requires Node 20+.
 - `pnpm preview` — serves the production build
 
 > **Local dev note:** the root path `/` shows the 404 page locally — there is no
-> `src/pages/index.astro`. The `/ → /es/` redirect is a Netlify server-side rule
-> (`netlify.toml`) and only applies in production. In dev, open `/es/` or `/en/`
-> directly.
+> `src/pages/index.astro`. The root redirect is a Netlify server-side rule
+> (`netlify.toml`) and only applies in production: browsers asking for English
+> get `/en/`, everyone else falls through to `/es/`. In dev, open `/es/` or
+> `/en/` directly.
 
 Always run `pnpm build` before pushing — `astro check` validates content
 frontmatter and types, catching format errors before they reach the deploy.
@@ -46,8 +47,9 @@ frontmatter and types, catching format errors before they reach the deploy.
 - `src/pages/[lang]/` — home, `cv`, projects list, project detail
 - `src/pages/404.astro` — language-aware 404 (no locale prefix)
 - `src/styles/global.css` — Tailwind theme tokens, dark variant, reveal animations
-- `public/` — `favicon.svg`, `og-image.png`, `profile.webp`, `covers/`, `robots.txt`
-- `netlify.toml` — build config + root redirect
+- `src/assets/` — images processed by `astro:assets` (`profile.webp`, `covers/`)
+- `public/` — `favicon.svg`, `og-image.png`, `robots.txt` (served as-is)
+- `netlify.toml` — build config + root redirects
 - `.env.example` — documents the optional analytics variables
 
 `CONTENT_GUIDE.md` has the full, human-friendly guide to editing content.
@@ -127,14 +129,34 @@ environment variables, never in the repo; `.env.example` documents them.
 Provider is Umami (cookieless, so no consent banner is needed). The markup assumes
 an Umami-style `data-website-id` attribute — Plausible uses `data-domain` instead.
 
+### Navigation & sitemap
+
+`prefetch: { prefetchAll: true }` in `astro.config.mjs` prefetches internal links
+on hover. `prefetchAll` is the operative part — `prefetch: true` alone only
+enables the feature and every link would have to opt in with
+`data-astro-prefetch`. It costs ~2 KB of JS on every page, the only script the
+site ships that is not its own.
+
+The sitemap integration is configured with `i18n`, so `sitemap-0.xml` carries
+`xhtml:link` alternates pairing each ES page with its EN twin — the same
+relationship the `hreflang` tags express in the HTML.
+
 ### Images
 
-Optimize before committing: convert to WebP and resize to the expected size —
-**project covers must be exactly 1200×675** (16:9), the portrait 800×800. Those
-dimensions are hardcoded in `ProjectCard.astro` and the project detail page (to
-reserve layout space) and in the `og:image:width/height` the detail page passes to
-`BaseLayout`, so a cover with another size ships wrong social-card metadata.
-Project covers go in `public/covers/<slug>.webp`. Keep filenames in English.
+Images live in `src/assets/`, **not** `public/`, so `astro:assets` processes them:
+`<Picture>` emits AVIF + WebP with a `srcset`, and the build fails on a missing or
+broken path. Commit the original at a generous size (covers **1200×675**, 16:9;
+the portrait 800×800) and let the build resize — there is no manual optimization
+step. `sharp` does the work and is a real dependency; the build fails without it.
+
+Covers go in `src/assets/covers/<slug>.webp` and are referenced from the project
+frontmatter by a path **relative to the `.md` file**
+(`../../../assets/covers/<slug>.webp`), which the `image()` schema helper
+validates. The detail page reads the real width/height off that import for its
+`og:image` metadata, so nothing is hardcoded. Keep filenames in English.
+
+`public/` is only for files that need a stable, unhashed URL: the favicon,
+`og-image.png` (shared links keep working across rebuilds) and `robots.txt`.
 
 ## Content conventions
 

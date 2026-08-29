@@ -22,8 +22,8 @@ Requiere Node 20+.
 | Textos de la interfaz (botones, títulos, navegación) | `src/i18n/ui.ts` |
 | Proyectos | `src/content/projects/<es\|en>/<slug>.md` |
 | CV | Se genera solo desde `src/data/site.ts` → `/es/cv`, `/en/cv` |
-| Portadas de proyectos | `public/covers/<slug>.webp` |
-| Foto de perfil | `public/profile.webp` (800×800) |
+| Portadas de proyectos | `src/assets/covers/<slug>.webp` (1200×675) |
+| Foto de perfil | `src/assets/profile.webp` (800×800) |
 | Imagen social (Open Graph) | `public/og-image.png` (1200×630) |
 | Favicon | `public/favicon.svg` |
 | Colores / tipografía | `src/styles/global.css` (bloque `@theme`) |
@@ -45,7 +45,7 @@ description: Descripción breve.
 stack: ["Astro", "TypeScript"]
 repoUrl: https://github.com/...   # opcional
 liveUrl: https://...              # opcional
-cover: /covers/mi-proyecto.webp   # opcional (imagen en public/covers/)
+cover: ../../../assets/covers/mi-proyecto.webp   # opcional, ruta relativa al .md
 featured: true        # aparece en la home
 order: 1              # orden de aparición (menor primero)
 date: 2026-01-01

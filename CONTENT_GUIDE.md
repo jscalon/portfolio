@@ -10,7 +10,7 @@ esta guía es para sustituirlo.
 2. Bio, experiencia, formación, skills → `src/data/site.ts`
 3. Proyectos reales → `src/content/projects/<es|en>/*.md`
 4. (El CV ya no es un PDF: se genera solo desde los datos — ver sección 4)
-5. Imágenes de portada de proyectos → `public/covers/`
+5. Imágenes de portada de proyectos → `src/assets/covers/`
 6. Previsualizar (`pnpm dev`) y desplegar (`git push`)
 
 ---
@@ -73,7 +73,7 @@ Frontmatter (entre los `---`), según el schema en `src/content.config.ts`:
 | `stack` | lista `["A","B"]` | No (def. `[]`) | Se muestran los 4 primeros en la tarjeta |
 | `repoUrl` | URL | No | **Si no hay, BORRA la línea** (no dejar `""`) |
 | `liveUrl` | URL | No | Igual: omite la línea si no hay demo |
-| `cover` | ruta texto | No | Ruta a imagen en `public/` (ver paso 5) |
+| `cover` | ruta relativa | No | Ruta a imagen en `src/assets/` (ver paso 5) |
 | `featured` | `true`/`false` | No (def. `false`) | `true` = aparece en la home |
 | `order` | número | No (def. `0`) | Orden de aparición: **menor primero** |
 | `date` | `YYYY-MM-DD` | Sí | Formato ISO, ej. `2025-11-30` |
@@ -91,7 +91,7 @@ description: Una frase que resuma qué es y para qué sirve.
 stack: ["React", "TypeScript", "Node.js"]
 repoUrl: https://github.com/JuanGimenez7/mi-repo
 liveUrl: https://demo.ejemplo.com
-cover: /covers/mi-proyecto.webp
+cover: ../../../assets/covers/mi-proyecto.webp
 featured: true
 order: 1
 date: 2025-11-30
@@ -124,10 +124,12 @@ experiencia o añades un proyecto, **el CV se actualiza solo** — nunca se desi
 
 ## 5. Imágenes de portada de proyectos
 
-- Coloca las imágenes en **`public/covers/`**.
-- Referéncialas en el frontmatter con ruta **root-relative**: `cover: /covers/x.webp`.
-- Recomendado: **~1200px de ancho, `.webp`**, ratio 16:9. (Si tienes un PNG/JPG
-  pesado, conviértelo antes: ahorra ~95% de peso.)
+- Coloca las imágenes en **`src/assets/covers/`** (no en `public/`).
+- Referéncialas en el frontmatter con la ruta **relativa al archivo `.md`**:
+  `cover: ../../../assets/covers/x.webp`. Si la ruta está mal, el build falla y te
+  lo dice — antes fallaba en silencio y la tarjeta salía sin imagen.
+- Tamaño: **1200×675** (16:9), `.webp`. Sube la original a ese tamaño y ya está:
+  el build genera solo las versiones pequeñas y los formatos modernos (AVIF/WebP).
 - Si un proyecto no tiene imagen, omite `cover`: la tarjeta muestra un degradado con la
   inicial automáticamente.
 
@@ -153,5 +155,5 @@ deploy.
 - [ ] Proyectos reales en `es/` y `en/` (mismos slugs), placeholders borrados
 - [ ] `repoUrl`/`liveUrl` reales o líneas eliminadas (nunca `""`)
 - [ ] Revisado `/es/cv` y `/en/cv` (se generan solos; comprueba con `Ctrl+P`)
-- [ ] Imágenes de portada en `public/` + `cover:` apuntando a ellas
+- [ ] Imágenes de portada en `src/assets/covers/` + `cover:` apuntando a ellas
 - [ ] `pnpm build` en verde → `git push`

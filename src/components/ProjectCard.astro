@@ -1,4 +1,5 @@
 ---
+import { Picture } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 interface Props {
@@ -6,7 +7,7 @@ interface Props {
   title: string;
   description: string;
   stack: string[];
-  cover?: string;
+  cover?: ImageMetadata;
 }
 
 const { href, title, description, stack, cover } = Astro.props;
@@ -20,11 +21,13 @@ const t = useTranslations(lang);
   {
     cover ? (
       <div class="aspect-video overflow-hidden bg-slate-100 dark:bg-slate-800">
-        <img
+        <Picture
           src={cover}
           alt=""
-          width="1200"
-          height="675"
+          formats={["avif", "webp"]}
+          fallbackFormat="webp"
+          widths={[400, 800, 1200]}
+          sizes="(min-width: 1024px) 340px, (min-width: 640px) 50vw, 100vw"
           loading="lazy"
           class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
         />

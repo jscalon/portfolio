@@ -14,7 +14,15 @@ export default defineConfig({
       redirectToDefaultLocale: false,
     },
   },
-  integrations: [sitemap()],
+  // Prefetch every internal link on hover so navigation feels instant.
+  // `true` alone only enables the feature; links must opt in without this.
+  prefetch: { prefetchAll: true },
+  integrations: [
+    sitemap({
+      // Emit <xhtml:link> alternates so crawlers pair the ES/EN URLs.
+      i18n: { defaultLocale: "es", locales: { es: "es-ES", en: "en-US" } },
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

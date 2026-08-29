@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import profilePhoto from "../../assets/profile.webp";
 import ProjectCard from "../../components/ProjectCard.astro";
 import ContactForm from "../../components/ContactForm.astro";
 import PersonSchema from "../../components/PersonSchema.astro";
@@ -68,11 +70,13 @@ const cvHref = `/${lang}/cv`;
         </div>
       </div>
 
-      <img
-        src="/profile.webp"
+      <Image
+        src={profilePhoto}
         alt={profile.name}
-        width="800"
-        height="800"
+        width={208}
+        height={208}
+        densities={[1, 2]}
+        loading="eager"
         fetchpriority="high"
         class="reveal h-32 w-32 shrink-0 rounded-full object-cover shadow-lg ring-4 ring-white sm:h-44 sm:w-44 lg:h-52 lg:w-52 dark:ring-slate-800"
       />
