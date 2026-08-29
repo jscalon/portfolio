@@ -13,6 +13,8 @@ export const profile = {
     github: "https://github.com/jscalon",
     linkedin: "https://www.linkedin.com/in/jscalon",
   },
+  /** Drives the hero availability badge. Flip to false when not looking. */
+  openToWork: true,
 } as const;
 
 type LocalizedText = Record<Lang, string>;
@@ -103,27 +105,34 @@ export const spokenLanguages: { name: LocalizedText; level: LocalizedText }[] = 
   },
 ];
 
-/** Skills shown as chips. EDIT ME. */
-export const skills: string[] = [
-  // Frontend
-  "TypeScript",
-  "Next.js + React",
-  "Astro",
-  "Tailwind CSS",
-  // Backend
-  "Node.js",
-  "Express",
-  "Python",
-  "Django",
-  // Datos
-  "SQL",
-  "Supabase",
-  "Excel",
-  // IA / Automatización
-  "LLM Integration",
-  "Generative AI",
-  "n8n",
-  // Tooling
-  "Docker",
-  "Figma",
+export interface SkillGroup {
+  label: LocalizedText;
+  items: string[];
+}
+
+/**
+ * Skills shown as chips, grouped. Order matters: the core stack leads and AI
+ * comes after it, so the profile does not read as "AI person who also codes".
+ */
+export const skills: SkillGroup[] = [
+  {
+    label: { es: "Frontend", en: "Frontend" },
+    items: ["TypeScript", "Next.js + React", "Astro", "Tailwind CSS"],
+  },
+  {
+    label: { es: "Backend", en: "Backend" },
+    items: ["Node.js", "Express", "Python", "Django"],
+  },
+  {
+    label: { es: "Datos", en: "Data" },
+    items: ["SQL", "Supabase", "Excel"],
+  },
+  {
+    label: { es: "IA / Automatización", en: "AI / Automation" },
+    items: ["LLM Integration", "Generative AI", "n8n"],
+  },
+  {
+    label: { es: "Herramientas", en: "Tooling" },
+    items: ["Docker", "Figma"],
+  },
 ];

@@ -93,6 +93,12 @@ once and both update. Users export it with the browser's *Print → Save as PDF*
 - **The photo is ES-only** (`lang === "es"`). A CV photo is customary in
   Spain/LatAm but avoided in anglophone markets. Do not "fix" this asymmetry.
 
+### Availability badge
+
+The hero shows an "available for work" pill driven by `profile.openToWork` in
+`site.ts`. Flip it to `false` when not looking and the badge disappears — the
+string itself lives in `ui.ts` (`hero.available`) like every other UI label.
+
 ### SEO
 
 - `BaseLayout` emits canonical, OpenGraph (with explicit `og:image:width/height`,
@@ -178,10 +184,13 @@ solution** → **Mi rol / My role** (first-person lead + technical breakdown) �
 ### Copy & positioning
 
 - Experience is listed **reverse-chronologically** (most recent first).
-- Skills are grouped (frontend / backend / data / AI / tooling) and lead with the
-  core stack, not AI. Present AI work as engineering ("LLM Integration",
-  "Generative AI") and keep specific tool names out of the skills list; the "AI as
-  a working tool" idea belongs in the bio, not as a skill chip.
+- Skills are **data-level groups** in `site.ts` (`SkillGroup[]`), rendered as
+  labelled rows on the home page and one line per group on the CV. Group order is
+  the message: the core stack leads and AI follows, so the profile does not read
+  as "AI person who also codes". Present AI work as engineering ("LLM
+  Integration", "Generative AI") and keep specific tool names out of the list; the
+  "AI as a working tool" idea belongs in the bio, not as a skill chip.
+- `PersonSchema` flattens the groups for `knowsAbout`, which wants plain terms.
 
 ## Commit conventions
 

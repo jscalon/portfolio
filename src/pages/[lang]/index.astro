@@ -37,7 +37,18 @@ const cvHref = `/${lang}/cv`;
       class="flex flex-col-reverse items-center gap-8 text-center sm:flex-row sm:items-center sm:justify-between sm:gap-12 sm:text-left"
     >
       <div class="reveal-stagger">
-        <p class="text-sm font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+        {
+          profile.openToWork && (
+            <p class="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-xs font-medium text-green-700 dark:text-green-400">
+              <span
+                aria-hidden="true"
+                class="h-1.5 w-1.5 rounded-full bg-green-500 motion-safe:animate-pulse"
+              />
+              {t("hero.available")}
+            </p>
+          )
+        }
+        <p class="mt-4 text-sm font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400">
           {t("hero.role")}
         </p>
         <h1
@@ -148,15 +159,24 @@ const cvHref = `/${lang}/cv`;
         <h3 class="text-lg font-semibold text-slate-900 dark:text-white">
           {t("about.skills")}
         </h3>
-        <ul class="mt-4 flex flex-wrap gap-2">
+        <dl class="mt-4 space-y-4">
           {
-            skills.map((skill) => (
-              <li class="rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
-                {skill}
-              </li>
+            skills.map((group) => (
+              <div class="sm:flex sm:gap-4">
+                <dt class="w-32 shrink-0 pt-1 text-sm font-medium text-slate-500 dark:text-slate-400">
+                  {group.label[lang]}
+                </dt>
+                <dd class="mt-2 flex flex-wrap gap-2 sm:mt-0">
+                  {group.items.map((skill) => (
+                    <span class="rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
+                      {skill}
+                    </span>
+                  ))}
+                </dd>
+              </div>
             ))
           }
-        </ul>
+        </dl>
       </div>
 
       <a

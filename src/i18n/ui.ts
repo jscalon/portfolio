@@ -19,6 +19,7 @@ export const ui = {
     "nav.contact": "Contacto",
 
     "hero.role": "Desarrollador de Software",
+    "hero.available": "Disponible para nuevas oportunidades",
     "hero.tagline":
       "Construyo aplicaciones web rápidas, accesibles y bien diseñadas.",
     "hero.cta.projects": "Ver proyectos",
@@ -76,6 +77,7 @@ export const ui = {
     "nav.contact": "Contact",
 
     "hero.role": "Software Developer",
+    "hero.available": "Available for new opportunities",
     "hero.tagline":
       "I build fast, accessible and well-designed web applications.",
     "hero.cta.projects": "View projects",

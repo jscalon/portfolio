@@ -32,8 +32,12 @@ Archivo: **`src/data/site.ts`** (todo en un solo sitio).
   - `company` → texto simple (no se traduce)
 - **`education`**: igual que experience. Campos: `title` y `period` bilingües,
   `institution` texto simple.
-- **`skills`**: array plano de strings, **compartido en ambos idiomas** (los nombres de
-  tecnología no se traducen).
+- **`skills`**: lista de **grupos**. Cada grupo tiene `label` bilingüe (Frontend,
+  Backend, Datos…) y `items`, un array plano de strings **compartido en ambos
+  idiomas** (los nombres de tecnología no se traducen). El orden de los grupos es
+  el que se ve en la web y en el CV: deja el stack principal arriba.
+- **`profile.openToWork`**: `true` muestra la insignia verde "Disponible para
+  nuevas oportunidades" en la portada. Ponlo en `false` cuando no busques trabajo.
 
 Ejemplo de una entrada de experiencia:
 

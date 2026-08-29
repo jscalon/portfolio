@@ -42,7 +42,7 @@ const schema = {
     "@type": "CollegeOrUniversity",
     name: item.institution,
   })),
-  knowsAbout: skills,
+  knowsAbout: skills.flatMap((group) => group.items),
   knowsLanguage: spokenLanguages.map((item) => item.name[lang]),
   sameAs: [profile.social.github, profile.social.linkedin],
 };

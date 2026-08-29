@@ -217,9 +217,16 @@ const contactRow =
       <!-- Skills -->
       <section class="cv-section">
         <h2 class={sectionTitle}>{t("about.skills")}</h2>
-        <p class="mt-2 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-          {skills.join(" · ")}
-        </p>
+        <ul class="mt-2 space-y-1">
+          {
+            skills.map((group) => (
+              <li class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                <span class="font-semibold">{group.label[lang]}:</span>{" "}
+                {group.items.join(" · ")}
+              </li>
+            ))
+          }
+        </ul>
       </section>
 
       <!-- Languages -->
