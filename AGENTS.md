@@ -129,9 +129,12 @@ an Umami-style `data-website-id` attribute — Plausible uses `data-domain` inst
 
 ### Images
 
-Optimize before committing: resize to ~1200px wide (800×800 for the portrait) and
-convert to WebP. Project covers go in `public/covers/<slug>.webp`. Keep filenames
-in English.
+Optimize before committing: convert to WebP and resize to the expected size —
+**project covers must be exactly 1200×675** (16:9), the portrait 800×800. Those
+dimensions are hardcoded in `ProjectCard.astro` and the project detail page (to
+reserve layout space) and in the `og:image:width/height` the detail page passes to
+`BaseLayout`, so a cover with another size ships wrong social-card metadata.
+Project covers go in `public/covers/<slug>.webp`. Keep filenames in English.
 
 ## Content conventions
 
