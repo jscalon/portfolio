@@ -23,6 +23,7 @@ Requires Node 20+.
 - `pnpm dev` — dev server at <http://localhost:4321>
 - `pnpm build` — runs `astro check` then builds to `dist/`
 - `pnpm preview` — serves the production build
+- `pnpm og` — regenerates `public/og-image.png` (see SEO below)
 
 > **Local dev note:** the root path `/` shows the 404 page locally — there is no
 > `src/pages/index.astro`. The root redirect is a Netlify server-side rule
@@ -107,7 +108,15 @@ string itself lives in `ui.ts` (`hero.available`) like every other UI label.
 - `PersonSchema.astro` emits schema.org `Person` JSON-LD, built from `site.ts`.
   Included on the home and CV pages only — not on project pages.
 - `public/og-image.png` is a **centered** composition on purpose, so it survives
-  the square center-crop that some clients (WhatsApp) apply.
+  the square center-crop some clients (WhatsApp) apply **as a fallback**. The wide
+  card is the normal outcome — that is what the declared dimensions above buy; the
+  centering is insurance for when a client falls back to a square, not the expected
+  rendering.
+- That card embeds the portrait from `src/assets/profile.webp`, so it goes stale if
+  the photo changes. `pnpm og` (`scripts/og-image.mjs`) regenerates it — run it
+  after replacing the portrait; nothing in the build catches the drift. Its text
+  stays in English in both locales ("AI", not "IA"), matching the skills list, since
+  one card serves `/es/` and `/en/` alike.
 
 ### Animations
 
