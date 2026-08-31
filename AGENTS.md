@@ -181,6 +181,24 @@ Case study structure: intro → **El problema / The problem** → **La solución
 solution** → **Mi rol / My role** (first-person lead + technical breakdown) →
 **Resultado / Estado del proyecto**.
 
+**Voice exception — the `portfolio` case study.** That one case addresses the
+reader directly ("Es el sitio web que estás leyendo", "puedes auditar") and refers
+to the site in the first person ("Mi sitio web personal"). It is deliberate, not
+drift: it is the only project the reader is standing inside while reading it, and
+that self-reference is the case's strongest argument — every claim in it can be
+checked on the spot. Two rules keep the exception from spreading:
+
+- **Contain it to the intro and the closing.** *La solución*, the decisions list
+  and *Mi rol* stay in the normal voice — impersonal for the site, first-person
+  past for the contributions. A "puedes ver que…" inside the technical sections
+  turns the case into a sales page.
+- **Mirror it in both languages.** The English file carries the same second person;
+  it reads just as naturally there.
+
+No other case study gets this treatment: for every other project the reader is
+outside the artifact, and the direct address would be a rhetorical tic rather than
+a fact.
+
 ### Copy & positioning
 
 - Experience is listed **reverse-chronologically** (most recent first).
@@ -199,7 +217,10 @@ solution** → **Mi rol / My role** (first-person lead + technical breakdown) �
 
 ## Roadmap / pending
 
-- **More real project case studies** — only ServiFrescos and Botinfy so far.
+- **More real project case studies** — ServiFrescos, Botinfy and this site so far.
+  The gap is the current Febeca work, which the experience section claims and the
+  projects section does not show. Anonymize: describe the problem and the approach
+  without real figures or screenshots of internal data.
 - **Optional:** a downloadable `.pdf` exported from `/cv` and committed to
   `public/`, for attaching to emails. Generating it in CI would require a headless
   browser (heavy, fragile) — exporting manually and committing is the pragmatic
