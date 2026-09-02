@@ -2,7 +2,7 @@
 lang: en
 title: "ServiFrescos — Centralized Product & Price Management"
 description: "Web application that centralizes the management (CRUD) of products, prices, users and stores for Protinal Proagro, eliminating the discrepancies between each store's local database and headquarters."
-stack: ["React", "TypeScript", "Django REST Framework", "SQL Server", "CSS", "Figma"]
+stack: ["React", "TypeScript", "Django REST Framework", "Docker", "SQL Server", "CSS", "Figma"]
 cover: ../../../assets/covers/servifrescos.webp
 repoUrl: https://github.com/jscalon/servifrescos
 featured: true
@@ -44,6 +44,9 @@ interface and built the frontend, the backend and the centralized database.
 - **Frontend:** React, TypeScript and CSS.
 - **Backend:** REST API with Django REST Framework.
 - **Database:** centralized SQL Server.
+- **Environment:** the whole application — frontend, backend and database —
+  containerized with Docker Compose, so `docker compose up -d` brings the entire
+  system up.
 
 ## Project status
 

@@ -2,7 +2,7 @@
 lang: es
 title: "ServiFrescos — Gestión centralizada de productos y precios"
 description: "Aplicación web que centraliza la gestión (CRUD) de productos, precios, usuarios y tiendas de Protinal Proagro, eliminando las discrepancias entre las bases de datos locales de cada tienda y la sede central."
-stack: ["React", "TypeScript", "Django REST Framework", "SQL Server", "CSS", "Figma"]
+stack: ["React", "TypeScript", "Django REST Framework", "Docker", "SQL Server", "CSS", "Figma"]
 cover: ../../../assets/covers/servifrescos.webp
 repoUrl: https://github.com/jscalon/servifrescos
 featured: true
@@ -44,6 +44,8 @@ desarrollé el frontend, el backend y la base de datos centralizada.
 - **Frontend:** React, TypeScript y CSS.
 - **Backend:** API REST con Django REST Framework.
 - **Base de datos:** SQL Server centralizada.
+- **Entorno:** toda la aplicación —frontend, backend y base de datos— contenedorizada
+  con Docker Compose, de modo que `docker compose up -d` levanta el sistema completo.
 
 ## Estado del proyecto
 

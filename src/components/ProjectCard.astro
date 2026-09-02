@@ -55,12 +55,24 @@ const t = useTranslations(lang);
     <p class="mt-2 flex-1 text-sm text-slate-600 dark:text-slate-400">
       {description}
     </p>
-    <ul class="mt-4 flex flex-wrap gap-1.5">
+    {/*
+      Two chips per row on every card. Left to wrap on its own the break falls
+      wherever the names happen to run out of width, so a card with four short
+      ones leaves a single chip stranded on the second row while another splits
+      evenly — the layout ends up describing the length of the words rather than
+      the shape of the card. The spacer forces the break after the second chip;
+      it is a flex line of its own, so the row gap counts twice and gap-y is
+      halved to compensate.
+    */}
+    <ul class="mt-4 flex flex-wrap gap-x-1.5 gap-y-1">
       {
-        stack.slice(0, 4).map((tech) => (
-          <li class="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-            {tech}
-          </li>
+        stack.slice(0, 4).map((tech, i) => (
+          <Fragment>
+            <li class="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+              {tech}
+            </li>
+            {i === 1 && <li aria-hidden="true" class="basis-full"></li>}
+          </Fragment>
         ))
       }
     </ul>
