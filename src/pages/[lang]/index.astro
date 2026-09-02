@@ -159,21 +159,28 @@ const cvHref = `/${lang}/cv`;
         <h3 class="text-lg font-semibold text-slate-900 dark:text-white">
           {t("about.skills")}
         </h3>
-        <dl class="mt-4 space-y-4">
+        {/*
+          Two-column grid rather than a fixed label width: the first column sizes
+          itself to the longest label, so no label wraps and the width adapts to
+          each language on its own. `items-start` keeps the chips at their natural
+          height — flex children stretch by default, which made them grow taller
+          than their text whenever a row did.
+        */}
+        <dl class="mt-4 sm:grid sm:grid-cols-[auto_1fr] sm:gap-x-6 sm:gap-y-4">
           {
             skills.map((group) => (
-              <div class="sm:flex sm:gap-4">
-                <dt class="w-32 shrink-0 pt-1 text-sm font-medium text-slate-500 dark:text-slate-400">
+              <Fragment>
+                <dt class="pt-1 text-sm font-medium text-slate-500 dark:text-slate-400">
                   {group.label[lang]}
                 </dt>
-                <dd class="mt-2 flex flex-wrap gap-2 sm:mt-0">
+                <dd class="mt-2 mb-5 flex flex-wrap items-start gap-2 sm:my-0">
                   {group.items.map((skill) => (
                     <span class="rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
                       {skill}
                     </span>
                   ))}
                 </dd>
-              </div>
+              </Fragment>
             ))
           }
         </dl>
