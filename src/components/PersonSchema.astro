@@ -1,5 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import profilePhoto from "../assets/profile.webp";
 import {
   profile,
   bio,
@@ -25,7 +26,9 @@ const schema = {
   "@type": "Person",
   name: profile.name,
   url: new URL(`/${lang}/`, siteUrl).href,
-  image: new URL("/og-image.png", siteUrl).href,
+  // The portrait, not the social card: schema.org reads `image` as a photograph
+  // of the person, and this one is a square headshot rather than a text banner.
+  image: new URL(profilePhoto.src, siteUrl).href,
   jobTitle: t("hero.role"),
   description: bio[lang],
   email: `mailto:${profile.email}`,
