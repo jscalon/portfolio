@@ -141,7 +141,11 @@ const alternates = hasLocalePrefix
               }
             }
           },
-          { rootMargin: "0px 0px -10% 0px", threshold: 0.1 },
+          // threshold 0, not a fraction: the ratio is measured against the
+          // element's own size, so an element taller than ~10x the viewport can
+          // never reach 0.1 and would stay hidden forever. The bottom rootMargin
+          // is what delays the reveal until an element is properly in view.
+          { rootMargin: "0px 0px -10% 0px", threshold: 0 },
         );
         els.forEach((el) => io.observe(el));
       }

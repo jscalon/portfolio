@@ -123,7 +123,11 @@ string itself lives in `ui.ts` (`hero.available`) like every other UI label.
 ### Animations
 
 `.reveal` (single element) and `.reveal-stagger` (staggers direct children) fade
-and rise on scroll, driven by one IntersectionObserver in `BaseLayout`. They are
+and rise on scroll, driven by one IntersectionObserver in `BaseLayout`. Its
+`threshold` is **0 on purpose** — the intersection ratio is relative to the
+element's own height, so a fractional threshold silently never fires on a page
+taller than a few screens, and the content stays invisible. Do not "tune" it back
+up; the bottom `rootMargin` is what paces the reveal. They are
 gated on `html.js` (set before first paint) and on `prefers-reduced-motion`, so
 content is always visible without JS and for users who opt out. Add the class to
 new sections; no JS wiring needed.
