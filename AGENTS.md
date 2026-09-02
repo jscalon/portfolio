@@ -75,6 +75,9 @@ Each project is two files (`es/` and `en/`) sharing a slug. Frontmatter schema
   fails the URL validation and breaks the build)
 - `cover`: root-relative image path (optional; falls back to a gradient with the initial)
 - `featured`: boolean — shows on the home page
+- `cv`: boolean (default `true`) — include on the CV page. The CV is a curated
+  one-pager, not a mirror of the collection: set `false` on anything that earns
+  its place on the site but not on paper
 - `order`: number — lower comes first
 - `date`: `YYYY-MM-DD` — required
 
@@ -93,6 +96,14 @@ once and both update. Users export it with the browser's *Print → Save as PDF*
   across pages. Keep those classes on new entries.
 - **The photo is ES-only** (`lang === "es"`). A CV photo is customary in
   Spain/LatAm but avoided in anglophone markets. Do not "fix" this asymmetry.
+- **It must fit on one page, and that is a content budget, not a styling
+  problem.** The project list is filtered by the `cv` frontmatter flag rather
+  than rendering the whole collection, so adding a case study no longer makes
+  the CV longer on its own. The `portfolio` case is `cv: false`: on paper it is
+  redundant, since `jscalon.dev` is already in the header, and an entry
+  explaining that the site replaces the PDF reads oddly inside the PDF. When the
+  content genuinely outgrows one page, let it become a real two-pager — but a
+  second page carrying three lines is the one outcome to avoid.
 
 ### Availability badge
 

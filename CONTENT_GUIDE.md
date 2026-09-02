@@ -81,6 +81,7 @@ Frontmatter (entre los `---`), según el schema en `src/content.config.ts`:
 | `liveUrl` | URL | No | Igual: omite la línea si no hay demo |
 | `cover` | ruta relativa | No | Ruta a imagen en `src/assets/` (ver paso 5) |
 | `featured` | `true`/`false` | No (def. `false`) | `true` = aparece en la home |
+| `cv` | `true`/`false` | No (def. `true`) | `false` = no sale en el CV (ver aviso abajo) |
 | `order` | número | No (def. `0`) | Orden de aparición: **menor primero** |
 | `date` | `YYYY-MM-DD` | Sí | Formato ISO, ej. `2025-11-30` |
 

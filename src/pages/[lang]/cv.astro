@@ -21,7 +21,9 @@ export function getStaticPaths() {
 
 const lang = Astro.params.lang as Lang;
 const t = useTranslations(lang);
-const projects = await getProjectsByLang(lang);
+// The CV is a curated one-pager; the site is the complete record. Projects opt
+// out with `cv: false` in their frontmatter.
+const projects = (await getProjectsByLang(lang)).filter((p) => p.data.cv);
 
 // Build date, at month granularity. The site rebuilds on every content push,
 // so this stays accurate without anyone having to maintain it by hand.

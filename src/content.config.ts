@@ -15,6 +15,9 @@ const projects = defineCollection({
       /** Path relative to the .md file; Astro validates and optimizes it. */
       cover: image().optional(),
       featured: z.boolean().default(false),
+      /** Include on the CV page. The CV is a curated one-pager, not a mirror
+       *  of the collection — set false to keep a project site-only. */
+      cv: z.boolean().default(true),
       order: z.number().default(0),
       date: z.coerce.date(),
     }),
