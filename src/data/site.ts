@@ -30,6 +30,11 @@ export interface EducationItem {
   title: LocalizedText;
   institution: string;
   period: LocalizedText;
+  /**
+   * Optional status, e.g. "Graduado". A closed date range only implies the
+   * degree was finished; this says it. Omit it for a programme still running.
+   */
+  note?: LocalizedText;
 }
 
 /** Short bio shown in the About section. EDIT ME. */
@@ -90,6 +95,7 @@ export const education: EducationItem[] = [
     },
     institution: "Universidad José Antonio Páez",
     period: { es: "2022 — 2026", en: "2022 — 2026" },
+    note: { es: "Graduado", en: "Graduated" },
   },
 ];
 

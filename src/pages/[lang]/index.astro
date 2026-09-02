@@ -146,6 +146,12 @@ const cvHref = `/${lang}/cv`;
                   </p>
                   <p class="text-sm text-slate-500 dark:text-slate-400">
                     {item.institution} · {item.period[lang]}
+                    {item.note && (
+                      <span class="font-medium text-slate-700 dark:text-slate-300">
+                        {" · "}
+                        {item.note[lang]}
+                      </span>
+                    )}
                   </p>
                 </li>
               ))

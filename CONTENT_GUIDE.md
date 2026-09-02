@@ -31,7 +31,9 @@ Archivo: **`src/data/site.ts`** (todo en un solo sitio).
   - `role`, `period`, `description` → objetos bilingües `{ es: "...", en: "..." }`
   - `company` → texto simple (no se traduce)
 - **`education`**: igual que experience. Campos: `title` y `period` bilingües,
-  `institution` texto simple.
+  `institution` texto simple, y `note` opcional (bilingüe) para el estado —
+  `"Graduado"` / `"Graduated"`. Un rango de fechas cerrado solo *sugiere* que
+  terminaste; el `note` lo dice. Bórralo si el programa sigue en curso.
 - **`skills`**: lista de **grupos**. Cada grupo tiene `label` bilingüe (Frontend,
   Backend, Datos…) y `items`, un array plano de strings **compartido en ambos
   idiomas** (los nombres de tecnología no se traducen). El orden de los grupos es
