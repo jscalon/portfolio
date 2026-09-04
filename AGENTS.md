@@ -232,8 +232,10 @@ a fact.
   labelled rows on the home page and one line per group on the CV. Group order is
   the message: the core stack leads and AI follows, so the profile does not read
   as "AI person who also codes". Present AI work as engineering ("LLM
-  Integration", "Generative AI") and keep specific tool names out of the list; the
-  "AI as a working tool" idea belongs in the bio, not as a skill chip.
+  Integration") and name a capability rather than a field: "Generative AI" was
+  dropped because it says where you work, not what you can do, and by now
+  everyone claims it. Keep specific tool names out of the list; the "AI as a
+  working tool" idea belongs in the bio, not as a skill chip.
 - `PersonSchema` flattens the groups for `knowsAbout`, which wants plain terms.
 
 ## Commit conventions

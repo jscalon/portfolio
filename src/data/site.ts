@@ -135,7 +135,7 @@ export const skills: SkillGroup[] = [
   },
   {
     label: { es: "IA / Automatización", en: "AI / Automation" },
-    items: ["LLM Integration", "Generative AI", "n8n"],
+    items: ["LLM Integration", "n8n"],
   },
   {
     label: { es: "Herramientas", en: "Tooling" },
