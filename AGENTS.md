@@ -51,7 +51,11 @@ the language switcher).
   ContactForm, PersonSchema, Analytics
 - `src/pages/[lang]/` — home, `cv`, projects list, project detail
 - `src/pages/404.astro` — language-aware 404 (no locale prefix)
-- `src/styles/global.css` — Tailwind theme tokens, dark variant, reveal animations
+- `src/styles/global.css` — Tailwind theme tokens, dark variant, reveal animations.
+  Both palettes are defined there: `brand-*` (wine red) and a redefinition of
+  `slate-*`, whose default blue cast clashed with it. The neutrals keep their
+  Tailwind names on purpose, so the markup needs no changes — do not "restore"
+  them
 - `src/assets/` — images processed by `astro:assets` (`profile.webp`, `covers/`)
 - `public/` — `favicon.svg`, `og-image.png`, `robots.txt` (served as-is)
 - `netlify.toml` — build config + root redirects

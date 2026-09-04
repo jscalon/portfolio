@@ -40,9 +40,9 @@ const s = (n) => n * SCALE;
 const background = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${s(W)}" height="${s(H)}">
   <defs>
     <radialGradient id="g" cx="50%" cy="12%" r="95%">
-      <stop offset="0%" stop-color="#16357c"/>
-      <stop offset="55%" stop-color="#101f41"/>
-      <stop offset="100%" stop-color="#0c1526"/>
+      <stop offset="0%" stop-color="#7a1636"/>
+      <stop offset="55%" stop-color="#3d0f1e"/>
+      <stop offset="100%" stop-color="#1a0810"/>
     </radialGradient>
   </defs>
   <rect width="${s(W)}" height="${s(H)}" fill="url(#g)"/>
@@ -51,9 +51,9 @@ const background = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="$
   <text x="${s(600)}" y="${s(340)}" text-anchor="middle" font-family="${FONT}"
         font-weight="800" font-size="${s(88)}" fill="#ffffff">${NAME}</text>
   <text x="${s(600)}" y="${s(400)}" text-anchor="middle" font-family="${FONT}"
-        font-weight="700" font-size="${s(40)}" fill="#93c5fd">${ROLE}</text>
+        font-weight="700" font-size="${s(40)}" fill="#eb9db6">${ROLE}</text>
   <text x="${s(600)}" y="${s(470)}" text-anchor="middle" font-family="${FONT}"
-        font-size="${s(27)}" fill="#94a3b8">${STACK}</text>
+        font-size="${s(27)}" fill="#b09aa2">${STACK}</text>
   <text x="${s(600)}" y="${s(556)}" text-anchor="middle" font-family="${FONT}"
         font-weight="700" font-size="${s(29)}" fill="#ffffff">${DOMAIN}</text>
 </svg>`);
