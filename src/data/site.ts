@@ -123,7 +123,7 @@ export interface SkillGroup {
 export const skills: SkillGroup[] = [
   {
     label: { es: "Frontend", en: "Frontend" },
-    items: ["TypeScript", "Next.js + React", "Astro", "Tailwind CSS"],
+    items: ["TypeScript", "React", "Next.js", "Astro", "Tailwind CSS"],
   },
   {
     label: { es: "Backend", en: "Backend" },
