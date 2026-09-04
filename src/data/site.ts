@@ -68,8 +68,8 @@ export const experience: ExperienceItem[] = [
       en: "February 2026 — April 2026",
     },
     description: {
-      es: "Desarrollo de chatbots de IA, gestión automatizada de tickets, web scraping, diseño y creación de páginas web modernas, generación y edición de imágenes y videos con IA.",
-      en: "Development of AI chatbots, automated ticket management, web scraping, design and creation of modern websites, and AI-powered image and video generation and editing.",
+      es: "Desarrollo de chatbots de IA, diseño y creación de páginas web modernas, generación y edición de imágenes y videos con IA.",
+      en: "Development of AI chatbots, design and creation of modern websites, and AI-powered image and video generation and editing.",
     },
   },
   {
