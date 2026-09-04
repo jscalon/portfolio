@@ -21,7 +21,7 @@ Requires Node 20+.
 ## Commands
 
 - `pnpm dev` — dev server at <http://localhost:4321>
-- `pnpm build` — runs `astro check` then builds to `dist/`
+- `pnpm build` — runs the tests, then `astro check`, then builds to `dist/`
 - `pnpm preview` — serves the production build
 - `pnpm og` — regenerates `public/og-image.png` (see SEO below)
 - `pnpm test` — runs the Vitest suite
@@ -32,8 +32,11 @@ Requires Node 20+.
 > get `/en/`, everyone else falls through to `/es/`. In dev, open `/es/` or
 > `/en/` directly.
 
-Always run `pnpm build` before pushing — `astro check` validates content
-frontmatter and types, catching format errors before they reach the deploy.
+Always run `pnpm build` before pushing. It is the same command Netlify runs, and
+it fails on a broken test or a type error before producing any output, so a
+broken invariant cannot reach the deploy — which matters because these tests
+guard mistakes that look fine (a project missing in one language silently breaks
+the language switcher).
 
 ## Project structure
 
