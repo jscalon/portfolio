@@ -131,7 +131,7 @@ export const skills: SkillGroup[] = [
   },
   {
     label: { es: "Datos", en: "Data" },
-    items: ["SQL", "Supabase", "Excel"],
+    items: ["SQL", "Supabase"],
   },
   {
     label: { es: "IA / Automatización", en: "AI / Automation" },
@@ -139,6 +139,6 @@ export const skills: SkillGroup[] = [
   },
   {
     label: { es: "Herramientas", en: "Tooling" },
-    items: ["Docker", "Figma"],
+    items: ["Git", "Docker", "Figma"],
   },
 ];
