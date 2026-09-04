@@ -24,6 +24,7 @@ Requires Node 20+.
 - `pnpm build` — runs `astro check` then builds to `dist/`
 - `pnpm preview` — serves the production build
 - `pnpm og` — regenerates `public/og-image.png` (see SEO below)
+- `pnpm test` — runs the Vitest suite
 
 > **Local dev note:** the root path `/` shows the 404 page locally — there is no
 > `src/pages/index.astro`. The root redirect is a Netlify server-side rule
@@ -104,6 +105,30 @@ once and both update. Users export it with the browser's *Print → Save as PDF*
   explaining that the site replaces the PDF reads oddly inside the PDF. When the
   content genuinely outgrows one page, let it become a real two-pager — but a
   second page carrying three lines is the one outcome to avoid.
+
+### Tests
+
+`pnpm test` runs Vitest over `tests/`. The suite deliberately does **not**
+re-check what the build already enforces: zod validates each project's
+frontmatter and `astro check` validates the types, so duplicating that here
+would only add maintenance.
+
+What it covers is what those cannot see — invariants that span files or
+languages, and that fail silently rather than loudly:
+
+- **`i18n.test.ts`** — `ui.es` and `ui.en` hold exactly the same keys. Types only
+  check lookups against the default locale, so a key missing from `en` compiles
+  and quietly falls back to Spanish. Also covers locale parsing and the switcher
+  path rewrite, which must land on the equivalent page.
+- **`content.test.ts`** — every project exists in both languages under the same
+  slug, each file's `lang:` matches its folder, and every `cover:` resolves to a
+  real file. The schema sees one file at a time and cannot notice any of these.
+- **`site.test.ts`** — every bilingual field in `site.ts` is filled in for both
+  locales, no technology is listed in two skill groups, and the WhatsApp link
+  still matches the displayed phone number.
+
+Adding a test is worth it when a mistake would reach production looking fine.
+If `astro check` or the schema already rejects it, leave it to them.
 
 ### Availability badge
 

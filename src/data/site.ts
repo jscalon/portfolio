@@ -139,6 +139,6 @@ export const skills: SkillGroup[] = [
   },
   {
     label: { es: "Herramientas", en: "Tooling" },
-    items: ["Git", "Docker", "Figma"],
+    items: ["Git", "Vitest", "Docker", "Figma"],
   },
 ];
