@@ -58,6 +58,15 @@ const alternates = hasLocalePrefix
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
+    {/*
+      Tints the mobile browser chrome to match the page instead of leaving a
+      grey band above it. Two tags because the site has both themes; the values
+      are the literal ones behind `bg-white` and `dark:bg-slate-950`, since a
+      meta tag cannot read a CSS custom property.
+    */}
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#110408" />
+
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
