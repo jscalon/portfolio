@@ -16,29 +16,35 @@ y sus precios en las tiendas minoristas de la empresa.
 
 ## El problema
 
-Cada tienda minorista operaba con su **propia base de datos local** para gestionar
-productos y precios. Este enfoque descentralizado provocaba **discrepancias frecuentes**
+Cada una de las **once tiendas minoristas** operaba con su **propia base de datos local**
+para gestionar productos y precios. Este enfoque descentralizado provocaba **discrepancias frecuentes**
 entre la información de las tiendas y la sede central, además de procesos de actualización
 lentos, manuales y propensos a errores.
 
 ## La solución
 
-Una **aplicación web** que centraliza toda la información en una **base de datos única** y
-permite gestionarla mediante operaciones **CRUD** desde una interfaz amigable. Módulos
-principales: **productos, precios, usuarios, categorías** (marcas, tipos, departamentos,
-grupos y subgrupos) **y tiendas**.
+Una **aplicación web** que centraliza la gestión en una **base de datos central**,
+administrable mediante operaciones **CRUD** desde una interfaz amigable. Son **cinco
+módulos**: productos, precios, categorías (marcas, tipos, departamentos, grupos y
+subgrupos), tiendas y usuarios.
+
+La base central no sustituye a las locales de cada tienda: se conecta con ellas y les
+replica los cambios hechos desde la aplicación, de modo que las tiendas dejan de divergir
+de la sede sin tener que desmontar lo que ya tenían funcionando.
 
 Funcionalidades destacadas:
 
 - **Precios programados:** al crear un precio se define la **fecha y hora** desde la que
   entra en vigencia.
-- **Permisos por rol:** cada usuario tiene roles que determinan a qué módulos accede y qué
-  operaciones CRUD puede realizar (p. ej. solo lectura, o lectura y creación sin eliminación).
+- **Permisos granulares por rol:** el permiso no se concede por módulo, sino por módulo *y*
+  operación —ver, crear, actualizar y eliminar—, y cada combinación es independiente de las
+  demás. Un rol puede crear en un módulo y solo consultar en otro, así que se afina con
+  todo el detalle que cada puesto requiera.
 
 ## Mi rol
 
-Fui el desarrollador **full stack** del proyecto de principio a fin: diseñé la interfaz y
-desarrollé el frontend, el backend y la base de datos centralizada.
+Fui el **único desarrollador** del proyecto de principio a fin, en solitario y full stack:
+diseñé la interfaz y desarrollé el frontend, el backend y la base de datos centralizada.
 
 - **Diseño (UI):** prototipado de la interfaz en Figma.
 - **Frontend:** React, TypeScript y CSS.
