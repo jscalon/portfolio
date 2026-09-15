@@ -3,7 +3,7 @@ import type { Lang } from "../i18n/ui";
 /** Personal / contact info shared across the site. EDIT ME with real data. */
 export const profile = {
   name: "Juan Giménez",
-  email: "jgimenezeee@gmail.com",
+  email: "jscalondev@gmail.com",
   /** Split so structured data can use locality and country separately. */
   location: { city: "Valencia", country: "Venezuela" },
   /** Display form; `whatsapp` is the same number normalized for wa.me links. */
