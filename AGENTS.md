@@ -368,11 +368,17 @@ a fact.
   The gap is the current Febeca work, which the experience section claims and the
   projects section does not show. Anonymize: describe the problem and the approach
   without real figures or screenshots of internal data.
-- **Optional:** a downloadable `.pdf` exported from `/cv` and committed to
-  `public/`, for attaching to emails. Generating it in CI would require a headless
-  browser (heavy, fragile) — exporting manually and committing is the pragmatic
-  route if it's ever needed.
-- **Nice to have:** per-project OG images.
+- **After Febeca, not before:** a blog / notes section, and per-project OG images.
+  Both are wanted eventually; neither earns attention while the projects section is
+  still missing the current work.
+
+**Decided against — a downloadable `.pdf` of the CV committed to `public/`.** The only case
+it serves is a job portal that demands a file upload and will not take a URL, and that case
+is already solved: open `/cv` and print to PDF when it comes up. Committing the file would
+put a binary in the repo that goes stale in silence on every edit to `site.ts`, with
+nothing in the build to catch it — the drift the OG card has, minus the `pnpm og` that
+repairs it. It also argues against the site: the premise of the whole thing is that the
+page replaces the PDF.
 
 Done (do not re-suggest): custom 404, contact form, `hreflang`, JSON-LD, scroll
 animations, OG image and the `pnpm og` script that regenerates it, project covers,
