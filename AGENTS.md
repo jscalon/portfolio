@@ -226,7 +226,88 @@ validates. The detail page reads the real width/height off that import for its
 `og:image` metadata, so nothing is hardcoded. Keep filenames in English.
 
 `public/` is only for files that need a stable, unhashed URL: the favicon,
-`og-image.png` (shared links keep working across rebuilds) and `robots.txt`.
+`og-image.png` (shared links keep working across rebuilds), `robots.txt` — and the clips
+below, which `astro:assets` cannot touch.
+
+### Clips (screen recordings)
+
+Some things only exist in motion: a carousel frozen into a screenshot proves nothing. Those
+go in as a short looping video, not a GIF — a GIF of the same clip weighs tens of megabytes
+against a few hundred kilobytes of H.264.
+
+`astro:assets` cannot process video (the image service would keep a single frame), so the
+file goes in `public/<slug>/` and is referenced from the Markdown as raw HTML. That costs
+the path-checking the image pipeline gives, so check the path yourself. Use `<figure>` /
+`<figcaption>` rather than the italic-paragraph caption above: the markup is already HTML,
+and `figure` is one of the few tags Markdown passes through as a block — `video` is not, so
+a bare `<video>` would be wrapped in a paragraph. Keep no blank line inside the block or
+Markdown will start parsing the middle of it. `global.css` styles the two caption forms
+identically.
+
+```html
+<figure>
+  <video src="/<slug>/clip.mp4" poster="/<slug>/clip.webp" width="1280" height="554"
+    loop muted playsinline controls preload="none" data-autoplay></video>
+  <figcaption>A caption that explains a decision, as with screenshots.</figcaption>
+</figure>
+```
+
+Every attribute there is load-bearing. `width`/`height` reserve the space (the CLS fix we
+already made for covers), `preload="none"` plus `poster` means an unplayed clip downloads
+nothing, and `controls` is what makes the motion stoppable — WCAG asks for that on anything
+that animates by itself for more than five seconds. **No `autoplay` attribute:** the clip
+ships paused, and a 344-byte script on the project detail page (nowhere else) starts it
+only where `prefers-reduced-motion` says motion is welcome, playing it while it is on
+screen and pausing it when it scrolls away. Without JS the reader gets the poster and a
+play button.
+
+Encode to **H.264 / yuv420p, no audio track, `-movflags +faststart`**, cropped to the
+content (browser scrollbars and dead space add weight and nothing else) and about 1280 px
+wide. There is no script for this: it is a one-off conversion per clip, and the encoded
+file is what gets committed.
+
+A looping clip has to **loop without a visible jump**, and a plain trim only manages that
+if the animation's period happens to divide the clip — for a continuous marquee it never
+does. Cross-fading the end into the start does not fix it either: it relocates the
+discontinuity into the dissolve, where two offset copies of the same content are visible at
+once. What works is **ping-pong** — play forward, then append the reverse:
+
+```
+[0:v]trim=0:D,setpts=PTS-STARTPTS,fps=30,format=yuv420p[fwd];
+[fwd]split[f1][f2];
+[f2]reverse,trim=start=0.0333:end=<D-0.0333>,setpts=PTS-STARTPTS[rev];
+[f1][rev]concat=n=2:v=1[out]
+```
+
+Trimming one frame off each end of the reverse is what keeps the turning points from
+stuttering: without it the last forward frame and the first reversed frame are the same
+picture shown twice, and the same happens again at the loop. It costs roughly double the
+file size, and the motion visibly runs backwards for half the clip — fine for a marquee,
+wrong for anything where direction carries meaning.
+
+**Verify it rather than trusting the filter.** Comparing the first and last frame is not
+enough: it only inspects the one place a fault is least likely. Scan the whole thing for
+discontinuities instead, over the clip concatenated with itself so the loop seam is
+included:
+
+```
+ffmpeg -f concat -safe 0 -i twice.txt \
+  -vf "tblend=all_mode=difference,signalstats,metadata=print:key=lavfi.signalstats.YAVG:file=diff.txt" \
+  -an -f null -
+```
+
+`YAVG` is the average difference between consecutive frames. Steady motion holds it
+roughly constant; a **spike** is a jump and a value **near zero** is a frozen frame. Both
+turning points and the loop seam should stay within ~1.15x of the baseline. For scale, the
+cross-faded version this replaced peaked at 4.8x and then dropped to 0.03x two frames
+later — which is exactly what a viewer reported seeing.
+
+Run the same scan on the **raw recording** before choosing what to trim. Screen recorders
+drop frames, and the ones they drop are not spread evenly: the two takes behind the current
+clip lost 5% and 8.7% of their frames, but in both cases the losses clustered, leaving
+stretches that were clean. Scanning first and cutting the quietest window is free and it
+roughly halved the defect rate here. A single frozen frame at 30fps is not visible on its
+own, so this is about avoiding a cluster, not about chasing zero.
 
 ## Content conventions
 

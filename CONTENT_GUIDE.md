@@ -164,6 +164,45 @@ Ancho recomendado: **1536 px**, que cubre pantallas de alta densidad en la colum
 caso. Y si la aplicación maneja datos reales de una empresa, captura con **datos de
 ejemplo**, nunca con los de producción.
 
+### Clips, cuando lo interesante es el movimiento
+
+Hay cosas que una captura no demuestra: un carrusel congelado no es un carrusel. Para eso
+va un vídeo corto en bucle — **no un GIF**, que del mismo clip pesaría decenas de megas
+frente a unos cientos de kilobytes.
+
+El vídeo no pasa por el optimizador de Astro (se quedaría con un fotograma), así que vive
+en `public/<slug>/` y se escribe como HTML dentro del Markdown. Como no hay optimizador,
+tampoco hay red de seguridad: **si te equivocas en la ruta, el build no te avisa**.
+
+```html
+<figure>
+  <video src="/mi-proyecto/clip.mp4" poster="/mi-proyecto/clip.webp"
+    width="1280" height="586"
+    loop muted playsinline controls preload="none" data-autoplay></video>
+  <figcaption>El pie, que explica una decisión igual que en las capturas.</figcaption>
+</figure>
+```
+
+Copia ese bloque tal cual y cambia solo la ruta, el tamaño y el pie: cada atributo está
+ahí por algo. Sin líneas en blanco dentro del bloque, o Markdown se pondrá a interpretar
+lo de dentro.
+
+El clip **no se reproduce solo por el atributo `autoplay`**. Arranca parado y un script lo
+pone en marcha únicamente si el sistema del visitante no pide menos animación, y solo
+mientras está a la vista. Quien navega sin JavaScript ve el póster y un botón de play. Eso
+es deliberado: es el mismo criterio que usan las animaciones del resto del sitio.
+
+**Preparar el archivo no es copiar el screen recording.** Hay que recortarlo, quitarle el
+audio, bajarlo a ~1280 px y montar el bucle. Lo del bucle es lo que más cuesta: una
+grabación cortada por donde sea da un salto al reiniciarse, siempre. La solución es que el
+clip **vaya y vuelva** — se reproduce hacia delante y luego hacia atrás, así que nunca hay
+un corte. A cambio, durante la mitad del clip el movimiento va al revés, lo cual no se nota
+en un carrusel pero cantaría en algo donde la dirección signifique algo.
+
+Es una conversión manual de una sola vez, con ffmpeg. Pásame el vídeo en crudo —**no lo
+borres hasta que el clip esté aprobado**, porque rehacerlo desde el ya comprimido pierde
+calidad— y te devuelvo el `.mp4` y el póster listos para colocar.
+
 ---
 
 ## 6. Previsualizar y desplegar

@@ -118,4 +118,31 @@ const { title, description, stack, repoUrl, liveUrl, cover } = project.data;
       <Content />
     </div>
   </article>
+
+  <!--
+    Clips ship paused, with controls and `preload="none"`, so without JS — or for
+    anyone who asked for less motion — the page shows a still poster and nothing
+    is downloaded until they press play. Where motion is welcome each clip plays
+    while it is on screen and pauses when it leaves: a looping video that keeps
+    running out of view spends bandwidth and battery on nobody. The controls stay
+    in both cases, so the motion is always stoppable.
+  -->
+  <script>
+    const clips = document.querySelectorAll<HTMLVideoElement>("video[data-autoplay]");
+    const motionOk = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+
+    if (clips.length && motionOk && "IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            const clip = entry.target as HTMLVideoElement;
+            if (entry.isIntersecting) clip.play().catch(() => {});
+            else clip.pause();
+          }
+        },
+        { threshold: 0 },
+      );
+      clips.forEach((clip) => io.observe(clip));
+    }
+  </script>
 </BaseLayout>

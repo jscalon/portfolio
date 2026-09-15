@@ -96,6 +96,41 @@ body {
 }
 
 /*
+ * Clips. A screen recording cannot go through `astro:assets` (the image service
+ * would keep a single frame), so it is raw HTML pointing at `public/` and needs
+ * its own frame + caption rules. `<figure>`/`<figcaption>` rather than the
+ * italic-paragraph convention above: the markup is already HTML, and a figure is
+ * one of the tags Markdown passes through as a block.
+ */
+.prose figure {
+  margin: 2em 0 0.6rem;
+}
+
+.prose video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-slate-200);
+}
+
+.dark .prose video {
+  border-color: var(--color-slate-800);
+}
+
+.prose figcaption {
+  margin-top: 0.6rem;
+  text-align: center;
+  font-size: 0.875em;
+  line-height: 1.5;
+  color: var(--color-slate-500);
+}
+
+.dark .prose figcaption {
+  color: var(--color-slate-400);
+}
+
+/*
  * Entrance animations. Gated on `html.js` (progressive enhancement: no JS ->
  * content is always visible) and on no reduced-motion preference. Elements are
  * hidden from the first paint (the `js` class is set in the head) and revealed

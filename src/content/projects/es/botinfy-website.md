@@ -38,6 +38,22 @@ Decisiones que definen el resultado:
 - **Imágenes optimizadas** con el componente `Image` de Next.js, que entrega a cada
   dispositivo el tamaño y el formato que le corresponden en vez del mismo archivo a todos.
 
+<figure>
+  <video
+    src="/botinfy/carousel.mp4"
+    poster="/botinfy/carousel.webp"
+    width="1280"
+    height="554"
+    loop
+    muted
+    playsinline
+    controls
+    preload="none"
+    data-autoplay
+  ></video>
+  <figcaption>Carrusel automático animado con GSAP.</figcaption>
+</figure>
+
 ## Mi rol
 
 Desarrollé el frontend del sitio y diseñé por completo la versión móvil. El desarrollo
