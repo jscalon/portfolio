@@ -219,6 +219,13 @@ is processed and path-checked. Each one carries a caption — an italic paragrap
 below, which `global.css` styles as such — and the caption must explain a decision rather
 than describe the picture.
 
+One cover is not like the others: `covers/portfolio.webp` is a screenshot of **this site**,
+so a design change dates it silently — the palette moved to wine and the cover kept the old
+blue for weeks. Nothing in the build can notice. When the site's look changes, retake it
+(or recolour it, as was done once) and check it against the tokens in `global.css`. The
+other covers show someone else's product and must **not** be brought in line with this
+palette; their own branding is the point.
+
 Covers go in `src/assets/covers/<slug>.webp` and are referenced from the project
 frontmatter by a path **relative to the `.md` file**
 (`../../../assets/covers/<slug>.webp`), which the `image()` schema helper
