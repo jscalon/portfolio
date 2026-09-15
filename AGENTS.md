@@ -375,4 +375,13 @@ a fact.
 - **Nice to have:** per-project OG images.
 
 Done (do not re-suggest): custom 404, contact form, `hreflang`, JSON-LD, scroll
-animations, OG image, project covers, profile photo, CV page, analytics.
+animations, OG image and the `pnpm og` script that regenerates it, project covers,
+profile photo, CV page, analytics, the Vitest suite wired into `pnpm build`, the wine
+palette (dark-mode background included), `theme-color`, skills as data-level groups,
+`aria-current` on the nav, the availability badge, screenshots inside case studies, and
+looping clips.
+
+`theme-color` is in that list on purpose. The tags are emitted and correct, but Chrome and
+Firefox on Android ignore them, so nothing visible changes — it was kept as a correctness
+item, not because it does anything today. Do not re-propose it as an improvement, and do
+not remove it as dead code.

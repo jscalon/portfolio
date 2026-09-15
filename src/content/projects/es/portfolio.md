@@ -12,7 +12,6 @@ order: 3
 date: 2026-06-27
 ---
 
-
 Es el sitio web que estás leyendo. El único proyecto que puedes auditar por completo
 mientras lo lees: el código es público y cada decisión descrita más abajo se comprueba
 pulsando el conmutador de idioma, abriendo el CV o mirando el HTML generado.
