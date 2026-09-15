@@ -1,7 +1,7 @@
 ---
 lang: en
 title: "ServiFrescos — Centralized Product & Price Management"
-description: "Web application that centralizes the management (CRUD) of products, prices, users and stores for Protinal Proagro, eliminating the discrepancies between each store's local database and headquarters."
+description: "Web application that centralizes the management of products, prices, users and stores for Protinal Proagro, eliminating the discrepancies between each store's local database and headquarters."
 stack: ["React", "TypeScript", "Django REST Framework", "Docker", "SQL Server", "CSS", "Figma"]
 cover: ../../../assets/covers/servifrescos.webp
 repoUrl: https://github.com/jscalon/servifrescos
@@ -24,7 +24,7 @@ headquarters, along with slow, manual and error-prone update processes.
 ## The solution
 
 A **web application** that centralizes management into a **central database**, administered
-through **CRUD** operations from a friendly interface. There are **five modules**: products,
+from a friendly interface. There are **five modules**: products,
 prices, categories (brands, types, departments, groups and subgroups), stores and users.
 
 The central database does not replace each store's local one: it connects to them and
@@ -34,11 +34,31 @@ headquarters without having to tear out what already worked.
 Key features:
 
 - **Scheduled prices:** when creating a price, you set the **date and time** from which it
-  takes effect.
-- **Granular role-based permissions:** access is granted not per module but per module
-  *and* operation — read, create, update and delete — and each combination is independent
-  of the rest. A role can create in one module and only read in another, so it can be
-  tuned to whatever a given position actually needs.
+  takes effect, so an adjustment can be loaded days in advance and switch over on its own.
+- **Permissions per module and per store:** each user is granted read and manage rights
+  module by module, and is also assigned the stores they can reach — which in practice
+  decides whose prices they get to see or touch.
+- **No deletion from the interface.** A company requirement: managing means creating and
+  updating, never deleting. A record can only be removed by the database administrator
+  from outside the application, and only when strictly necessary.
+- **Export to Excel:** any listing exports exactly as displayed, with the search filters
+  already applied.
+
+![Price creation form with the effective-date picker open](../../../assets/servifrescos/crear-precio.webp)
+
+*A new price does not replace the old one: it is scheduled. Until its effective date
+arrives, the one in force is still the previous one.*
+
+![Price listing with filters by store and by validity](../../../assets/servifrescos/precios.webp)
+
+*The listing shows the price in force alongside those waiting their turn, and every record
+keeps who created it and why — the trail the old process, spread across eleven databases,
+left nowhere.*
+
+![User permissions screen, per module and per store](../../../assets/servifrescos/permisos.webp)
+
+*Read and manage are granted module by module; the assigned stores bound which prices each
+user can act on.*
 
 ## My role
 

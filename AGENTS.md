@@ -213,6 +213,12 @@ broken path. Commit the original at a generous size (covers **1200×675**, 16:9;
 the portrait 800×800) and let the build resize — there is no manual optimization
 step. `sharp` does the work and is a real dependency; the build fails without it.
 
+Screenshots inside a case study go in `src/assets/<slug>/` and are referenced from the
+Markdown with a relative path. Use Markdown image syntax, not raw `<img>`: only the former
+is processed and path-checked. Each one carries a caption — an italic paragraph directly
+below, which `global.css` styles as such — and the caption must explain a decision rather
+than describe the picture.
+
 Covers go in `src/assets/covers/<slug>.webp` and are referenced from the project
 frontmatter by a path **relative to the `.md` file**
 (`../../../assets/covers/<slug>.webp`), which the `image()` schema helper

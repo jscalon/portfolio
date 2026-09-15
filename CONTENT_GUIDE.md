@@ -140,6 +140,30 @@ experiencia o añades un proyecto, **el CV se actualiza solo** — nunca se desi
 - Si un proyecto no tiene imagen, omite `cover`: la tarjeta muestra un degradado con la
   inicial automáticamente.
 
+### Capturas dentro del caso
+
+Van en `src/assets/<slug>/` y se referencian desde el Markdown con ruta relativa, igual
+que la portada. Al usar la sintaxis de Markdown (`![alt](ruta)`) pasan por el optimizador
+y el build falla si la ruta no existe; escritas como `<img>` de HTML, no.
+
+**Cada captura lleva un pie, y el pie explica una decisión**, no describe lo que ya se ve.
+Mal: *"Listado de productos"*. Bien: *"El precio nuevo no reemplaza al anterior: se
+programa"*. Sin pie que aporte algo, la captura sobra.
+
+El pie es un párrafo **en cursiva justo debajo** de la imagen — Markdown no tiene sintaxis
+propia para pies, así que esa es la convención, y `global.css` la reconoce para
+maquetarla como tal:
+
+```md
+![Texto alternativo descriptivo](../../../assets/mi-proyecto/pantalla.webp)
+
+*El pie, en cursiva y en el párrafo inmediatamente siguiente.*
+```
+
+Ancho recomendado: **1536 px**, que cubre pantallas de alta densidad en la columna del
+caso. Y si la aplicación maneja datos reales de una empresa, captura con **datos de
+ejemplo**, nunca con los de producción.
+
 ---
 
 ## 6. Previsualizar y desplegar

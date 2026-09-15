@@ -60,6 +60,42 @@ body {
 }
 
 /*
+ * Figures inside case studies. Markdown has no caption syntax, so the convention
+ * is an italic paragraph directly after an image — these rules make that read as
+ * a caption instead of as body text in italics, and frame the screenshot so it
+ * sits on the page rather than floating on it. Written with `:has()`; where it is
+ * unsupported the caption simply stays an italic paragraph, which is still fine.
+ */
+.prose p > img {
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-slate-200);
+}
+
+.dark .prose p > img {
+  border-color: var(--color-slate-800);
+}
+
+.prose p:has(> img) {
+  margin-bottom: 0.6rem;
+}
+
+.prose p:has(> img) + p:has(> em:only-child) {
+  margin-top: 0;
+  text-align: center;
+  font-size: 0.875em;
+  line-height: 1.5;
+  color: var(--color-slate-500);
+}
+
+.dark .prose p:has(> img) + p:has(> em:only-child) {
+  color: var(--color-slate-400);
+}
+
+.prose p:has(> img) + p > em:only-child {
+  font-style: normal;
+}
+
+/*
  * Entrance animations. Gated on `html.js` (progressive enhancement: no JS ->
  * content is always visible) and on no reduced-motion preference. Elements are
  * hidden from the first paint (the `js` class is set in the head) and revealed

@@ -1,7 +1,7 @@
 ---
 lang: es
 title: "ServiFrescos — Gestión centralizada de productos y precios"
-description: "Aplicación web que centraliza la gestión (CRUD) de productos, precios, usuarios y tiendas de Protinal Proagro, eliminando las discrepancias entre las bases de datos locales de cada tienda y la sede central."
+description: "Aplicación web que centraliza la gestión de productos, precios, usuarios y tiendas de Protinal Proagro, eliminando las discrepancias entre las bases de datos locales de cada tienda y la sede central."
 stack: ["React", "TypeScript", "Django REST Framework", "Docker", "SQL Server", "CSS", "Figma"]
 cover: ../../../assets/covers/servifrescos.webp
 repoUrl: https://github.com/jscalon/servifrescos
@@ -24,7 +24,7 @@ lentos, manuales y propensos a errores.
 ## La solución
 
 Una **aplicación web** que centraliza la gestión en una **base de datos central**,
-administrable mediante operaciones **CRUD** desde una interfaz amigable. Son **cinco
+administrable desde una interfaz amigable. Son **cinco
 módulos**: productos, precios, categorías (marcas, tipos, departamentos, grupos y
 subgrupos), tiendas y usuarios.
 
@@ -35,11 +35,32 @@ de la sede sin tener que desmontar lo que ya tenían funcionando.
 Funcionalidades destacadas:
 
 - **Precios programados:** al crear un precio se define la **fecha y hora** desde la que
-  entra en vigencia.
-- **Permisos granulares por rol:** el permiso no se concede por módulo, sino por módulo *y*
-  operación —ver, crear, actualizar y eliminar—, y cada combinación es independiente de las
-  demás. Un rol puede crear en un módulo y solo consultar en otro, así que se afina con
-  todo el detalle que cada puesto requiera.
+  entra en vigencia, así que un ajuste puede quedar cargado con días de antelación y
+  activarse solo cuando toca.
+- **Permisos por módulo y por tienda:** a cada usuario se le conceden permisos de consulta
+  y de gestión módulo a módulo, y además se le asignan las tiendas a las que accede — lo
+  que en la práctica decide de qué tiendas puede ver o tocar los precios.
+- **Sin borrado desde la interfaz.** Fue un requisito de la empresa: la gestión permite
+  crear y actualizar, nunca eliminar. Un registro solo puede borrarlo el administrador de
+  la base de datos por fuera de la aplicación, y únicamente si es estrictamente necesario.
+- **Exportación a Excel:** cualquier listado se exporta tal como se está viendo, con los
+  filtros de búsqueda ya aplicados.
+
+![Formulario de creación de precio con el selector de fecha de efectividad abierto](../../../assets/servifrescos/crear-precio.webp)
+
+*Un precio nuevo no reemplaza al anterior: se programa. Hasta que llega su fecha de
+efectividad, el vigente sigue siendo el que estaba.*
+
+![Listado de precios con filtros por tienda y por vigencia](../../../assets/servifrescos/precios.webp)
+
+*El listado muestra a la vez el precio vigente y los que esperan turno, y cada registro
+conserva quién lo creó y por qué — el rastro que el proceso anterior, repartido entre once
+bases de datos, no tenía.*
+
+![Pantalla de permisos de usuario, por módulo y por tienda](../../../assets/servifrescos/permisos.webp)
+
+*Consulta y gestión se conceden módulo a módulo; las tiendas asignadas acotan sobre qué
+precios puede actuar cada usuario.*
 
 ## Mi rol
 
