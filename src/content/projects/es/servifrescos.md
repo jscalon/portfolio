@@ -17,26 +17,35 @@ y sus precios en las tiendas minoristas de la empresa.
 ## El problema
 
 Cada una de las **once tiendas minoristas** operaba con su **propia base de datos local**
-para gestionar productos y precios. Este enfoque descentralizado provocaba **discrepancias frecuentes**
-entre la información de las tiendas y la sede central, además de procesos de actualización
-lentos, manuales y propensos a errores.
+para gestionar productos y precios, y no existía ningún sistema que transmitiera los
+cambios entre ellas. La gerencia avisaba de cada ajuste por WhatsApp o por correo al
+encargado de cada tienda, que lo cargaba a mano en el terminal de punto de venta. **Desde
+que salía el mensaje hasta que el cambio estaba aplicado pasaba un día completo de media.**
+
+Once transcripciones manuales dan once oportunidades de que la cifra llegue distinta, y de
+ahí nacían las **discrepancias frecuentes** entre las tiendas y la sede central.
 
 ## La solución
 
 Una **aplicación web** que centraliza la gestión en una **base de datos central**,
-administrable desde una interfaz amigable. Son **cinco
-módulos**: productos, precios, categorías (marcas, tipos, departamentos, grupos y
-subgrupos), tiendas y usuarios.
+administrable desde una interfaz amigable. Son **cinco módulos**: productos, precios,
+categorías (marcas, tipos y la jerarquía departamento → grupo → subgrupo), tiendas y
+usuarios.
 
 La base central no sustituye a las locales de cada tienda: se conecta con ellas y les
 replica los cambios hechos desde la aplicación, de modo que las tiendas dejan de divergir
-de la sede sin tener que desmontar lo que ya tenían funcionando.
+de la sede sin tener que desmontar lo que ya tenían funcionando. La replicación no es
+instantánea ni pretende serlo: las tiendas consultan los cambios por HTTP a un intervalo
+configurable —puede ser de un minuto, o de un segundo— y a la empresa le bastaba con una
+hora, frente al día que tomaba la cadena de mensajes. Como los precios se cargan programados con antelación, lo que importa es que el
+cambio llegue antes de su fecha de efectividad, no que llegue al instante.
 
 Funcionalidades destacadas:
 
 - **Precios programados:** al crear un precio se define la **fecha y hora** desde la que
   entra en vigencia, así que un ajuste puede quedar cargado con días de antelación y
-  activarse solo cuando toca.
+  entrar en vigor a la misma hora en las once tiendas, en lugar de cuando cada encargado
+  pueda atenderlo.
 - **Permisos por módulo y por tienda:** a cada usuario se le conceden permisos de consulta
   y de gestión módulo a módulo, y además se le asignan las tiendas a las que accede — lo
   que en la práctica decide de qué tiendas puede ver o tocar los precios.
@@ -70,7 +79,10 @@ diseñé la interfaz y desarrollé el frontend, el backend y la base de datos ce
 - **Diseño (UI):** prototipado de la interfaz en Figma.
 - **Frontend:** React, TypeScript y CSS.
 - **Backend:** API REST con Django REST Framework.
-- **Base de datos:** SQL Server centralizada.
+- **Base de datos:** SQL Server centralizada, doce tablas propias. La de precios es el
+  cruce del modelo —producto × tienda × fecha de efectividad, con esa terna como clave
+  única—, y es lo que permite a la vez que cada tienda tenga su propio precio y que un
+  mismo producto acumule precios futuros sin pisar al vigente.
 - **Entorno:** toda la aplicación —frontend, backend y base de datos— contenedorizada
   con Docker Compose, de modo que `docker compose up -d` levanta el sistema completo.
 
