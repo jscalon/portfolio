@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "og": "node scripts/og-image.mjs",
-    "test": "vitest run"
+    "test": "vitest run",
+    "icons": "node scripts/icons.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

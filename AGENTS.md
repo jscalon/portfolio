@@ -24,6 +24,7 @@ Requires Node 20+.
 - `pnpm build` — runs the tests, then `astro check`, then builds to `dist/`
 - `pnpm preview` — serves the production build
 - `pnpm og` — regenerates `public/og-image.png` (see SEO below)
+- `pnpm icons` — regenerates the raster icons from `public/favicon.svg` (see Icons below)
 - `pnpm test` — runs the Vitest suite
 
 > **Local dev note:** the root path `/` shows the 404 page locally — there is no
@@ -192,6 +193,36 @@ environment variables, never in the repo; `.env.example` documents them.
 
 Provider is Umami (cookieless, so no consent banner is needed). The markup assumes
 an Umami-style `data-website-id` attribute — Plausible uses `data-domain` instead.
+
+### Icons
+
+The mark is a **three-step staircase**, and it is the name rather than decoration: Juan
+**Escalona**, `js`, and *escala* for software that has to scale — the three readings folded
+into "jscalon". Do not swap it for initials; the version it replaced was a "JG" monogram and
+read as a placeholder.
+
+`public/favicon.svg` is the source, and it is **pure geometry**. The old one set the letters
+with `<text>` and a `system-ui` font stack, so the glyphs were whatever the rasterising OS
+happened to have, and it relied on `dominant-baseline` for centring, which is unevenly
+supported. Nothing in the file depends on a font now.
+
+Everything sits on a **5×5 grid of 10 units**, which is why every coordinate is a multiple
+of ten — the edges land on whole pixels at the sizes browsers rasterise, and that is most of
+why it survives 16×16. Keep new coordinates on the grid. The **open corner** at the top left
+is the same staircase turned 180°, cut out rather than drawn, so the page or the tab bar
+shows through it.
+
+`pnpm icons` (`scripts/icons.mjs`) derives `apple-touch-icon.png` (180×180) and
+`favicon-32.png` from it. Run it whenever the mark changes; nothing in the build catches the
+drift, the same trap `og-image.png` has. The Apple icon is **flattened onto the brand
+colour** on purpose: iOS composites transparency as black, so the open corner would arrive
+as a black wedge, and the same flattening gives iOS the square full-bleed image it wants
+(it applies its own rounded mask). `favicon-32.png` keeps its alpha, so the corner stays
+open there. In `BaseLayout` the SVG is declared first and the PNG second, so modern browsers
+take the vector and only older ones fall back.
+
+Judge any replacement at **16×16**, not at 64 — that is the size a browser tab actually
+uses, and it is where two letters turn to mush.
 
 ### Navigation & sitemap
 
