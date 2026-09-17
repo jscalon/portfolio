@@ -1,0 +1,50 @@
+---
+/**
+ * The jscalon mark, inlined.
+ *
+ * The geometry is read from `public/favicon.svg` at build time rather than
+ * copied here: the icon and the logo are the same mark, and two copies of the
+ * same path data would drift the first time one of them is edited. Inlining it
+ * (instead of an <img src="/favicon.svg">) costs no request and keeps it sharp
+ * at any size.
+ *
+ * Decorative by default: everywhere it is used it sits next to the name, so an
+ * accessible name here would just make screen readers say it twice.
+ */
+import { readFileSync } from "node:fs";
+
+interface Props {
+  /** Rendered size in px, both axes. */
+  size?: number;
+  class?: string;
+}
+
+const { size = 28, class: className } = Astro.props;
+
+const source = readFileSync(
+  new URL("../../public/favicon.svg", import.meta.url),
+  "utf8",
+);
+
+const paths = [...source.matchAll(/<path\b[\s\S]*?d="([^"]+)"[\s\S]*?fill="([^"]+)"/g)].map(
+  ([, d, fill]) => ({ d, fill }),
+);
+
+if (paths.length !== 2) {
+  throw new Error(
+    `Logo.astro expected 2 paths in public/favicon.svg, found ${paths.length}. ` +
+      `The icon changed shape — update the parsing here.`,
+  );
+}
+---
+
+<svg
+  viewBox="0 0 50 50"
+  width={size}
+  height={size}
+  class={className}
+  aria-hidden="true"
+  focusable="false"
+>
+  {paths.map(({ d, fill }) => <path d={d} fill={fill} />)}
+</svg>

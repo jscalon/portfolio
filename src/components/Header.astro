@@ -2,6 +2,7 @@
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import { profile } from "../data/site";
 import LangSwitcher from "./LangSwitcher.astro";
+import Logo from "./Logo.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 
 const lang = getLangFromUrl(Astro.url);
@@ -47,10 +48,14 @@ const restingClass = "text-slate-600 dark:text-slate-300";
     class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6"
     aria-label={lang === "es" ? "Principal" : "Main"}
   >
+    {/* Mark and name share one link: two adjacent targets to the same place is a
+        smaller hit area for no gain. The name is the accessible label; the mark
+        is aria-hidden. */}
     <a
       href={`${base}/`}
-      class="text-lg font-bold tracking-tight text-slate-900 dark:text-white"
+      class="flex items-center gap-2.5 text-lg font-bold tracking-tight text-slate-900 dark:text-white"
     >
+      <Logo size={26} class="shrink-0" />
       {profile.name}
     </a>
 

@@ -48,7 +48,7 @@ the language switcher).
 - `src/i18n/` — UI strings (`ui.ts`) and helpers (`utils.ts`)
 - `src/utils/projects.ts` — collection helpers (`getProjectsByLang`, `projectUrl`, `projectSlug`)
 - `src/layouts/BaseLayout.astro` — head, SEO/OpenGraph, hreflang, theme + reveal scripts
-- `src/components/` — Header, Footer, LangSwitcher, ThemeToggle, ProjectCard,
+- `src/components/` — Header, Footer, Logo, LangSwitcher, ThemeToggle, ProjectCard,
   ContactForm, PersonSchema, Analytics
 - `src/pages/[lang]/` — home, `cv`, projects list, project detail
 - `src/pages/404.astro` — language-aware 404 (no locale prefix)
@@ -223,6 +223,15 @@ take the vector and only older ones fall back.
 
 Judge any replacement at **16×16**, not at 64 — that is the size a browser tab actually
 uses, and it is where two letters turn to mush.
+
+In the UI the same mark is `Logo.astro`, which **parses the path data out of
+`public/favicon.svg` at build time** instead of holding its own copy — one mark, one
+definition, so editing the icon cannot leave the site showing the old one. It throws if the
+file stops having exactly two paths, which is the signal that the shape changed and the
+parsing needs revisiting. It is used in two places and deliberately no more: beside the name
+in the header, and beside the copyright in the footer. It is **not** on the CV (that page is
+a curated one-pager where the mark carries no information the header's `jscalon.dev` does
+not) and not on the 404 (which renders inside `BaseLayout` and already gets the header).
 
 ### Navigation & sitemap
 
