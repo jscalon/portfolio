@@ -23,6 +23,8 @@ const year = new Date().getFullYear();
     <div class="flex items-center gap-4">
       <a
         href={`mailto:${profile.email}`}
+        data-umami-event="contact"
+        data-umami-event-channel="email"
         class="transition hover:text-slate-900 dark:hover:text-white"
       >
         Email
@@ -31,6 +33,8 @@ const year = new Date().getFullYear();
         href={profile.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
+        data-umami-event="contact"
+        data-umami-event-channel="whatsapp"
         class="transition hover:text-slate-900 dark:hover:text-white"
       >
         WhatsApp
@@ -39,6 +43,8 @@ const year = new Date().getFullYear();
         href={profile.social.linkedin}
         target="_blank"
         rel="noopener noreferrer"
+        data-umami-event="contact"
+        data-umami-event-channel="linkedin"
         class="transition hover:text-slate-900 dark:hover:text-white"
       >
         LinkedIn
@@ -47,6 +53,8 @@ const year = new Date().getFullYear();
         href={profile.social.github}
         target="_blank"
         rel="noopener noreferrer"
+        data-umami-event="contact"
+        data-umami-event-channel="github"
         class="transition hover:text-slate-900 dark:hover:text-white"
       >
         GitHub

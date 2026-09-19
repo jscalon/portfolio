@@ -100,6 +100,12 @@ const inputClass =
           body,
         });
         if (!res.ok) throw new Error("Request failed");
+        // Tracked here rather than with a data-umami-event attribute on the
+        // button: the attribute would fire on every click, including the ones
+        // Netlify rejects. This only counts messages that actually went through.
+        // Optional-chained because analytics are absent in dev and whenever the
+        // env vars are unset.
+        window.umami?.track("contact-submit");
         form.reset();
         status.textContent = form.dataset.success;
         status.className =

@@ -194,6 +194,30 @@ environment variables, never in the repo; `.env.example` documents them.
 Provider is Umami (cookieless, so no consent banner is needed). The markup assumes
 an Umami-style `data-website-id` attribute — Plausible uses `data-domain` instead.
 
+**Events, and why they exist.** Pageviews are a poor measure here. Umami's tracker is
+JavaScript, so it does not see plain HTTP scrapers, but it does see headless-browser
+traffic — link-safety scanners and preview renderers, which arrive in bursts from data
+centre ranges (Ashburn/Dulles, Virginia) with a laptop-Chrome fingerprint and a session
+duration of **0 s across several pageviews**, which no human produces. On a site with this
+little traffic, a handful of those dominates the chart.
+
+Clicks are the signal those agents do not fake. Four events are tracked, and the list is
+deliberately short — every extra one dilutes the dashboard:
+
+| Event | Where | Properties |
+| --- | --- | --- |
+| `cv-print` | the CV's print button | — |
+| `contact` | every contact link, in the contact section and the footer | `channel`: email / whatsapp / linkedin / github |
+| `project-link` | the repo and live buttons on a project page | `kind`: repo / live · `project`: slug |
+| `contact-submit` | the contact form, **on success only** | — |
+
+The first three are plain `data-umami-event` / `data-umami-event-<prop>` attributes, which
+the tracker picks up on click with no wiring. `contact-submit` is a `window.umami?.track()`
+call inside the form's success branch instead: an attribute on the button would fire on
+every click, including submissions Netlify rejects. Optional-chain every such call — the
+tracker is absent in dev and whenever the env vars are unset. Its type lives in
+`src/env.d.ts`.
+
 ### Icons
 
 The mark is a **three-step staircase**, and it is the name rather than decoration: Juan

@@ -255,6 +255,8 @@ const cvHref = `/${lang}/cv`;
         <li>
           <a
             href={`mailto:${profile.email}`}
+            data-umami-event="contact"
+            data-umami-event-channel="email"
             class="font-medium text-brand-600 hover:text-brand-700 dark:text-brand-400"
           >
             Email
@@ -266,6 +268,8 @@ const cvHref = `/${lang}/cv`;
             href={profile.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
+            data-umami-event="contact"
+            data-umami-event-channel="whatsapp"
             class="font-medium text-brand-600 hover:text-brand-700 dark:text-brand-400"
           >
             WhatsApp
@@ -277,6 +281,8 @@ const cvHref = `/${lang}/cv`;
             href={profile.social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
+            data-umami-event="contact"
+            data-umami-event-channel="linkedin"
             class="font-medium text-brand-600 hover:text-brand-700 dark:text-brand-400"
           >
             LinkedIn
