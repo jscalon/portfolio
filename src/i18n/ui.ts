@@ -55,7 +55,6 @@ export const ui = {
     "contact.title": "¿Hablamos?",
     "contact.subtitle":
       "Disponible para nuevas oportunidades y colaboraciones.",
-    "contact.email": "Enviar email",
     "contact.form.name": "Nombre",
     "contact.form.email": "Email",
     "contact.form.message": "Mensaje",
@@ -112,7 +111,6 @@ export const ui = {
 
     "contact.title": "Let's talk",
     "contact.subtitle": "Available for new opportunities and collaborations.",
-    "contact.email": "Send email",
     "contact.form.name": "Name",
     "contact.form.email": "Email",
     "contact.form.message": "Message",

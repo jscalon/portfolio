@@ -1,15 +1,35 @@
 ---
-import { getLangFromUrl, getAlternateLang, switchLangPath } from "../i18n/utils";
+import {
+  getLangFromUrl,
+  getAlternateLang,
+  switchLangPath,
+  useTranslations,
+} from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const alternate = getAlternateLang(lang);
 const href = switchLangPath(Astro.url, alternate);
+
+/**
+ * `lang.switch` holds the destination language named *in that language*
+ * ("English" on the Spanish site, "Español" on the English one), which is the
+ * convention for language switchers: someone who cannot read the current page
+ * still recognises their own language. The visible label is the "EN" / "ES"
+ * abbreviation, so that full name is carried on aria-label instead.
+ *
+ * `lang` and `hreflang` matter here. Without `lang`, a screen reader reading the
+ * Spanish page announces "English" using Spanish pronunciation rules, which is
+ * how you get a language switch nobody can understand.
+ */
 ---
 
 <a
   href={href}
   class="rounded-md px-2 py-1 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
-  aria-label={alternate === "en" ? "Switch to English" : "Cambiar a Español"}
+  lang={alternate}
+  hreflang={alternate}
+  aria-label={t("lang.switch")}
 >
   {alternate.toUpperCase()}
 </a>
