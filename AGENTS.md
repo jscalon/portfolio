@@ -113,6 +113,12 @@ once and both update. Users export it with the browser's *Print → Save as PDF*
   explaining that the site replaces the PDF reads oddly inside the PDF. When the
   content genuinely outgrows one page, let it become a real two-pager — but a
   second page carrying three lines is the one outcome to avoid.
+- Skills and languages sit **side by side** at the foot of the CV, with the "last
+  updated" stamp under the languages. Stacked, they were what spilled onto a second
+  page once a third project was added. The Spanish CV has little slack left: the
+  last block is `break-inside: avoid` and Chrome will not separate it from the
+  sheet's bottom padding, so a few pixels too many move the **whole block** to page
+  two, not just a line. Check the print preview after any change that adds a line.
 
 ### Tests
 

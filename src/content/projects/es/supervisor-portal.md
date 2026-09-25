@@ -1,7 +1,7 @@
 ---
 lang: es
 title: "Portal de supervisores de ventas"
-description: "Aplicación web interna que reemplaza el reporte diario en Excel por un portal donde cada supervisor ve únicamente a su equipo, con semáforos de cumplimiento, cuentas por cobrar y seguimiento de concursos."
+description: "Aplicación web interna para la fuerza de ventas de Febeca que reemplaza el reporte diario en Excel por un portal donde cada supervisor ve solo a su equipo, con semáforos de cumplimiento, concursos y cuentas por cobrar."
 stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "PostgreSQL", "Netlify"]
 cover: ../../../assets/covers/supervisor-portal.webp
 featured: true
@@ -10,8 +10,9 @@ order: 1
 date: 2026-04-20
 ---
 
-Portal interno para la fuerza de ventas de **Febeca**. Lo abren a diario diez supervisores,
-tres gerentes y el equipo de administración de ventas.
+Portal web interno para los supervisores de ventas de **Febeca**, distribuidora mayorista
+de ferretería. Reúne en un solo sitio lo que cada supervisor necesita para seguir a su
+equipo a lo largo del mes.
 
 ## El problema
 

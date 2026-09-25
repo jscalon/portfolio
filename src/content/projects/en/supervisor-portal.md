@@ -1,7 +1,7 @@
 ---
 lang: en
 title: "Sales Supervisor Portal"
-description: "Internal web application that replaces the daily Excel report with a portal where each supervisor sees only their own team, with performance traffic lights, accounts receivable and sales contest tracking."
+description: "Internal web application for Febeca's sales force that replaces the daily Excel report with a portal where each supervisor sees only their own team, with performance traffic lights, sales contests and accounts receivable."
 stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "PostgreSQL", "Netlify"]
 cover: ../../../assets/covers/supervisor-portal.webp
 featured: true
@@ -10,8 +10,9 @@ order: 1
 date: 2026-04-20
 ---
 
-Internal portal for the sales force at **Febeca**. It is opened every day by ten
-supervisors, three managers and the sales administration team.
+Internal web portal for the sales supervisors at **Febeca**, a wholesale hardware
+distributor. It brings together in one place what each supervisor needs to follow their
+team through the month.
 
 ## The problem
 

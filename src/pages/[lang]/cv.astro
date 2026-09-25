@@ -218,38 +218,48 @@ const contactRow =
         )
       }
 
-      <!-- Skills -->
-      <section class="cv-section">
-        <h2 class={sectionTitle}>{t("about.skills")}</h2>
-        <ul class="mt-2 space-y-1">
-          {
-            skills.map((group) => (
-              <li class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-                <span class="font-semibold">{group.label[lang]}:</span>{" "}
-                {group.items.join(" · ")}
-              </li>
-            ))
-          }
-        </ul>
-      </section>
+      <!-- Skills and languages side by side. Stacked, the languages section was
+           the part that spilled onto a second page; next to the skills it costs
+           no height at all, since the skills column is the taller one. The left
+           column sizes to its content, so no skill group wraps, and each language
+           takes its own line so the right column stays narrow. The "last updated"
+           stamp sits at the foot of that column, in the space the languages leave
+           free, rather than on a line of its own below the block. -->
+      <div class="cv-section sm:grid sm:grid-cols-[auto_1fr] sm:gap-x-16">
+        <section class="sm:row-span-2">
+          <h2 class={sectionTitle}>{t("about.skills")}</h2>
+          <ul class="mt-2 space-y-1">
+            {
+              skills.map((group) => (
+                <li class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  <span class="font-semibold">{group.label[lang]}:</span>{" "}
+                  {group.items.join(" · ")}
+                </li>
+              ))
+            }
+          </ul>
+        </section>
 
-      <!-- Languages -->
-      <section class="cv-section">
-        <h2 class={sectionTitle}>{t("cv.languages")}</h2>
-        <p class="mt-2 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-          {
-            spokenLanguages
-              .map((l) => `${l.name[lang]} — ${l.level[lang]}`)
-              .join(" · ")
-          }
+        <section class="mt-6 sm:mt-0">
+          <h2 class={sectionTitle}>{t("cv.languages")}</h2>
+          <ul class="mt-2 space-y-1">
+            {
+              spokenLanguages.map((l) => (
+                <li class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  <span class="font-semibold">{l.name[lang]}:</span>{" "}
+                  {l.level[lang]}
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <p
+          class="cv-updated mt-8 text-right text-xs text-slate-400 sm:mt-0 sm:self-end dark:text-slate-500"
+        >
+          {t("cv.updated")}: {updated}
         </p>
-      </section>
-
-      <p
-        class="cv-updated mt-8 text-right text-xs text-slate-400 dark:text-slate-500"
-      >
-        {t("cv.updated")}: {updated}
-      </p>
+      </div>
     </article>
   </div>
 </BaseLayout>
@@ -366,7 +376,6 @@ const contactRow =
     }
 
     .cv-sheet .cv-updated {
-      margin-top: 10pt !important;
       font-size: 8pt !important;
       color: #8a8a8a !important;
     }
