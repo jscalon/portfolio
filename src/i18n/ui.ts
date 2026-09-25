@@ -52,7 +52,7 @@ export const ui = {
     "projects.stack": "Stack",
     "projects.empty": "Pronto habrá proyectos aquí.",
 
-    "contact.title": "¿Hablamos?",
+    "contact.title": "Hablemos",
     "contact.subtitle":
       "Disponible para nuevas oportunidades y colaboraciones.",
     "contact.form.name": "Nombre",
