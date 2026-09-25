@@ -69,6 +69,9 @@ body {
 .prose p > img {
   border-radius: 0.75rem;
   border: 1px solid var(--color-slate-200);
+  /* A screenshot narrower than the column (a phone capture) sits centred rather
+     than flush left. Full-width images are unaffected. */
+  margin-inline: auto;
 }
 
 .dark .prose p > img {
