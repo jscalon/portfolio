@@ -455,6 +455,9 @@ a fact.
   and the approach, no real figures, names, brands or internal data — and screenshots only
   from sample data (the portal repo has a `pnpm demo` mode for that; `pnpm demo admin`
   for Reclamos).
+- **Cotizador Mayoreo** (slug `quoting-tool`) is the group-wide quoting tool, built while
+  at Febeca for all the Mayoreo Group companies — name the group, not just Febeca. Same
+  confidentiality rules; its repo has its own `pnpm demo` mode for screenshots.
 - **Febeca cases stay off the home grid and the CV, except the portal.** The home shows
   three featured projects in a three-column grid, and the CV has no room left; the apps
   inside the portal are `featured: false` and `cv: false`, and on paper they are
