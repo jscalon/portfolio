@@ -49,6 +49,13 @@ vendedor lleva el 40% de su meta no dice nada por sí solo: el día 10 va adelan
 28 va mal. Cada indicador se compara con la fracción del mes que ya pasó, así que la
 pantalla responde *¿vamos bien?* en lugar de *¿cuánto llevamos?*.
 
+**Cada tabla deja elegir qué filas mostrar**, como una tabla dinámica. El dashboard agrupa
+a los asesores bajo su supervisor, y en ese árbol cada asesor solo se compara con los de su
+equipo. Al quitar el nivel de supervisor quedan todos los asesores en una sola lista, que se
+ordena entera: el ranking nacional sale de la misma pantalla. Las cifras de cada fila se
+calculan desde los datos de origen, no sumando las filas de abajo, así que un asesor mide lo
+mismo agrupado o suelto, y los promedios no se distorsionan.
+
 ### Los datos no llegan listos
 
 Ninguna de las fuentes se puede mostrar tal como viene. Son reportes pensados para otra
@@ -86,7 +93,7 @@ seguir sumando secciones como lo ha hecho desde el principio.
 ## Mi rol
 
 Soy el **único desarrollador** del proyecto: diseño de interfaz, frontend, modelo de datos
-y despliegue. Cerca de 14.000 líneas de TypeScript en cinco meses, y sigue creciendo.
+y despliegue. Cerca de 15.000 líneas de TypeScript en casi seis meses, y sigue creciendo.
 
 - **Frontend:** Next.js con App Router, TypeScript y Tailwind CSS, con prioridad de diseño
   móvil: los supervisores también lo abren desde el escritorio, pero sobre todo lo consultan
@@ -121,7 +128,7 @@ los asesores entre sí, bajando por una columna.*
 
 ## Estado del proyecto
 
-En producción y en uso diario desde hace cinco meses, con desarrollo activo. Lo usan los
+En producción y en uso diario desde abril de 2026, con desarrollo activo. Lo usan los
 diez supervisores, la gerencia comercial y las cinco personas de administración de ventas.
 
 Es una herramienta interna: está desplegada en la web y su código vive en un repositorio de

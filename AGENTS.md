@@ -441,10 +441,17 @@ a fact.
 
 ## Roadmap / pending
 
-- **More real project case studies** — ServiFrescos, Botinfy and this site so far.
-  The gap is the current Febeca work, which the experience section claims and the
-  projects section does not show. Anonymize: describe the problem and the approach
-  without real figures or screenshots of internal data.
+- **More Febeca case studies.** The sales supervisor portal and *Cliente Retira* (pickup
+  order tracking, which lives inside the portal) are in. *Reclamos* (customer returns) is
+  next, once it leaves development: it also lives inside the portal and gets a case of its
+  own. The portal case deliberately does not mention the apps inside it. Same rules for
+  all of them: anonymize — the problem and the approach, no real figures, names or
+  internal data — and screenshots only from sample data (the portal repo has a
+  `pnpm demo` mode for that).
+- **Febeca cases stay off the home grid and the CV, except the portal.** The home shows
+  three featured projects in a three-column grid, and the CV has no room left; the apps
+  inside the portal are `featured: false` and `cv: false`, and on paper they are
+  already covered by the portal entry.
 - **After Febeca, not before:** a blog / notes section, and per-project OG images.
   Both are wanted eventually; neither earns attention while the projects section is
   still missing the current work.

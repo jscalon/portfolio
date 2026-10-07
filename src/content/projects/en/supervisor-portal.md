@@ -50,6 +50,13 @@ the 28th they are in trouble. Each indicator is compared with the share of the m
 has already gone by, so the screen answers *are we on track?* instead of *how much have we
 done?*.
 
+**Every table lets you choose which rows to show**, like a pivot table. The dashboard groups
+sales reps under their supervisor, and in that tree each rep is only compared with their own
+team. Remove the supervisor level and every rep lands in a single list that sorts as a
+whole: the national ranking comes out of the same screen. Each row's figures are computed
+from the source data rather than by adding up the rows below it, so a rep measures the same
+grouped or on their own, and averages are not distorted.
+
 ### The data does not arrive ready
 
 None of the sources can be shown as they come. They are reports built for something else:
@@ -85,7 +92,7 @@ keep adding sections the way it has from the start.
 ## My role
 
 I am the **sole developer** on the project: interface design, frontend, data model and
-deployment. Around 14,000 lines of TypeScript in five months, and still growing.
+deployment. Around 15,000 lines of TypeScript in almost six months, and still growing.
 
 - **Frontend:** Next.js with the App Router, TypeScript and Tailwind CSS, designed mobile
   first: supervisors also open it on a desktop, but they mostly check it on their phones.
@@ -116,7 +123,7 @@ comparing reps with one another by reading down a column.*
 
 ## Project status
 
-In production and in daily use for five months, with active development. It is used by the
+In production and in daily use since April 2026, with active development. It is used by the
 ten supervisors, sales management and the five people in sales administration.
 
 It is an internal tool: it is deployed on the web and its code lives in a GitHub
