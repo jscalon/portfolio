@@ -441,10 +441,13 @@ a fact.
 
 ## Roadmap / pending
 
-- **More Febeca case studies.** The sales supervisor portal and *Cliente Retira* (pickup
-  order tracking, which lives inside the portal) are in. *Reclamos* (customer returns) is
-  next, once it leaves development: it also lives inside the portal and gets a case of its
-  own. The portal case deliberately does not mention the apps inside it. Same rules for
+- **More Febeca case studies.** Juan left Febeca in October 2026, so everything about it
+  is written in the past as far as his work goes ("Fui el único desarrollador"), while the
+  applications themselves are described in the present — they are still in use. The sales
+  supervisor portal and *Cliente Retira* (pickup order tracking, which lives inside the
+  portal) are in. *Reclamos* (customer returns) is the one left: it also lives inside the
+  portal and gets a case of its own, written from the state it had reached by October 2026,
+  when it was still in development. The portal case deliberately does not mention the apps inside it. Same rules for
   all of them: anonymize — the problem and the approach, no real figures, names or
   internal data — and screenshots only from sample data (the portal repo has a
   `pnpm demo` mode for that).
@@ -454,7 +457,7 @@ a fact.
   already covered by the portal entry.
 - **After Febeca, not before:** a blog / notes section, and per-project OG images.
   Both are wanted eventually; neither earns attention while the projects section is
-  still missing the current work.
+  still missing Reclamos.
 
 **Decided against — a downloadable `.pdf` of the CV committed to `public/`.** The only case
 it serves is a job portal that demands a file upload and will not take a URL, and that case

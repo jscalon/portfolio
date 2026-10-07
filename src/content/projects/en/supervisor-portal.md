@@ -79,20 +79,19 @@ be announced there, mixed in with the supervisors' daily conversation, so findin
 term meant digging through the chat and trusting that nobody had changed it afterwards. Now
 they live in one place, sorted by brand, and are looked up instead of remembered.
 
-### Seven sections, for now
+### Seven sections, one at a time
 
 The portal was not born with these seven sections. It started in April with the Dashboard
 alone and grew as needs appeared: Brands and Announcements were added in May; Accounts
 receivable in June; Active terms in July; Paint in August; and Line items in September.
 
-None of them was part of an initial plan: each one came in when it was needed. Today's list
-is not the final one, just the one so far. Development is still active, and the portal will
-keep adding sections the way it has from the start.
+None of them was part of an initial plan: each one came in when it was needed, at a pace of
+almost one a month, while the ones already in use kept being looked after.
 
 ## My role
 
-I am the **sole developer** on the project: interface design, frontend, data model and
-deployment. Around 15,000 lines of TypeScript in almost six months, and still growing.
+I was the **sole developer** on the project: I designed the interface and handled the
+frontend, data model and deployment. Around 15,000 lines of TypeScript in almost six months.
 
 - **Frontend:** Next.js with the App Router, TypeScript and Tailwind CSS, designed mobile
   first: supervisors also open it on a desktop, but they mostly check it on their phones.
@@ -123,16 +122,16 @@ comparing reps with one another by reading down a column.*
 
 ## Project status
 
-In production and in daily use since April 2026, with active development. It is used by the
-ten supervisors, sales management and the five people in sales administration.
+In production and in daily use since April 2026. It is used by the ten supervisors, sales
+management and the five people in sales administration.
 
 It is an internal tool: it is deployed on the web and its code lives in a GitHub
 repository, but out of confidentiality to the company this case does not link to the site
 or to the code. For the same reason, the screenshots use sample data.
 
 Data loading is **manual and daily**, and it is worth being precise about how far that goes.
-Direct API access to the ERP is not available to the department, so every day I extract the
-reports and load them.
+Direct API access to the ERP is not available to the department, so the reports are
+extracted and loaded every day.
 
 That is where the manual part ends. The files go in **exactly as they come out of the
 system**: they are not edited, reordered or formatted. All the cleaning, the joins between

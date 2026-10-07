@@ -52,8 +52,8 @@ export const experience: ExperienceItem[] = [
     },
     company: "Febeca",
     period: {
-      es: "Abril 2026 — Actualidad",
-      en: "April 2026 — Present",
+      es: "Abril 2026 — Octubre 2026",
+      en: "April 2026 — October 2026",
     },
     description: {
       es: "Desarrollo de aplicaciones para el análisis estadístico de los datos de ventas de la empresa, cálculo de presupuestos, cotizaciones y automatización de tareas.",

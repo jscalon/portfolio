@@ -79,21 +79,20 @@ encontrar una condición concreta era rebuscar en el chat y confiar en que nadie
 cambiado después. Ahora están en un solo sitio, ordenadas por marca, y se consultan en vez
 de recordarse.
 
-### Siete secciones, por ahora
+### Siete secciones, una a la vez
 
 El portal no nació con estas siete secciones. Empezó en abril solo con el Dashboard y fue
 creciendo a medida que aparecían necesidades: en mayo se sumaron Marcas y Anuncios; en
 junio, Avalúo; en julio, Condiciones activas; en agosto, Pinturas, y en septiembre,
 Renglones.
 
-Ninguna estaba en un plan inicial: cada una entró cuando hizo falta. La lista de hoy no es
-la definitiva, sino la que hay hasta ahora. El desarrollo sigue activo, y el portal va a
-seguir sumando secciones como lo ha hecho desde el principio.
+Ninguna estaba en un plan inicial: cada una entró cuando hizo falta, a un ritmo de casi una
+por mes, sin dejar de atender las que ya estaban en uso.
 
 ## Mi rol
 
-Soy el **único desarrollador** del proyecto: diseño de interfaz, frontend, modelo de datos
-y despliegue. Cerca de 15.000 líneas de TypeScript en casi seis meses, y sigue creciendo.
+Fui el **único desarrollador** del proyecto: diseñé la interfaz y me encargué del frontend,
+el modelo de datos y el despliegue. Cerca de 15.000 líneas de TypeScript en casi seis meses.
 
 - **Frontend:** Next.js con App Router, TypeScript y Tailwind CSS, con prioridad de diseño
   móvil: los supervisores también lo abren desde el escritorio, pero sobre todo lo consultan
@@ -128,16 +127,16 @@ los asesores entre sí, bajando por una columna.*
 
 ## Estado del proyecto
 
-En producción y en uso diario desde abril de 2026, con desarrollo activo. Lo usan los
-diez supervisores, la gerencia comercial y las cinco personas de administración de ventas.
+En producción y en uso diario desde abril de 2026. Lo usan los diez supervisores, la
+gerencia comercial y las cinco personas de administración de ventas.
 
 Es una herramienta interna: está desplegada en la web y su código vive en un repositorio de
 GitHub, pero por confidencialidad de la empresa este caso no incluye enlaces ni al sitio ni
 al código. Por la misma razón, las capturas usan datos de ejemplo.
 
 La carga de datos es **manual y diaria**, y vale la pena precisar hasta dónde. El acceso
-directo al ERP por API no está disponible para el departamento, así que cada día extraigo
-los reportes y los cargo.
+directo al ERP por API no está disponible para el departamento, así que cada día se
+extraen los reportes y se cargan.
 
 Ahí termina lo manual. Los archivos entran **tal como salen del sistema**: no se editan, no
 se reordenan, no se les da formato. Toda la limpieza, el cruce entre fuentes, los cálculos
