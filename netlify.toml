@@ -19,3 +19,10 @@
   to = "/es/"
   status = 302
   force = true
+
+# Case studies renamed to English slugs, like every other file in the repo.
+# The old URLs had already been published, so they keep working.
+[[redirects]]
+  from = "/:lang/projects/cliente-retira/"
+  to = "/:lang/projects/pickup-orders/"
+  status = 301

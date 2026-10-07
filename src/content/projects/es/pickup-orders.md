@@ -3,7 +3,7 @@ lang: es
 title: "Cliente Retira — seguimiento de pedidos por retirar"
 description: "Aplicación web interna de Febeca para registrar los pedidos que el cliente retira en la sede y seguir, pedido por pedido, cuánto plazo le queda antes de vencer."
 stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Netlify"]
-cover: ../../../assets/covers/cliente-retira.webp
+cover: ../../../assets/covers/pickup-orders.webp
 featured: false
 cv: false
 order: 2
@@ -58,7 +58,7 @@ y en su lugar se muestra su ficha, con la zona, el asesor y el supervisor. Un c�
 tecleado no puede colarse, porque nunca se da por bueno un cliente que el usuario no vio
 con su nombre al lado.
 
-![Formulario de registro en el teléfono, con el cliente ya elegido y su ficha a la vista](../../../assets/cliente-retira/registro.webp)
+![Formulario de registro en el teléfono, con el cliente ya elegido y su ficha a la vista](../../../assets/pickup-orders/register-mobile.webp)
 
 *El registro, con datos de ejemplo. Una vez elegido el cliente, el buscador da paso a su
 ficha: quien registra confirma la zona, el asesor y el supervisor antes de guardar.*
@@ -81,7 +81,7 @@ frontend, el modelo de datos, los permisos y el despliegue.
 - **Plazos:** el cálculo de días hábiles y del instante exacto de vencimiento, que es el
   final del tercer día hábil y no una hora de oficina.
 
-![Seguimiento en el teléfono: filtros, barra de selección y la primera tarjeta, con el tiempo restante como primer dato](../../../assets/cliente-retira/seguimiento-mobile.webp)
+![Seguimiento en el teléfono: filtros, barra de selección y la primera tarjeta, con el tiempo restante como primer dato](../../../assets/pickup-orders/tracking-mobile.webp)
 
 *El seguimiento en el teléfono. Cada pedido es una tarjeta que abre con el tiempo
 restante, porque es lo primero que hay que saber de él.*

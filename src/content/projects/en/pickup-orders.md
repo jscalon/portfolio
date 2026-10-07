@@ -3,7 +3,7 @@ lang: en
 title: "Cliente Retira — Pickup Order Tracking"
 description: "Internal web application for Febeca to record the orders customers collect in person and track, order by order, how much time is left before each one expires."
 stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Netlify"]
-cover: ../../../assets/covers/cliente-retira.webp
+cover: ../../../assets/covers/pickup-orders.webp
 featured: false
 cv: false
 order: 2
@@ -58,7 +58,7 @@ and its card takes the field's place, showing the zone, the rep and the supervis
 mistyped code cannot slip through, because a customer the user never saw with its name
 beside it is never taken as valid.
 
-![Registration form on the phone, with the customer already picked and its card in view](../../../assets/cliente-retira/registro.webp)
+![Registration form on the phone, with the customer already picked and its card in view](../../../assets/pickup-orders/register-mobile.webp)
 
 *Registration, with sample data. Once the customer is picked, the search field gives way to
 its card: whoever registers checks the zone, the rep and the supervisor before saving.*
@@ -82,7 +82,7 @@ frontend, data model, permissions and deployment.
 - **Deadlines:** the business-day calculation and the exact moment an order expires, which
   is the end of the third business day rather than an office hour.
 
-![Tracking on the phone: filters, the selection bar and the first card, with time remaining as its first line](../../../assets/cliente-retira/seguimiento-mobile.webp)
+![Tracking on the phone: filters, the selection bar and the first card, with time remaining as its first line](../../../assets/pickup-orders/tracking-mobile.webp)
 
 *Tracking on the phone. Each order is a card that opens with the time remaining, because it
 is the first thing to know about it.*

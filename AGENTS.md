@@ -441,23 +441,26 @@ a fact.
 
 ## Roadmap / pending
 
-- **More Febeca case studies.** Juan left Febeca in October 2026, so everything about it
-  is written in the past as far as his work goes ("Fui el único desarrollador"), while the
-  applications themselves are described in the present — they are still in use. The sales
-  supervisor portal and *Cliente Retira* (pickup order tracking, which lives inside the
-  portal) are in. *Reclamos* (customer returns) is the one left: it also lives inside the
-  portal and gets a case of its own, written from the state it had reached by October 2026,
-  when it was still in development. The portal case deliberately does not mention the apps inside it. Same rules for
-  all of them: anonymize — the problem and the approach, no real figures, names or
-  internal data — and screenshots only from sample data (the portal repo has a
-  `pnpm demo` mode for that).
+- **Febeca case studies — all three are in.** Juan left Febeca in October 2026, so
+  everything about it is written in the past as far as his work goes ("Fui el único
+  desarrollador"), while the applications themselves are described in the present. The
+  sales supervisor portal, *Cliente Retira* (pickup order tracking, slug `pickup-orders`)
+  and *Reclamos* (customer return claims, slug `returns-portal`) are in — slugs and asset
+  names in English like every file name in the repo, with `netlify.toml` redirecting the
+  old `cliente-retira` URL, which had been published. The last two live inside the portal
+  and each has its own
+  case, which the portal case deliberately does not mention. *Reclamos* never reached
+  production — Juan left just before launch, with only users and the approver list left to
+  load — and its case says so plainly. Same rules for all of them: anonymize — the problem
+  and the approach, no real figures, names, brands or internal data — and screenshots only
+  from sample data (the portal repo has a `pnpm demo` mode for that; `pnpm demo admin`
+  for Reclamos).
 - **Febeca cases stay off the home grid and the CV, except the portal.** The home shows
   three featured projects in a three-column grid, and the CV has no room left; the apps
   inside the portal are `featured: false` and `cv: false`, and on paper they are
   already covered by the portal entry.
-- **After Febeca, not before:** a blog / notes section, and per-project OG images.
-  Both are wanted eventually; neither earns attention while the projects section is
-  still missing Reclamos.
+- **Next, now that the Febeca cases are done:** a blog / notes section, and per-project OG
+  images. Both were held back until the projects section covered the Febeca work.
 
 **Decided against — a downloadable `.pdf` of the CV committed to `public/`.** The only case
 it serves is a job portal that demands a file upload and will not take a URL, and that case
