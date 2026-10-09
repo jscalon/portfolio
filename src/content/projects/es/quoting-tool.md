@@ -115,8 +115,9 @@ departamento de sistemas y que devuelven los datos del ERP.
 
 ## Estado del proyecto
 
-En producción desde junio de 2026. Arrancó con Febeca y, una a una, se fueron sumando las
-otras cuatro empresas del grupo; las cinco lo usan a diario.
+En producción desde junio de 2026. Arrancó con Febeca, y a la gerencia le gustó tanto el
+resultado que decidió llevarlo al resto del grupo: una a una se fueron sumando las otras
+cuatro empresas, y las cinco lo usan a diario.
 
 Es una herramienta interna: está desplegada en la web y su código vive en un repositorio de
 GitHub, pero por confidencialidad de la empresa este caso no incluye enlaces ni al sitio ni

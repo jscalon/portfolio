@@ -112,8 +112,9 @@ return the data from the ERP.
 
 ## Project status
 
-In production since June 2026. It launched with Febeca and the other four group companies
-joined one by one; all five use it daily.
+In production since June 2026. It launched with Febeca, and management liked the result so
+much that it decided to take it to the rest of the group: the other four companies joined one
+by one, and all five use it daily.
 
 It is an internal tool: it is deployed on the web and its code lives in a GitHub repository,
 but out of confidentiality to the company this case does not link to the site or to the code.
