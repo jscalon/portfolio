@@ -465,6 +465,12 @@ a fact.
   Febeca-branded scorecards for an invented sales force, with weights and bands that differ from
   the real ones on purpose (those are internal criteria); the screenshots use Juan's own name
   and photo in place of a sales rep (`pnpm demo --nombre … --foto …`).
+- **Boletas de Clientes** (slug `customer-scorecards`, repo `boleta-clientes`) is the yearly
+  purchase report sent to each customer. It was fully ready for approval and sending when Juan
+  left, and its case says so. Its `pnpm demo` writes an invented purchase spreadsheet (customers,
+  brands and products) and runs the real pipeline on it. Two versions coexist: the simple one on
+  `main` and the extended one (categories, orders, savings) on the `version-completa` branch,
+  each with its own `pnpm demo`; the screenshots come from the extended one.
 - **Febeca cases stay off the home grid and the CV, except the portal.** The home shows
   three featured projects in a three-column grid, and the CV has no room left; the apps
   inside the portal are `featured: false` and `cv: false`, and on paper they are
