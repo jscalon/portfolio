@@ -1,6 +1,6 @@
 ---
 lang: en
-title: "Cotizador Mayoreo — Real-Time Price-Floor Quoting"
+title: "Mayoreo Quoting Tool — Every Quote Checked Against the Price Floor"
 description: "Quoting web application for the five Mayoreo Group companies: multi-product quotes with discounts, freight and real-time validation against the minimum price, exportable to PDF, Excel or text."
 stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "PostgreSQL", "Google Cloud", "Vercel"]
 cover: ../../../assets/covers/quoting-tool.webp

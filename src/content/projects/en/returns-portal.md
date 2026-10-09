@@ -1,6 +1,6 @@
 ---
 lang: en
-title: "Reclamos — Customer Return Claims"
+title: "Returns Portal — Customer Return Claims"
 description: "Internal web application for Febeca to record customer claims with their evidence and route each item, by reason, to the department that decides whether the return goes ahead."
 stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Netlify"]
 cover: ../../../assets/covers/returns-portal.webp
@@ -12,7 +12,7 @@ date: 2026-09-23
 
 Internal web application at **Febeca** for handling the claims customers raise to request a
 return. It lives inside the [sales supervisor portal](/en/projects/supervisor-portal/), like
-[Cliente Retira](/en/projects/pickup-orders/), and shares its users and sign-in.
+[pickup order tracking](/en/projects/pickup-orders/), and shares its users and sign-in.
 
 ## The problem
 

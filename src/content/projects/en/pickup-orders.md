@@ -1,6 +1,6 @@
 ---
 lang: en
-title: "Cliente Retira — Pickup Order Tracking"
+title: "Pickup Orders — Tracking Orders Awaiting Collection"
 description: "Internal web application for Febeca to record the orders customers collect in person and track, order by order, how much time is left before each one expires."
 stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Netlify"]
 cover: ../../../assets/covers/pickup-orders.webp
@@ -17,8 +17,8 @@ comes from elsewhere, and this one creates it.
 
 ## The problem
 
-*Cliente retira* ("customer pickup") is what the company calls orders the customer collects
-instead of having them delivered, as most are. Once invoiced, the customer has **three
+Pickup orders are the ones the customer collects in person instead of having them delivered,
+as most are. Once invoiced, the customer has **three
 business days** to pick the order up.
 
 Before, there was no tracking at all. Orders were invoiced, and neither the sales rep nor
