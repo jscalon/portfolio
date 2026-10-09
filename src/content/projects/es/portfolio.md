@@ -8,7 +8,7 @@ repoUrl: https://github.com/jscalon/portfolio
 liveUrl: https://jscalon.dev
 featured: false
 cv: false
-order: 8
+order: 9
 date: 2026-06-27
 ---
 
