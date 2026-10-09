@@ -6,7 +6,7 @@ stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Netl
 cover: ../../../assets/covers/pickup-orders.webp
 featured: false
 cv: false
-order: 2
+order: 5
 date: 2026-05-29
 ---
 

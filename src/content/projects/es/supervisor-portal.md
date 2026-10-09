@@ -6,7 +6,7 @@ stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "PostgreSQL", "Netl
 cover: ../../../assets/covers/supervisor-portal.webp
 featured: true
 cv: true
-order: 1
+order: 2
 date: 2026-04-20
 ---
 

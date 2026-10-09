@@ -441,7 +441,7 @@ a fact.
 
 ## Roadmap / pending
 
-- **Febeca case studies — all three are in.** Juan left Febeca in October 2026, so
+- **Febeca case studies — all of them are in.** Juan left Febeca in October 2026, so
   everything about it is written in the past as far as his work goes ("Fui el único
   desarrollador"), while the applications themselves are described in the present. The
   sales supervisor portal, *Cliente Retira* (pickup order tracking, slug `pickup-orders`)
@@ -471,10 +471,14 @@ a fact.
   brands and products) and runs the real pipeline on it. Two versions coexist: the simple one on
   `main` and the extended one (categories, orders, savings) on the `version-completa` branch,
   each with its own `pnpm demo`; the screenshots come from the extended one.
-- **Febeca cases stay off the home grid and the CV, except the portal.** The home shows
-  three featured projects in a three-column grid, and the CV has no room left; the apps
-  inside the portal are `featured: false` and `cv: false`, and on paper they are
-  already covered by the portal entry.
+- **Project order and the home grid.** The home shows three featured projects in a
+  three-column grid: the Cotizador (group-wide impact), the portal (largest, and the one on the
+  CV) and the forecaster (a different skill — data modelling — next to two management apps).
+  The full list goes: what is in real use and has the widest reach first (Boletas de Gestión,
+  Cliente Retira), then what was finished but never shipped (Boletas de Clientes, Reclamos),
+  then pre-Febeca work (ServiFrescos, Botinfy) and this site last. Botinfy and ServiFrescos
+  left the home on purpose: the strongest work goes first. The CV is unchanged: of the Febeca
+  cases only the portal is `cv: true`, since it already covers that job on paper.
 - **Next, now that the Febeca cases are done:** a blog / notes section, and per-project OG
   images. Both were held back until the projects section covered the Febeca work.
 

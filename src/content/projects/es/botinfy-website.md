@@ -5,8 +5,8 @@ description: "Rediseño y desarrollo del sitio web oficial de Botinfy, una empre
 stack: ["Next.js", "TypeScript", "Tailwind CSS", "GSAP", "Figma"]
 cover: ../../../assets/covers/botinfy.webp
 liveUrl: https://botinfy.com
-featured: true
-order: 8
+featured: false
+order: 9
 date: 2026-04-01
 ---
 

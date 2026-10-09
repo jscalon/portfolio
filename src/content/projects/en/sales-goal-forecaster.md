@@ -4,9 +4,9 @@ title: "Sales Forecast — Data-Driven Goals, Not Guesswork"
 description: "Web application for Febeca that forecasts each salesperson's sales with a trend-and-seasonality model, reconciles them with management's budget and splits them into goals by brand, item and customer."
 stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "Chart.js", "PostgreSQL", "Vercel"]
 cover: ../../../assets/covers/sales-goal-forecaster.webp
-featured: false
+featured: true
 cv: false
-order: 5
+order: 3
 date: 2026-07-23
 ---
 

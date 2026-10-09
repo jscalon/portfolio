@@ -4,9 +4,9 @@ title: "Pronóstico de Ventas — metas basadas en datos, no en intuición"
 description: "Aplicación web de Febeca que proyecta la venta de cada vendedor con un modelo de tendencia y estacionalidad, la reconcilia con el presupuesto de gerencia y la reparte en metas por marca, artículo y cliente."
 stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "Chart.js", "PostgreSQL", "Vercel"]
 cover: ../../../assets/covers/sales-goal-forecaster.webp
-featured: false
+featured: true
 cv: false
-order: 5
+order: 3
 date: 2026-07-23
 ---
 

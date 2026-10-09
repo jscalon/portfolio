@@ -5,8 +5,8 @@ description: "Aplicación web que centraliza la gestión de productos, precios, 
 stack: ["React", "TypeScript", "Django REST Framework", "Docker", "SQL Server", "CSS", "Figma"]
 cover: ../../../assets/covers/servifrescos.webp
 repoUrl: https://github.com/jscalon/servifrescos
-featured: true
-order: 9
+featured: false
+order: 8
 date: 2026-02-01
 ---
 

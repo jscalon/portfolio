@@ -6,7 +6,7 @@ stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Netl
 cover: ../../../assets/covers/returns-portal.webp
 featured: false
 cv: false
-order: 3
+order: 7
 date: 2026-09-23
 ---
 

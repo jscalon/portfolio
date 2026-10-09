@@ -4,9 +4,9 @@ title: "Cotizador Mayoreo — cotizaciones con precio mínimo en tiempo real"
 description: "Aplicación web de cotización para las cinco empresas del Grupo Mayoreo: cotizaciones multiproducto con descuentos, flete y validación contra el precio mínimo en tiempo real, exportables a PDF, Excel o texto."
 stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "PostgreSQL", "Google Cloud", "Vercel"]
 cover: ../../../assets/covers/quoting-tool.webp
-featured: false
+featured: true
 cv: false
-order: 4
+order: 1
 date: 2026-06-15
 ---
 

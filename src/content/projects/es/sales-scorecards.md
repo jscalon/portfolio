@@ -6,7 +6,7 @@ stack: ["TypeScript", "Node.js", "Puppeteer", "Handlebars", "Zod", "Nodemailer"]
 cover: ../../../assets/covers/sales-scorecards.webp
 featured: false
 cv: false
-order: 6
+order: 4
 date: 2026-09-24
 ---
 
