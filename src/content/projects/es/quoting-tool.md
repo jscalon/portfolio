@@ -5,7 +5,7 @@ description: "Aplicación web de cotización para las cinco empresas del Grupo M
 stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "PostgreSQL", "Google Cloud", "Vercel"]
 cover: ../../../assets/covers/quoting-tool.webp
 featured: true
-cv: false
+cv: true
 order: 1
 date: 2026-06-15
 ---

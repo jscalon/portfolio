@@ -477,8 +477,12 @@ a fact.
   The full list goes: what is in real use and has the widest reach first (Boletas de Gestión,
   Cliente Retira), then what was finished but never shipped (Boletas de Clientes, Reclamos),
   then pre-Febeca work (ServiFrescos, Botinfy) and this site last. Botinfy and ServiFrescos
-  left the home on purpose: the strongest work goes first. The CV is unchanged: of the Febeca
-  cases only the portal is `cv: true`, since it already covers that job on paper.
+  left the home on purpose: the strongest work goes first.
+- **The CV carries the same three as the home** (`cv: true` on the Cotizador, the portal and
+  the forecaster; `false` on everything else). It stays a one-pager by choice: ten cases would
+  spill most of them onto a page few people open and dilute the best ones, and `jscalon.dev`
+  in the header leads to all of them. ServiFrescos and Botinfy left the CV as projects but the
+  work behind them is still there, as the Protinal and Botinfy experience entries.
 - **Next, now that the Febeca cases are done:** a blog / notes section, and per-project OG
   images. Both were held back until the projects section covered the Febeca work.
 

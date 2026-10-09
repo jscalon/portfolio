@@ -5,7 +5,7 @@ description: "Aplicación web de Febeca que proyecta la venta de cada vendedor c
 stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "Chart.js", "PostgreSQL", "Vercel"]
 cover: ../../../assets/covers/sales-goal-forecaster.webp
 featured: true
-cv: false
+cv: true
 order: 3
 date: 2026-07-23
 ---

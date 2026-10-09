@@ -6,6 +6,7 @@ stack: ["React", "TypeScript", "Django REST Framework", "Docker", "SQL Server", 
 cover: ../../../assets/covers/servifrescos.webp
 repoUrl: https://github.com/jscalon/servifrescos
 featured: false
+cv: false
 order: 8
 date: 2026-02-01
 ---

@@ -6,6 +6,7 @@ stack: ["Next.js", "TypeScript", "Tailwind CSS", "GSAP", "Figma"]
 cover: ../../../assets/covers/botinfy.webp
 liveUrl: https://botinfy.com
 featured: false
+cv: false
 order: 9
 date: 2026-04-01
 ---

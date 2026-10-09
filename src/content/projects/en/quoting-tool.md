@@ -5,7 +5,7 @@ description: "Quoting web application for the five Mayoreo Group companies: mult
 stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "PostgreSQL", "Google Cloud", "Vercel"]
 cover: ../../../assets/covers/quoting-tool.webp
 featured: true
-cv: false
+cv: true
 order: 1
 date: 2026-06-15
 ---
