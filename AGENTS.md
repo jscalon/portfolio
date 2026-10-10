@@ -494,8 +494,11 @@ a fact.
   spill most of them onto a page few people open and dilute the best ones, and `jscalon.dev`
   in the header leads to all of them. ServiFrescos and Botinfy left the CV as projects but the
   work behind them is still there, as the Protinal and Botinfy experience entries.
-- **Next, now that the Febeca cases are done:** a blog / notes section, and per-project OG
-  images. Both were held back until the projects section covered the Febeca work.
+- **Next:** the site is ready to share. What remains is off-site — Juan's GitHub profile
+  (README, pinned repos) and LinkedIn (headline and experience in line with the site) — plus,
+  optionally, a second, more informal photo for the `beyond-the-code` page (a different one
+  from the CV's; repeating it adds nothing). A blog / notes section is a long-term idea, not
+  a near one.
 
 **Decided against — a downloadable `.pdf` of the CV committed to `public/`.** The only case
 it serves is a job portal that demands a file upload and will not take a URL, and that case
@@ -509,8 +512,9 @@ Done (do not re-suggest): custom 404, contact form, `hreflang`, JSON-LD, scroll
 animations, OG image and the `pnpm og` script that regenerates it, project covers,
 profile photo, CV page, analytics, the Vitest suite wired into `pnpm build`, the wine
 palette (dark-mode background included), `theme-color`, skills as data-level groups,
-`aria-current` on the nav, the availability badge, screenshots inside case studies, and
-looping clips.
+`aria-current` on the nav, the availability badge, screenshots inside case studies,
+looping clips, per-project social images (a JPEG copy of each cover), and the
+`beyond-the-code` page.
 
 `theme-color` is in that list on purpose. The tags are emitted and correct, but Chrome and
 Firefox on Android ignore them, so nothing visible changes — it was kept as a correctness
