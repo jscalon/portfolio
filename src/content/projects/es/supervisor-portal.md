@@ -1,6 +1,6 @@
 ---
 lang: es
-title: "Portal de supervisores de ventas"
+title: "Portal de Supervisores — seguimiento diario de la fuerza de ventas"
 description: "Aplicación web interna para la fuerza de ventas de Febeca que reemplaza el reporte diario en Excel por un portal donde cada supervisor ve solo a su equipo, con semáforos de cumplimiento, concursos y cuentas por cobrar."
 stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "PostgreSQL", "Netlify"]
 cover: ../../../assets/covers/supervisor-portal.webp

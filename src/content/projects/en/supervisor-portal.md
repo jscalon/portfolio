@@ -1,6 +1,6 @@
 ---
 lang: en
-title: "Sales Supervisor Portal"
+title: "Supervisor Portal — Daily Tracking of the Sales Force"
 description: "Internal web application for Febeca's sales force that replaces the daily Excel report with a portal where each supervisor sees only their own team, with performance traffic lights, sales contests and accounts receivable."
 stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "PostgreSQL", "Netlify"]
 cover: ../../../assets/covers/supervisor-portal.webp

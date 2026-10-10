@@ -1,6 +1,6 @@
 ---
 lang: es
-title: "Sitio web corporativo de Botinfy"
+title: "Sitio Web Corporativo de Botinfy — a la altura de una empresa de software"
 description: "Rediseño y desarrollo del sitio web oficial de Botinfy, una empresa de desarrollo de software, para reemplazar una web obsoleta por una presencia moderna y profesional acorde al nivel que se espera del sector."
 stack: ["Next.js", "TypeScript", "Tailwind CSS", "GSAP", "Figma"]
 cover: ../../../assets/covers/botinfy.webp
