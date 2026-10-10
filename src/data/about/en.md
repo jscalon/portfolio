@@ -49,7 +49,7 @@ mathematics and physics: it is the same curiosity that led me to computing.
 ## <img src="/favicon.svg" alt="" aria-hidden="true" width="28" height="28" style="display:inline-block;height:1em;width:auto;margin:0 0.15em 0 0;vertical-align:-0.12em" /> Why "jscalon"?
 
 The name is put together like a small puzzle. The **j** is for Juan. **scalon** comes from
-Escalona, my second surname, minus its first and last letters. And the mix hides two nods to
+Escalona, my second surname. And the mix hides two nods to
 programming: **js**, the usual abbreviation for JavaScript, the language behind almost
 everything I build, and **scal**, as in *scale*, because good software has to be able to grow.
 And that is where the logo comes from, a staircase: in Spanish, *escalar* means both to scale

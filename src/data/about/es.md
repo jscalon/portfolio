@@ -50,7 +50,7 @@ matemáticas y física: es la misma curiosidad que me llevó a la computación.
 ## <img src="/favicon.svg" alt="" aria-hidden="true" width="28" height="28" style="display:inline-block;height:1em;width:auto;margin:0 0.15em 0 0;vertical-align:-0.12em" /> ¿Por qué "jscalon"?
 
 Es un nombre armado como un pequeño rompecabezas. La **j** es de Juan. **scalon** sale de
-Escalona, mi segundo apellido, sin su primera ni su última letra. Y en la mezcla aparecen dos
+Escalona, mi segundo apellido. Y en la mezcla aparecen dos
 guiños a la programación: **js**, como se abrevia JavaScript, el lenguaje sobre el que se apoya
 casi todo lo que construyo, y **scal**, de *escalar*, porque el buen software tiene que poder
 crecer. Y de ahí viene el logo, una escalera: escalar también significa subir, y así la
