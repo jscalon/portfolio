@@ -23,10 +23,12 @@ const schema = {
   "@type": "Person",
   name: profile.name,
   url: new URL(`/${lang}/`, siteUrl).href,
-  // No `image`. It used to be the portrait, which is what schema.org means by it, but
-  // LinkedIn reads this JSON-LD and prefers its image over `og:image`: the home's link
-  // preview showed a cropped headshot instead of the social card. How the link looks
-  // where it is shared matters far more here than a portrait in a search panel.
+  // The social card, not the portrait. schema.org reads `image` as a photo of the person,
+  // and it used to be the headshot — but LinkedIn takes its whole link preview from this
+  // JSON-LD when the page has one, ignoring the Open Graph tags: with the portrait the
+  // home's preview was a cropped headshot, and with no image it fell back to the largest
+  // <img> on the page, the same headshot. The card is what the preview is meant to show.
+  image: new URL("/og-image.png", siteUrl).href,
   jobTitle: t("hero.role"),
   description: bio[lang],
   email: `mailto:${profile.email}`,
