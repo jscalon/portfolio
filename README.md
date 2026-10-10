@@ -8,7 +8,7 @@ Tailwind CSS** y desplegado en Netlify.
 ```bash
 pnpm install
 pnpm dev       # http://localhost:4321  (abre /es/ o /en/)
-pnpm build     # astro check + build estático en dist/
+pnpm build     # pruebas + astro check + build estático en dist/
 pnpm preview   # sirve el build de dist/
 ```
 

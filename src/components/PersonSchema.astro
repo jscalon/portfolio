@@ -4,7 +4,6 @@ import profilePhoto from "../assets/profile.webp";
 import {
   profile,
   bio,
-  experience,
   education,
   skills,
   spokenLanguages,
@@ -12,14 +11,13 @@ import {
 
 /**
  * schema.org Person structured data (JSON-LD). Tells search engines who this
- * site is about — name, role, employer, skills and social profiles — so they
+ * site is about — name, role, education, skills and social profiles — so they
  * can show a richer result instead of guessing from the page text.
  */
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const siteUrl = Astro.site?.href ?? "https://jscalon.dev/";
-const currentJob = experience[0];
 
 const schema = {
   "@context": "https://schema.org",
@@ -38,9 +36,9 @@ const schema = {
     addressLocality: profile.location.city,
     addressCountry: profile.location.country,
   },
-  worksFor: currentJob
-    ? { "@type": "Organization", name: currentJob.company }
-    : undefined,
+  // No `worksFor`: it used to be the first experience entry, which kept telling search
+  // engines Juan still worked at Febeca after he left. Add it back only from a job that is
+  // actually current.
   alumniOf: education.map((item) => ({
     "@type": "CollegeOrUniversity",
     name: item.institution,

@@ -96,7 +96,7 @@ lang: es
 title: Nombre del Proyecto
 description: Una frase que resuma qué es y para qué sirve.
 stack: ["React", "TypeScript", "Node.js"]
-repoUrl: https://github.com/JuanGimenez7/mi-repo
+repoUrl: https://github.com/jscalon/mi-repo
 liveUrl: https://demo.ejemplo.com
 cover: ../../../assets/covers/mi-proyecto.webp
 featured: true
@@ -104,12 +104,15 @@ order: 1
 date: 2025-11-30
 ---
 
-Descripción larga en **Markdown**. Aquí puedes contar el problema, tu rol,
-decisiones técnicas, resultados, etc.
+Introducción: qué es y para quién, en uno o dos párrafos.
 
-## Lo que aprendí
-- Punto uno.
-- Punto dos.
+## El problema
+
+## La solución
+
+## Mi rol
+
+## Estado del proyecto
 ```
 
 ---

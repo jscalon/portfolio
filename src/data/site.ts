@@ -1,6 +1,6 @@
 import type { Lang } from "../i18n/ui";
 
-/** Personal / contact info shared across the site. EDIT ME with real data. */
+/** Personal and contact info, shared by the site, the CV and the structured data. */
 export const profile = {
   name: "Juan Giménez",
   email: "jscalondev@gmail.com",
@@ -37,13 +37,13 @@ export interface EducationItem {
   note?: LocalizedText;
 }
 
-/** Short bio shown in the About section. EDIT ME. */
+/** Bio: the About section on the site and the Profile on the CV (after the hero tagline). */
 export const bio: LocalizedText = {
   es: "He desarrollado al menos diez aplicaciones para uso empresarial, cinco de ellas en producción. Me gusta hacer las cosas con excelencia, resolver problemas reales y cuidar los detalles. Integro la IA de forma activa en mi flujo de trabajo como una herramienta más para desarrollar con mayor calidad y velocidad, además de automatizar tareas y procesos.",
   en: "I have built at least ten applications for business use, five of them in production. I like doing things with excellence, solving real problems and caring about the details. I actively integrate AI into my workflow as one more tool to build with greater quality and speed, as well as to automate tasks and processes.",
 };
 
-/** EDIT ME with your real experience. */
+/** Work experience, most recent first. */
 export const experience: ExperienceItem[] = [
   {
     role: {
@@ -86,7 +86,7 @@ export const experience: ExperienceItem[] = [
   },
 ];
 
-/** EDIT ME with your real education. */
+/** Education, most recent first. */
 export const education: EducationItem[] = [
   {
     title: {
