@@ -39,8 +39,8 @@ export interface EducationItem {
 
 /** Short bio shown in the About section. EDIT ME. */
 export const bio: LocalizedText = {
-  es: "Desarrollador de software apasionado por crear aplicaciones web funcionales, atractivas e intuitivas. Me gusta hacer las cosas con excelencia, resolver problemas reales y cuidar los detalles. Integro la IA de forma activa en mi flujo de trabajo como una herramienta más para desarrollar con mayor calidad y velocidad, además de automatizar tareas y procesos.",
-  en: "Software developer passionate about building functional, attractive and intuitive web applications. I like doing things with excellence, solving real problems and caring about the details. I actively integrate AI into my workflow as one more tool to build with greater quality and speed, as well as to automate tasks and processes.",
+  es: "He desarrollado al menos diez aplicaciones para uso empresarial, cinco de ellas en producción. Me gusta hacer las cosas con excelencia, resolver problemas reales y cuidar los detalles. Integro la IA de forma activa en mi flujo de trabajo como una herramienta más para desarrollar con mayor calidad y velocidad, además de automatizar tareas y procesos.",
+  en: "I have built at least ten applications for business use, five of them in production. I like doing things with excellence, solving real problems and caring about the details. I actively integrate AI into my workflow as one more tool to build with greater quality and speed, as well as to automate tasks and processes.",
 };
 
 /** EDIT ME with your real experience. */
@@ -56,8 +56,8 @@ export const experience: ExperienceItem[] = [
       en: "April 2026 — October 2026",
     },
     description: {
-      es: "Desarrollo de aplicaciones para el análisis estadístico de los datos de ventas de la empresa, cálculo de presupuestos, cotizaciones y automatización de tareas.",
-      en: "Development of applications for the statistical analysis of the company's sales data, budget and quote calculation, and task automation.",
+      es: "Desarrollador de siete aplicaciones internas para la fuerza de ventas —portal de supervisores, cotizador, pronóstico de metas y boletas de gestión, entre otras—, cinco de ellas en producción y dos adoptadas por todo el Grupo Mayoreo.",
+      en: "Developer of seven internal applications for the sales force — supervisor portal, quoting tool, sales goal forecasting and performance scorecards, among others — five of them in production and two adopted across the whole Mayoreo Group.",
     },
   },
   {

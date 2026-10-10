@@ -126,11 +126,13 @@ const contactRow =
         }
       </header>
 
-      <!-- Profile -->
+      <!-- Profile: the hero tagline followed by the bio. On the site they are two separate
+           blocks, one above the other; the CV has no hero, so without this the tagline would
+           never reach paper. It reads the same string, so editing the hero updates the CV. -->
       <section class="cv-section">
         <h2 class={sectionTitle}>{t("cv.profile")}</h2>
         <p class="mt-2 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-          {bio[lang]}
+          {t("hero.tagline")} {bio[lang]}
         </p>
       </section>
 
@@ -273,6 +275,13 @@ const contactRow =
 <style is:global>
   .cv-section {
     margin-top: 1.5rem;
+  }
+
+  /* Avoid widows: a lone last word ("Mayoreo.") on its own line reads as a layout slip on
+     paper. `pretty` rebalances only the last lines and never adds one; browsers without
+     support ignore it. */
+  .cv-sheet p {
+    text-wrap: pretty;
   }
 
   /* Print styles: clean single-column sheet, no site chrome. */

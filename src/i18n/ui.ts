@@ -21,7 +21,7 @@ export const ui = {
     "hero.role": "Desarrollador de Software",
     "hero.available": "Disponible para nuevas oportunidades",
     "hero.tagline":
-      "Construyo aplicaciones web rápidas, accesibles y bien diseñadas.",
+      "Me apasiona crear software funcional, atractivo e intuitivo, con un enfoque especial en automatizar procesos manuales y repetitivos.",
     "hero.cta.projects": "Ver proyectos",
     "hero.cta.cv": "Ver CV",
     "hero.cta.contact": "Contacto",
@@ -78,7 +78,7 @@ export const ui = {
     "hero.role": "Software Developer",
     "hero.available": "Available for new opportunities",
     "hero.tagline":
-      "I build fast, accessible and well-designed web applications.",
+      "I'm passionate about building functional, attractive and intuitive software, with a particular focus on automating manual, repetitive processes.",
     "hero.cta.projects": "View projects",
     "hero.cta.cv": "View CV",
     "hero.cta.contact": "Contact",
