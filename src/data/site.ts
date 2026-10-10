@@ -107,7 +107,7 @@ export const spokenLanguages: { name: LocalizedText; level: LocalizedText }[] = 
   },
   {
     name: { es: "Inglés", en: "English" },
-    level: { es: "Básico / Intermedio", en: "Basic / Intermediate" },
+    level: { es: "Intermedio (lectura fluida)", en: "Intermediate (fluent reading)" },
   },
 ];
 
