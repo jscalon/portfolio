@@ -31,8 +31,12 @@ const t = useTranslations(lang);
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImage = new URL(image, Astro.site);
-// Derived, not hardcoded: project pages share their .webp cover, not the .png OG.
-const socialImageType = image.endsWith(".webp") ? "image/webp" : "image/png";
+// Derived, not hardcoded: project pages share a JPEG copy of their cover, not the .png OG.
+const socialImageType = /\.jpe?g$/.test(image)
+  ? "image/jpeg"
+  : image.endsWith(".webp")
+    ? "image/webp"
+    : "image/png";
 // Home (no title) -> "Juan Giménez · Software Developer"; other pages -> "Projects · Juan Giménez".
 const fullTitle = title
   ? `${title} · ${profile.name}`

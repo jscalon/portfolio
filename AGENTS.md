@@ -169,6 +169,13 @@ string itself lives in `ui.ts` (`hero.available`) like every other UI label.
   after replacing the portrait; nothing in the build catches the drift. Its text
   stays in English in both locales ("AI", not "IA"), matching the skills list, since
   one card serves `/es/` and `/en/` alike.
+- **Project pages share a JPEG copy of their cover** as `og:image` (`getImage` with
+  `format: "jpg"` in the detail page), not the cover itself. The page serves AVIF/WebP,
+  but LinkedIn does not reliably render WebP previews, and a case link shared without its
+  image loses most of its pull. Do not "simplify" it back to `cover.src`.
+- **The home's meta description is role + hero tagline**, not the bio. Snippets and link
+  previews cut it at ~155 characters, and the bio is both longer and, since it opens with
+  an achievement rather than who you are, reads as a sentence picked up halfway.
 
 ### Animations
 

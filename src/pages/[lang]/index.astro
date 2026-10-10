@@ -26,9 +26,13 @@ const t = useTranslations(lang);
 const projects = await getProjectsByLang(lang);
 const featured = projects.filter((p) => p.data.featured);
 const cvHref = `/${lang}/cv`;
+// Search snippets and link previews show this, cut at ~155 characters. The bio was too long
+// for it and, since it no longer opens by saying who you are, read as a sentence picked up
+// halfway; role plus tagline is short and says it first.
+const description = `${t("hero.role")}. ${t("hero.tagline")}`;
 ---
 
-<BaseLayout description={bio[lang]}>
+<BaseLayout description={description}>
   <PersonSchema />
 
   <!-- Hero -->

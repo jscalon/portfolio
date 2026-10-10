@@ -1,5 +1,5 @@
 ---
-import { Picture } from "astro:assets";
+import { Picture, getImage } from "astro:assets";
 import { render } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { useTranslations } from "../../../i18n/utils";
@@ -34,13 +34,18 @@ const lang = Astro.params.lang as Lang;
 const t = useTranslations(lang);
 const { Content } = await render(project);
 const { title, description, stack, repoUrl, liveUrl, cover } = project.data;
+
+// The social card gets its own JPEG copy of the cover. The page itself serves AVIF/WebP, but
+// LinkedIn does not reliably render WebP previews, and a shared case link without its image
+// loses most of its pull. Same size as the cover, so the declared dimensions still match.
+const socialCover = cover ? await getImage({ src: cover, format: "jpg", quality: 85 }) : undefined;
 ---
 
 <BaseLayout
   title={title}
   description={description}
-  {...(cover
-    ? { image: cover.src, imageWidth: cover.width, imageHeight: cover.height }
+  {...(cover && socialCover
+    ? { image: socialCover.src, imageWidth: cover.width, imageHeight: cover.height }
     : {})}
 >
   <article class="reveal mx-auto max-w-3xl px-4 py-16 sm:px-6">
