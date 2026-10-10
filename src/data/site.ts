@@ -131,7 +131,7 @@ export const skills: SkillGroup[] = [
   },
   {
     label: { es: "Datos", en: "Data" },
-    items: ["SQL", "Supabase"],
+    items: ["SQL", "PostgreSQL", "SQL Server", "Supabase"],
   },
   {
     label: { es: "IA / Automatización", en: "AI / Automation" },
