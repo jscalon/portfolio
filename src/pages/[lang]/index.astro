@@ -196,12 +196,20 @@ const description = `${t("hero.role")}. ${t("hero.tagline")}`;
         </dl>
       </div>
 
-      <a
-        href={cvHref}
-        class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:text-brand-700 dark:text-brand-400"
-      >
-        {t("about.downloadCv")} &rarr;
-      </a>
+      <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+        <a
+          href={cvHref}
+          class="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:text-brand-700 dark:text-brand-400"
+        >
+          {t("about.downloadCv")} &rarr;
+        </a>
+        <a
+          href={`/${lang}/beyond-the-code`}
+          class="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:text-brand-700 dark:text-brand-400"
+        >
+          {t("about.more")} &rarr;
+        </a>
+      </div>
     </div>
   </section>
 

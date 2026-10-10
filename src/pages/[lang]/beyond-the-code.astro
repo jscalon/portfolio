@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { useTranslations } from "../../i18n/utils";
+import type { Lang } from "../../i18n/ui";
+import * as es from "../../data/about/es.md";
+import * as en from "../../data/about/en.md";
+
+/**
+ * "Beyond the code": who Juan is as a person, not only as a professional. It sits on its
+ * own page, linked from the About section and nowhere else (not the hero, not the CV), so
+ * whoever wants to know him better finds it and whoever is only screening skills is not
+ * slowed down. The text is long-form, so it lives in Markdown like the case studies.
+ */
+export function getStaticPaths() {
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const { Content } = lang === "es" ? es : en;
+---
+
+<BaseLayout title={t("aboutMore.title")} description={t("aboutMore.description")}>
+  <article class="reveal mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <a
+      href={`/${lang}/#about`}
+      class="inline-flex items-center gap-1 text-sm font-medium text-brand-600 hover:text-brand-700 dark:text-brand-400"
+    >
+      &larr; {t("aboutMore.back")}
+    </a>
+
+    <h1 class="mt-6 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
+      {t("aboutMore.title")}
+    </h1>
+    <p class="mt-4 text-lg text-pretty text-slate-600 dark:text-slate-300">
+      {t("aboutMore.lead")}
+    </p>
+
+    <div
+      class="prose prose-slate mt-10 max-w-none dark:prose-invert prose-headings:font-semibold prose-a:text-brand-600"
+    >
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

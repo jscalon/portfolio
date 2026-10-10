@@ -31,6 +31,14 @@ export const ui = {
     "about.education": "Formación",
     "about.skills": "Tecnologías",
     "about.downloadCv": "Ver CV completo",
+    "about.more": "Más allá del código",
+
+    "aboutMore.title": "Más allá del código",
+    "aboutMore.lead":
+      "Quién soy como persona, qué me mueve y cómo trabajo, más allá de los proyectos y del CV.",
+    "aboutMore.description":
+      "Juan Giménez más allá del código: quién es, qué lo mueve, cómo trabaja y qué hace fuera del trabajo.",
+    "aboutMore.back": "Volver al inicio",
 
     "cv.title": "Currículum",
     "cv.description":
@@ -88,6 +96,14 @@ export const ui = {
     "about.education": "Education",
     "about.skills": "Technologies",
     "about.downloadCv": "View full CV",
+    "about.more": "Beyond the code",
+
+    "aboutMore.title": "Beyond the Code",
+    "aboutMore.lead":
+      "Who I am as a person, what drives me and how I work, beyond the projects and the CV.",
+    "aboutMore.description":
+      "Juan Giménez beyond the code: who he is, what drives him, how he works and what he does outside work.",
+    "aboutMore.back": "Back to home",
 
     "cv.title": "CV",
     "cv.description":

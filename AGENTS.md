@@ -50,7 +50,11 @@ the language switcher).
 - `src/layouts/BaseLayout.astro` — head, SEO/OpenGraph, hreflang, theme + reveal scripts
 - `src/components/` — Header, Footer, Logo, LangSwitcher, ThemeToggle, ProjectCard,
   ContactForm, PersonSchema, Analytics
-- `src/pages/[lang]/` — home, `cv`, projects list, project detail
+- `src/pages/[lang]/` — home, `cv`, `beyond-the-code`, projects list, project detail
+- `src/data/about/<es|en>.md` — the long-form text of the `beyond-the-code` page — a
+  slug distinct from the home's `#about` section on purpose. It is personal on
+  purpose (who Juan is, his faith, what he does outside work) and is linked **only** from
+  the About section: not the nav, not the hero, not the CV
 - `src/pages/404.astro` — language-aware 404 (no locale prefix)
 - `src/styles/global.css` — Tailwind theme tokens, dark variant, reveal animations.
   Both palettes are defined there: `brand-*` (wine red) and a redefinition of
