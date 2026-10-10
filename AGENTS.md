@@ -75,6 +75,24 @@ the language switcher).
 - Projects are one file per language under `es/` and `en/` with the **same slug**
   (filename). Mismatched slugs break the language switcher on the detail page.
 - **Every content change must be mirrored in both languages.**
+- **Translate the meaning, not the words.** Each language must say exactly the same thing —
+  same facts, same claims, same tone — but the English has to read as if it had been written
+  in English, not carried over word by word from the Spanish. Spanish idioms and turns of
+  phrase have natural English equivalents; use those. Examples that were fixed once:
+
+  | Literal (avoid) | Natural |
+  | --- | --- |
+  | contribute my grain of sand ("mi granito de arena") | do my part |
+  | it marked a before and after | it was a turning point |
+  | out of confidentiality to the company | for confidentiality reasons |
+  | Goes ahead / Does not go ahead ("Procede / No procede") | Approved / Rejected |
+  | doing things with excellence | doing things to a high standard |
+  | a reading of the results ("lectura") | an assessment of the results |
+  | study the degree | pursue a degree |
+
+  The test: would a native speaker write this sentence from scratch? If it only makes sense
+  once you know the Spanish behind it, rewrite it. The reverse applies too — when the source
+  is English, the Spanish must not read like a translation.
 
 ## Adding / editing projects
 
