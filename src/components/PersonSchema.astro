@@ -1,6 +1,5 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import profilePhoto from "../assets/profile.webp";
 import {
   profile,
   bio,
@@ -24,9 +23,10 @@ const schema = {
   "@type": "Person",
   name: profile.name,
   url: new URL(`/${lang}/`, siteUrl).href,
-  // The portrait, not the social card: schema.org reads `image` as a photograph
-  // of the person, and this one is a square headshot rather than a text banner.
-  image: new URL(profilePhoto.src, siteUrl).href,
+  // No `image`. It used to be the portrait, which is what schema.org means by it, but
+  // LinkedIn reads this JSON-LD and prefers its image over `og:image`: the home's link
+  // preview showed a cropped headshot instead of the social card. How the link looks
+  // where it is shared matters far more here than a portrait in a search panel.
   jobTitle: t("hero.role"),
   description: bio[lang],
   email: `mailto:${profile.email}`,

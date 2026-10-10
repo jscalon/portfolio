@@ -178,9 +178,12 @@ string itself lives in `ui.ts` (`hero.available`) like every other UI label.
   which pushes WhatsApp/LinkedIn to the large card) and `hreflang` alternates
   (`es`, `en`, `x-default`), skipped on the 404 since it has no locale.
 - `PersonSchema.astro` emits schema.org `Person` JSON-LD, built from `site.ts`.
-  Included on the home and CV pages only — not on project pages. Its `image` is
-  the portrait itself, not the social card: schema.org reads that field as a
-  photograph of the person. It follows the photo automatically, unlike the card.
+  Included on the home and CV pages only — not on project pages. It has **no `image`
+  on purpose**: LinkedIn reads this JSON-LD and prefers its image over `og:image`, so
+  while it carried the portrait, sharing the home on LinkedIn showed a cropped headshot
+  instead of the social card (WhatsApp was fine, which is what made it confusing). Do
+  not add it back. LinkedIn's Post Inspector shows the effect: an "Author" row means it
+  is reading this block.
 - `public/og-image.png` is a **centered** composition on purpose, so it survives
   the square center-crop some clients (WhatsApp) apply **as a fallback**. The wide
   card is the normal outcome — that is what the declared dimensions above buy; the
