@@ -46,3 +46,12 @@ tecnología. Fuera de lo técnico, además, curso un bachillerato en Teología.
 
 Me gusta jugar videojuegos, ver anime y salir a compartir con mis amigos. Y, por gusto, estudio
 matemáticas y física: es la misma curiosidad que me llevó a la computación.
+
+## ¿Por qué "jscalon"?
+
+Es un nombre armado como un pequeño rompecabezas. La **j** es de Juan. **scalon** sale de
+Escalona, mi segundo apellido, sin su primera ni su última letra. Y en la mezcla aparecen dos
+guiños a la programación: **js**, como se abrevia JavaScript, el lenguaje sobre el que se apoya
+casi todo lo que construyo, y **scal**, de *escalar*, porque el buen software tiene que poder
+crecer. Y de ahí viene el logo, una escalera: escalar también significa subir, y así la
+imagen une a Escalona con el software que crece.

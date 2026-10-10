@@ -45,3 +45,12 @@ did not quite click at the time, and I try to keep up with what is new in techno
 
 I enjoy video games, anime and going out with my friends. And, for the fun of it, I study
 mathematics and physics: it is the same curiosity that led me to computing.
+
+## Why "jscalon"?
+
+The name is put together like a small puzzle. The **j** is for Juan. **scalon** comes from
+Escalona, my second surname, minus its first and last letters. And the mix hides two nods to
+programming: **js**, the usual abbreviation for JavaScript, the language behind almost
+everything I build, and **scal**, as in *scale*, because good software has to be able to grow.
+And that is where the logo comes from, a staircase: in Spanish, *escalar* means both to scale
+and to climb, so the image ties Escalona to software that grows.
