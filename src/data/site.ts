@@ -56,8 +56,8 @@ export const experience: ExperienceItem[] = [
       en: "April 2026 — October 2026",
     },
     description: {
-      es: "Desarrollador de siete aplicaciones internas para la fuerza de ventas —portal de supervisores, cotizador, pronóstico de metas y boletas de gestión, entre otras—, cinco de ellas en producción y dos adoptadas por todo el Grupo Mayoreo.",
-      en: "Developer of seven internal applications for the sales force — supervisor portal, quoting tool, sales goal forecasting and performance scorecards, among others — five of them in production and two adopted across the whole Mayoreo Group.",
+      es: "Desarrollo de siete aplicaciones internas para la fuerza de ventas —portal de supervisores, cotizador, pronóstico de metas y boletas de gestión, entre otras—, cinco de ellas en producción y dos adoptadas por todo el Grupo Mayoreo.",
+      en: "Development of seven internal applications for the sales force — supervisor portal, quoting tool, sales goal forecasting and performance scorecards, among others — five of them in production and two adopted across the whole Mayoreo Group.",
     },
   },
   {
@@ -80,8 +80,8 @@ export const experience: ExperienceItem[] = [
       en: "June 2025 — February 2026",
     },
     description: {
-      es: "Proyecto de pasantía y trabajo de grado en el departamento de Tecnología: desarrollo de una aplicación web para la gestión remota de productos y precios de las tiendas minoristas de la empresa.",
-      en: "Internship and thesis project in the Technology department: development of a web application for the remote management of products and prices across the company's retail stores.",
+      es: "Desarrollo de una aplicación web para la gestión remota de productos y precios de las tiendas minoristas de la empresa, como proyecto de pasantía y trabajo de grado en el departamento de Tecnología.",
+      en: "Development of a web application for the remote management of products and prices across the company's retail stores, as an internship and thesis project in the Technology department.",
     },
   },
 ];
