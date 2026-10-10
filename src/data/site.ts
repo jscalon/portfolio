@@ -40,7 +40,7 @@ export interface EducationItem {
 /** Bio: the About section on the site and the Profile on the CV (after the hero tagline). */
 export const bio: LocalizedText = {
   es: "He desarrollado al menos diez aplicaciones para uso empresarial, cinco de ellas en producción. Me gusta hacer las cosas con excelencia, resolver problemas reales y cuidar los detalles. Integro la IA de forma activa en mi flujo de trabajo como una herramienta más para desarrollar con mayor calidad y velocidad, además de automatizar tareas y procesos.",
-  en: "I have built at least ten applications for business use, five of them in production. I like doing things with excellence, solving real problems and caring about the details. I actively integrate AI into my workflow as one more tool to build with greater quality and speed, as well as to automate tasks and processes.",
+  en: "I have built at least ten applications for business use, five of them in production. I like doing things to a high standard, solving real problems and paying attention to detail. I actively use AI in my workflow as another tool to build better and faster, and to automate tasks and processes.",
 };
 
 /** Work experience, most recent first. */
@@ -69,7 +69,7 @@ export const experience: ExperienceItem[] = [
     },
     description: {
       es: "Desarrollo de chatbots de IA, diseño y creación de páginas web modernas, generación y edición de imágenes y videos con IA.",
-      en: "Development of AI chatbots, design and creation of modern websites, and AI-powered image and video generation and editing.",
+      en: "Development of AI chatbots, design and development of modern websites, and AI-powered image and video generation and editing.",
     },
   },
   {
@@ -107,7 +107,7 @@ export const spokenLanguages: { name: LocalizedText; level: LocalizedText }[] = 
   },
   {
     name: { es: "Inglés", en: "English" },
-    level: { es: "Intermedio (lectura fluida)", en: "Intermediate (fluent reading)" },
+    level: { es: "Intermedio (lectura fluida)", en: "Intermediate (fluent reader)" },
   },
 ];
 

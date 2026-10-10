@@ -1,45 +1,44 @@
 ## <span aria-hidden="true">👋</span> Who I am
 
 I'm Juan, a computer engineer from Valencia, Venezuela. I came to programming thanks to a
-cousin who is a programmer: he taught me a lot and encouraged me to study the degree. There I
-found a field with applications in almost everything and a future that excited me, built on
+cousin who is a programmer: he taught me a lot and encouraged me to pursue a degree in it.
+There I found a field with applications in almost everything and a future that excited me, built on
 something I have always enjoyed: mathematics and physics.
 
 ## <span aria-hidden="true">💡</span> What drives me
 
-What I enjoy most about my work is seeing that what I do helps someone: a team that stops
-losing time, a company that decides with better data, the people who use what I build every
-day. I like to think that this is how I contribute my grain of sand to other people's progress,
-while providing for myself and my family.
+What I enjoy most about my work is seeing that what I do helps someone: a team that wastes
+less time, a company that decides with better data, the people who use what I build every day.
+I like to think that this is how I do my part for other people's progress, while providing for
+myself and my family.
 
 ## <span aria-hidden="true">💻</span> How I work
 
 People who have worked with me would say I like doing things properly, and that I give my
-best so they turn out excellent. It is not enough for something to work: I check that every
+best so the result is excellent. It is not enough for something to work: I check that every
 number adds up, that every piece of text says exactly what it should, and that whoever uses it
-does not have to guess.
+never has to guess.
 
 ## <span aria-hidden="true">✝️</span> My faith
 
 I'm a Christian. I follow Christ, and to me that means believing in Him and putting His
 teachings into practice. It is the most important part of my life, and it shows in how I work:
-I try to be honest, punctual and responsible, patient with others, a teammate who collaborates
-and keeps the peace, respectful of those who lead me, and to do every task wholeheartedly, as
-for God and not only for whoever reviews it.
+I try to be honest, punctual and responsible; patient with others; a teammate who collaborates
+and keeps the peace; respectful of those who lead me; and wholehearted in every task, as for
+God and not only for whoever reviews it.
 
 ## <span aria-hidden="true">🌱</span> Where I'm growing
 
-My English: I read it fluently, and I'm now working on understanding it by ear and speaking
-it. I also regularly review topics from my degree, to refresh them or to fully understand what
+My English: I read it fluently, and I'm now working on my listening and speaking. I also regularly review topics from my degree, to refresh them or to fully understand what
 did not quite click at the time, and I try to keep up with what is new in technology. Beyond tech, I'm also studying for a bachelor's degree in Theology.
 
 ## <span aria-hidden="true">🎯</span> Where I'm headed
 
-- **In the short term,** to settle into a developer role that lets me become independent and
+- **In the short term,** I want to settle into a developer role that lets me become independent and
   keep growing in what I do.
-- **In the medium term,** to speak English fluently, earn a master's degree related to my
+- **In the medium term,** I want to speak English fluently, earn a master's degree related to my
   field and lead larger teams and projects as a developer.
-- **In the long term,** to get married and raise a family.
+- **In the long term,** I want to get married and raise a family.
 
 ## <span aria-hidden="true">🎮</span> Outside work
 

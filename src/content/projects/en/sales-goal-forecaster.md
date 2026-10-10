@@ -109,10 +109,10 @@ clipped. Changing them recalculates every goal instantly.*
 
 ## Project status
 
-In use since July 2026, and it marked a before and after: since then the company has set its
+In use since July 2026, and it was a turning point: since then the company has set its
 sales goals with this application rather than the Excel file it used before. I used it to
 calculate the goals, and management used it to follow trends and forecasts.
 
 It is an internal tool: it is deployed on the web and its code lives in a GitHub repository,
-but out of confidentiality to the company this case does not link to the site or to the code.
+but, for confidentiality reasons, this case does not link to the site or to the code.
 For the same reason, the screenshots use sample data.

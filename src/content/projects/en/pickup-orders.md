@@ -93,7 +93,7 @@ It went into production at the end of May 2026 and is used daily. The person in 
 and sales administration register the orders; supervisors and management follow them up.
 
 It is an internal tool: it is deployed on the web and its code lives in a GitHub
-repository, but out of confidentiality to the company this case does not link to the site
+repository, but, for confidentiality reasons, this case does not link to the site
 or to the code. For the same reason, the screenshots use sample data.
 
 The change was not in the tool but in the behaviour. With the deadline in view, a

@@ -1,7 +1,7 @@
 ---
 lang: en
 title: "Returns Portal — Customer Return Claims"
-description: "Internal web application for Febeca to record customer claims with their evidence and route each item, by reason, to the department that decides whether the return goes ahead."
+description: "Internal web application for Febeca to record customer claims with their evidence and route each item, by reason, to the department that approves or rejects the return."
 stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Netlify"]
 cover: ../../../assets/covers/returns-portal.webp
 featured: false
@@ -32,7 +32,7 @@ again before the case could be reviewed. All the routing depended on one person 
 email and forwarding it by hand: if they picked the wrong department or the email went
 unread, the claim sat waiting without anyone noticing. And with no single record, finding
 out where a case stood meant searching through threads and asking around, and counting how
-many claims came in during a month, for what reason or how many went ahead was impossible
+many claims came in during a month, for what reason or how many were approved was impossible
 without going through the whole inbox.
 
 ## The solution
@@ -42,7 +42,7 @@ A portal with three screens, and each user sees only the ones that apply to them
 - **Register** — the customer, the invoice and one or more items. Each item carries its
   quantity, its reason and its evidence: photos and a video.
 - **To answer** — the items assigned to whoever is signed in, oldest claim first. Each one
-  is answered *Goes ahead* or *Does not go ahead*, and the latter requires a comment, which
+  is answered *Approved* or *Rejected*, and a rejection requires a comment, which
   is what gets explained to the customer.
 - **Tracking** — every claim with its status, who has to answer each pending item and the
   history of each case.
@@ -106,6 +106,5 @@ finished — registering, answering, tracking, corrections, voiding and the hist
 end to end — and what remained was operational: creating the users and loading the list of
 approvers, that is, who answers each reason, each brand's buyer and each region's manager.
 
-It is an internal tool: its code lives in a GitHub repository, but out of confidentiality to
-the company this case does not include links. For the same reason, the screenshots use sample
+It is an internal tool: its code lives in a GitHub repository, but, for confidentiality reasons, this case does not include links. For the same reason, the screenshots use sample
 data.

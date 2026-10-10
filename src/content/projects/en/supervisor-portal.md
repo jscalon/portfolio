@@ -35,7 +35,7 @@ Seven sections:
 
 - **Dashboard** — the team's progress: sales and collections against budget, customer
   portfolio, activated customers and invoiced line items, each with its traffic light.
-- **Accounts receivable** — what each customer owes, with the days of credit overdue.
+- **Accounts receivable** — what each customer owes, and how many days overdue each balance is.
 - **Brands** — each supervisor's performance by brand in the current month.
 - **Active terms** — the promotions and terms currently in force for each brand.
 - **Paint** — paint sales broken down to the customer, with the thresholds of the
@@ -126,7 +126,7 @@ In production and in daily use since April 2026. It is used by the ten superviso
 management and the five people in sales administration.
 
 It is an internal tool: it is deployed on the web and its code lives in a GitHub
-repository, but out of confidentiality to the company this case does not link to the site
+repository, but, for confidentiality reasons, this case does not link to the site
 or to the code. For the same reason, the screenshots use sample data.
 
 Data loading is **manual and daily**, and it is worth being precise about how far that goes.
@@ -138,7 +138,7 @@ system**: they are not edited, reordered or formatted. All the cleaning, the joi
 sources, the calculations and the aggregations are written in code and run on their own. The
 alternative — hand-building an Excel file every day in the exact format the application
 expects — would be slower, more fragile and would have to be repeated on every load. Within
-the constraint there is, this is everything that could be automated.
+that constraint, this is everything that could be automated.
 
 If the company opens direct access to the data tomorrow — an API, an endpoint, a database
 connection or a backend that serves it in real time — only the part that reads it today

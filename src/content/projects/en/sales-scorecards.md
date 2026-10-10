@@ -12,7 +12,7 @@ date: 2026-09-24
 
 Scorecard generator for the sales force of the **Mayoreo Group**. It takes a period's closing
 figures and evaluates every member of the sales force on six indicators, following its
-hierarchy — sales rep, supervisor and manager. It writes a reading of the results meant for
+hierarchy — sales rep, supervisor and manager. It writes an assessment of the results meant for
 each person, and delivers each scorecard as PDF and HTML, by email.
 
 ## The problem
@@ -23,7 +23,7 @@ the same file also held everyone else's results. On top of that, it was sent out
 
 A table says how much someone sold, but it does not tell them how well they did against what
 was expected of them, how they compare with people working in similar conditions, or where to
-start improving. And giving every person that reading, in writing, was not feasible by hand:
+start improving. And giving every person that assessment, in writing, was not feasible by hand:
 there are dozens of reps per company, across several companies, and a hand-written review takes
 time, varies with whoever writes it and is hard to keep consistent from one person to the next.
 
@@ -113,10 +113,9 @@ management, adjusting it to keep to the corporate visual standard.
 It was built for Febeca, to evaluate the close of the fiscal year, and management liked the
 result so much that it decided to take that design to the rest of the group's companies. Later it stopped being used
 only for the fiscal year: it also generates scorecards for other periods, such as quarters and
-months. It marked a before and after in how scorecards are delivered: each person receives
-their own, on its own, clear and by email, instead of a shared Excel file sent by hand.
+months. It was a turning point in how scorecards are delivered: each person receives only
+their own, clearly laid out and by email, instead of a shared Excel file sent by hand.
 
-It is an internal tool and its code lives in a private repository, so out of confidentiality
-to the company this case does not include links. For the same reason, the screenshots use
+It is an internal tool and its code lives in a private repository, so, for confidentiality reasons, this case does not include links. For the same reason, the screenshots use
 invented data — sample people, figures, weights and bands; the only real face is mine, in place
 of a sales rep.

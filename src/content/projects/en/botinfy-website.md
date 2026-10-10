@@ -1,7 +1,7 @@
 ---
 lang: en
 title: "Botinfy Corporate Website — Living Up to a Software Company"
-description: "Redesign and development of Botinfy's official website, a software development company, to replace an outdated site with a modern, professional presence in line with the standard expected from the sector."
+description: "Redesign and development of the official website of Botinfy, a software development company, to replace an outdated site with a modern, professional presence in line with the standard expected from the sector."
 stack: ["Next.js", "TypeScript", "Tailwind CSS", "GSAP", "Figma"]
 cover: ../../../assets/covers/botinfy.webp
 liveUrl: https://botinfy.com

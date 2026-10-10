@@ -86,6 +86,5 @@ handled data loading and generation.
 The tool was fully ready for management's approval and for sending the scorecards to customers,
 but I left the company just before that step.
 
-It is an internal tool and its code lives in a private repository, so out of confidentiality to
-the company this case does not include links. For the same reason, the screenshots use invented
+It is an internal tool and its code lives in a private repository, so, for confidentiality reasons, this case does not include links. For the same reason, the screenshots use invented
 data: sample customers, categories, brands, items and figures.

@@ -117,5 +117,5 @@ much that it decided to take it to the rest of the group: the other four compani
 by one, and all five use it daily.
 
 It is an internal tool: it is deployed on the web and its code lives in a GitHub repository,
-but out of confidentiality to the company this case does not link to the site or to the code.
+but, for confidentiality reasons, this case does not link to the site or to the code.
 For the same reason, the screenshots use sample data.
