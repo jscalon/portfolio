@@ -1,4 +1,5 @@
 ---
+import { SOCIAL_CARD_PATH } from "../utils/social";
 // Self-hosted Inter (wght axis only; the browser fetches just the subset it needs).
 import "@fontsource-variable/inter/wght.css";
 import "../styles/global.css";
@@ -22,7 +23,7 @@ interface Props {
 const {
   title,
   description,
-  image = "/og-image.png",
+  image = SOCIAL_CARD_PATH,
   imageWidth = 1200,
   imageHeight = 630,
 } = Astro.props;

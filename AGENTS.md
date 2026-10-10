@@ -192,7 +192,10 @@ string itself lives in `ui.ts` (`hero.available`) like every other UI label.
   rendering.
 - That card embeds the portrait from `src/assets/profile.webp`, so it goes stale if
   the photo changes. `pnpm og` (`scripts/og-image.mjs`) regenerates it — run it
-  after replacing the portrait; nothing in the build catches the drift. Its text
+  after replacing the portrait; nothing in the build catches the drift. **Then bump the
+  `?v=` in `src/utils/social.ts`:** LinkedIn caches its processed copy of a preview image
+  per image URL — it once kept serving a blurry 160 px thumbnail through every re-scrape —
+  so a regenerated card under the same URL may never reach LinkedIn. Its text
   stays in English in both locales ("AI", not "IA"), matching the skills list, since
   one card serves `/es/` and `/en/` alike.
 - **Project pages share a JPEG copy of their cover** as `og:image` (`getImage` with

@@ -1,4 +1,5 @@
 ---
+import { SOCIAL_CARD_PATH } from "../utils/social";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import {
   profile,
@@ -28,7 +29,7 @@ const schema = {
   // JSON-LD when the page has one, ignoring the Open Graph tags: with the portrait the
   // home's preview was a cropped headshot, and with no image it fell back to the largest
   // <img> on the page, the same headshot. The card is what the preview is meant to show.
-  image: new URL("/og-image.png", siteUrl).href,
+  image: new URL(SOCIAL_CARD_PATH, siteUrl).href,
   jobTitle: t("hero.role"),
   description: bio[lang],
   email: `mailto:${profile.email}`,
