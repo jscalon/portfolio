@@ -61,7 +61,7 @@ export const experience: ExperienceItem[] = [
     },
   },
   {
-    role: { es: "Desarrollador de software", en: "Software Developer" },
+    role: { es: "Desarrollador de Software", en: "Software Developer" },
     company: "Botinfy",
     period: {
       es: "Febrero 2026 — Abril 2026",
@@ -73,7 +73,7 @@ export const experience: ExperienceItem[] = [
     },
   },
   {
-    role: { es: "Pasante", en: "Intern" },
+    role: { es: "Pasante de Desarrollo de Software", en: "Software Development Intern" },
     company: "Protinal Proagro",
     period: {
       es: "Junio 2025 — Febrero 2026",
