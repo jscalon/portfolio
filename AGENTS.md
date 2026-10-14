@@ -519,11 +519,13 @@ a fact.
   spill most of them onto a page few people open and dilute the best ones, and `jscalon.dev`
   in the header leads to all of them. ServiFrescos and Botinfy left the CV as projects but the
   work behind them is still there, as the Protinal and Botinfy experience entries.
-- **Next:** the site is ready to share. What remains is off-site — Juan's GitHub profile
-  (README, pinned repos) and LinkedIn (headline and experience in line with the site) — plus,
-  optionally, a second, more informal photo for the `beyond-the-code` page (a different one
-  from the CV's; repeating it adds nothing). A blog / notes section is a long-term idea, not
-  a near one.
+- **Next:** the site is live and ready to share, and the off-site work is done: LinkedIn (in
+  Spanish and English, in line with the site) and GitHub (profile README in the `jscalon/jscalon`
+  repo, pinned repos, a cleaned-up repo list). What remains is the LinkedIn launch post, held
+  until both recommendations are in. Optionally, a second, more informal photo for the
+  `beyond-the-code` page (a different one from the CV's; repeating it adds nothing). A blog /
+  notes section is a long-term idea, not a near one. **The GitHub profile README repeats the
+  featured projects and the stack** — update it when those change here; nothing links the two.
 
 **Decided against — a downloadable `.pdf` of the CV committed to `public/`.** The only case
 it serves is a job portal that demands a file upload and will not take a URL, and that case
