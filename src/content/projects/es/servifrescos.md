@@ -58,18 +58,18 @@ Funcionalidades destacadas:
 
 ![Formulario de creación de precio con el selector de fecha de efectividad abierto](../../../assets/servifrescos/crear-precio.webp)
 
-*Un precio nuevo no reemplaza al anterior: se programa. Hasta que llega su fecha de
+*Un precio nuevo, con datos de ejemplo. No reemplaza al anterior: se programa. Hasta que llega su fecha de
 efectividad, el vigente sigue siendo el que estaba.*
 
 ![Listado de precios con filtros por tienda y por vigencia](../../../assets/servifrescos/precios.webp)
 
-*El listado muestra a la vez el precio vigente y los que esperan turno, y cada registro
+*El listado de precios, con datos de ejemplo. Muestra a la vez el precio vigente y los que esperan turno, y cada registro
 conserva quién lo creó y por qué — el rastro que el proceso anterior, repartido entre once
 bases de datos, no tenía.*
 
 ![Pantalla de permisos de usuario, por módulo y por tienda](../../../assets/servifrescos/permisos.webp)
 
-*Consulta y gestión se conceden módulo a módulo; las tiendas asignadas acotan sobre qué
+*Los permisos de un usuario, con datos de ejemplo. Consulta y gestión se conceden módulo a módulo; las tiendas asignadas acotan sobre qué
 precios puede actuar cada usuario.*
 
 ## Mi rol
@@ -92,3 +92,6 @@ diseñé la interfaz y desarrollé el frontend, el backend y la base de datos ce
 El desarrollo alcanzó un estado avanzado y funcional, cubriendo el ciclo completo de la
 aplicación. La puesta en producción y la adopción en las tiendas quedaron fuera del período
 de pasantía, por lo que el proyecto no llegó a desplegarse en un entorno real.
+
+Las capturas usan datos inventados —productos, precios, tiendas y usuarios de ejemplo—,
+generados por el script de demostración del repositorio. No contienen datos de la empresa.
