@@ -47,8 +47,8 @@ export const bio: LocalizedText = {
 export const experience: ExperienceItem[] = [
   {
     role: {
-      es: "Analista de Datos — Administración de Ventas",
-      en: "Data Analyst — Sales Administration",
+      es: "Desarrollador de Software — Administración de Ventas",
+      en: "Software Developer — Sales Administration",
     },
     company: "Febeca",
     period: {
