@@ -122,7 +122,12 @@ once and both update. Users export it with the browser's *Print → Save as PDF*
 
 - Print rules live in the page's `@media print` block. `@page { margin: 0 }` is
   deliberate: it leaves the browser no room to draw its own header/footer (date,
-  URL, page number); the visual margin comes from padding on `.cv-sheet`.
+  URL, page number); the visual margin comes from padding on `.cv-sheet`. That
+  padding is **top and sides only**. Whitespace below the last line still counts
+  towards the page, and with the Spanish CV 4 px short of a full A4, a phone's
+  slightly taller text pushed the bottom padding alone onto a second page — blank,
+  but there. The space the content leaves free is the bottom margin instead; do
+  not add the padding back.
 - `.cv-item` / `.cv-section` carry `break-inside: avoid` so entries don't split
   across pages. Keep those classes on new entries.
 - **The photo is ES-only** (`lang === "es"`). A CV photo is customary in
@@ -137,10 +142,10 @@ once and both update. Users export it with the browser's *Print → Save as PDF*
   second page carrying three lines is the one outcome to avoid.
 - Skills and languages sit **side by side** at the foot of the CV, with the "last
   updated" stamp under the languages. Stacked, they were what spilled onto a second
-  page once a third project was added. The Spanish CV has little slack left: the
-  last block is `break-inside: avoid` and Chrome will not separate it from the
-  sheet's bottom padding, so a few pixels too many move the **whole block** to page
-  two, not just a line. Check the print preview after any change that adds a line.
+  page once a third project was added. The Spanish CV has about 11 mm of slack left,
+  and the last block is `break-inside: avoid`, so a change that eats that space
+  moves the **whole block** to page two, not just a line. Check the print preview
+  after any change that adds a line.
 
 ### Tests
 

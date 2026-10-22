@@ -319,8 +319,19 @@ const contactRow =
       padding: 0 !important;
     }
 
+    /*
+     * No bottom padding: whitespace below the last line still counts towards the
+     * page, and with the Spanish CV a few pixels short of a full A4 a phone's
+     * slightly taller text pushed that padding alone onto a blank second page.
+     * The space the content leaves free is the bottom margin instead.
+     */
     .cv-sheet {
-      padding: 10mm 13mm;
+      padding: 10mm 13mm 0;
+    }
+
+    /* `min-h-screen` on the body means nothing on paper. */
+    body {
+      min-height: 0 !important;
     }
 
     /* Compact the header block and the gaps between entries. */
