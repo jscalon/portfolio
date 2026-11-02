@@ -1,0 +1,20 @@
+---
+import CvPage from "../../../components/CvPage.astro";
+import { cvVariants } from "../../../data/site";
+import type { Lang } from "../../../i18n/ui";
+
+export function getStaticPaths() {
+  const langs: Lang[] = ["es", "en"];
+  return langs.flatMap((lang) =>
+    cvVariants.map((variant) => ({
+      params: { lang, variant: variant.slug },
+      props: { variant },
+    })),
+  );
+}
+
+const lang = Astro.params.lang as Lang;
+const { variant } = Astro.props;
+---
+
+<CvPage lang={lang} variant={variant} />

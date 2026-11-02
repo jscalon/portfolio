@@ -1,8 +1,10 @@
 import { describe, expect, it } from "vitest";
 import {
   bio,
+  cvVariants,
   education,
   experience,
+  personalId,
   profile,
   skills,
   spokenLanguages,
@@ -93,5 +95,23 @@ describe("contact details", () => {
   it("keeps the WhatsApp link in sync with the displayed phone number", () => {
     const digits = profile.phone.replace(/\D/g, "");
     expect(profile.whatsapp).toContain(digits);
+  });
+});
+
+describe("CV variants and personal ID", () => {
+  it("translates personal identification fields", () => {
+    expectLocalized(personalId.nationalId, "personalId.nationalId");
+    expectLocalized(personalId.birthDate, "personalId.birthDate");
+  });
+
+  it("uses unique, URL-safe slugs and translates any overrides", () => {
+    const slugs = cvVariants.map((v) => v.slug);
+    expect(slugs).toEqual([...new Set(slugs)]);
+
+    for (const variant of cvVariants) {
+      expect(variant.slug).toMatch(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
+      if (variant.role) expectLocalized(variant.role, `cvVariants[${variant.slug}].role`);
+      if (variant.bio) expectLocalized(variant.bio, `cvVariants[${variant.slug}].bio`);
+    }
   });
 });

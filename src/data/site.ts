@@ -116,6 +116,38 @@ export interface SkillGroup {
   items: string[];
 }
 
+export interface CvVariant {
+  /** URL segment under `/<lang>/cv/<slug>`. */
+  slug: string;
+  /** Include national ID and birth date in the CV header (4+4 two-row layout). */
+  includePersonalId?: boolean;
+  /** Optional role override for this company/application. */
+  role?: LocalizedText;
+  /** Optional bio override for this company/application. */
+  bio?: LocalizedText;
+}
+
+/**
+ * Optional personal identification fields for traditional corporate CVs
+ * (e.g. Venezuelan companies that require Cédula and birth date on the sheet).
+ * Kept off the public default CV (`/es/cv`, `/en/cv`) and opted into per variant.
+ */
+export const personalId = {
+  nationalId: { es: "C.I.: V-27.517.823", en: "ID: V-27.517.823" },
+  birthDate: { es: "Nac.: 26/04/2000", en: "Born: 26/04/2000" },
+} as const;
+
+/**
+ * Unlisted, company-specific CV variants served at `/<lang>/cv/<slug>`.
+ * Excluded from `sitemap-0.xml` and marked `noindex`.
+ */
+export const cvVariants: CvVariant[] = [
+  {
+    slug: "empresas-polar",
+    includePersonalId: true,
+  },
+];
+
 /**
  * Skills shown as chips, grouped. Order matters: the core stack leads and AI
  * comes after it, so the profile does not read as "AI person who also codes".

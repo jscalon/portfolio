@@ -21,6 +21,8 @@ export default defineConfig({
     sitemap({
       // Emit <xhtml:link> alternates so crawlers pair the ES/EN URLs.
       i18n: { defaultLocale: "es", locales: { es: "es-ES", en: "en-US" } },
+      // Keep unlisted company-specific CV variants (`/es/cv/<slug>`) out of the sitemap.
+      filter: (page) => !/\/(es|en)\/cv\/.+/.test(page),
     }),
   ],
   vite: {

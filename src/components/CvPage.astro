@@ -1,0 +1,448 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import profilePhoto from "../assets/profile.webp";
+import PersonSchema from "./PersonSchema.astro";
+import { useTranslations } from "../i18n/utils";
+import type { Lang } from "../i18n/ui";
+import {
+  profile,
+  personalId,
+  bio,
+  experience,
+  education,
+  skills,
+  spokenLanguages,
+  type CvVariant,
+} from "../data/site";
+import { getProjectsByLang } from "../utils/projects";
+
+interface Props {
+  lang: Lang;
+  variant?: CvVariant;
+}
+
+const { lang, variant } = Astro.props;
+const t = useTranslations(lang);
+const includePersonalId = Boolean(variant?.includePersonalId);
+const roleText = variant?.role?.[lang] ?? t("hero.role");
+const bioText = variant?.bio?.[lang] ?? bio[lang];
+
+// The CV is a curated one-pager; the site is the complete record. Projects opt
+// out with `cv: false` in their frontmatter.
+const projects = (await getProjectsByLang(lang)).filter((p) => p.data.cv);
+
+// Build date, at month granularity. The site rebuilds on every content push,
+// so this stays accurate without anyone having to maintain it by hand.
+const updated = new Date().toLocaleDateString(
+  lang === "es" ? "es-ES" : "en-GB",
+  { month: "long", year: "numeric" },
+);
+
+// Strip protocol, "www." and trailing slash so links read cleanly on paper.
+const bare = (url: string) =>
+  url.replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/$/, "");
+const siteHome = Astro.site?.href ?? "https://jscalon.dev/";
+
+const sectionTitle =
+  "cv-heading text-sm font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400";
+
+const contactGap = includePersonalId ? "gap-x-3" : "gap-x-4";
+const contactRow = `cv-muted flex flex-wrap ${contactGap} gap-y-1 text-sm text-slate-600 dark:text-slate-400`;
+---
+
+<BaseLayout
+  title={t("cv.title")}
+  description={t("cv.description")}
+  noindex={Boolean(variant)}
+>
+  <PersonSchema />
+
+  <div class="cv-page mx-auto w-full max-w-3xl px-4 py-12 sm:px-6">
+    <!-- Screen-only toolbar -->
+    <div class="no-print mb-8 flex flex-wrap items-center justify-between gap-3">
+      <a
+        href={`/${lang}/`}
+        class="text-sm font-medium text-brand-600 hover:text-brand-700 dark:text-brand-400"
+      >
+        &larr; {t("cv.backToSite")}
+      </a>
+      <button
+        id="print-cv"
+        type="button"
+        data-umami-event="cv-print"
+        class="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700"
+      >
+        {t("cv.print")}
+      </button>
+    </div>
+
+    <article class="cv-sheet">
+      <!-- Header. The photo is intentionally ES-only: a CV photo is expected in
+           Spain/LatAm but avoided in anglophone markets. -->
+      <header
+        class="flex items-start justify-between gap-6 border-b border-slate-200 pb-6 dark:border-slate-700"
+      >
+        <div>
+          <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
+            {profile.name}
+          </h1>
+          <p class="mt-1 text-lg font-medium text-brand-600 dark:text-brand-400">
+            {roleText}
+          </p>
+          {/* Contact details on one row, links on the next. When `includePersonalId`
+              is active, both rows carry 4 items instead of 3 (ID + birth date join row 1,
+              and email moves to the start of row 2) so the header stays two lines tall. */}
+          <ul class={`${contactRow} mt-3`}>
+            {
+              includePersonalId && (
+                <>
+                  <li>{personalId.nationalId[lang]}</li>
+                  <li>{personalId.birthDate[lang]}</li>
+                </>
+              )
+            }
+            <li>{profile.location.city}, {profile.location.country}</li>
+            <li>
+              <a href={profile.whatsapp} class="hover:text-brand-600">
+                {profile.phone}
+              </a>
+            </li>
+            {
+              !includePersonalId && (
+                <li>
+                  <a href={`mailto:${profile.email}`} class="hover:text-brand-600">
+                    {profile.email}
+                  </a>
+                </li>
+              )
+            }
+          </ul>
+          <ul class={`${contactRow} mt-1`}>
+            {
+              includePersonalId && (
+                <li>
+                  <a href={`mailto:${profile.email}`} class="hover:text-brand-600">
+                    {profile.email}
+                  </a>
+                </li>
+              )
+            }
+            <li>
+              <a href={siteHome} class="hover:text-brand-600">
+                {bare(siteHome)}
+              </a>
+            </li>
+            <li>
+              <a href={profile.social.linkedin} class="hover:text-brand-600">
+                {bare(profile.social.linkedin)}
+              </a>
+            </li>
+            <li>
+              <a href={profile.social.github} class="hover:text-brand-600">
+                {bare(profile.social.github)}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {
+          lang === "es" && (
+            <Image
+              src={profilePhoto}
+              alt={profile.name}
+              width={112}
+              height={112}
+              densities={[1, 2]}
+              class="h-24 w-24 shrink-0 rounded-full object-cover sm:h-28 sm:w-28"
+            />
+          )
+        }
+      </header>
+
+      <!-- Profile: the hero tagline followed by the bio. On the site they are two separate
+           blocks, one above the other; the CV has no hero, so without this the tagline would
+           never reach paper. It reads the same string, so editing the hero updates the CV. -->
+      <section class="cv-section">
+        <h2 class={sectionTitle}>{t("cv.profile")}</h2>
+        <p class="mt-2 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+          {t("hero.tagline")} {bioText}
+        </p>
+      </section>
+
+      <!-- Experience -->
+      <section class="cv-section">
+        <h2 class={sectionTitle}>{t("about.experience")}</h2>
+        <ul class="mt-3 space-y-4">
+          {
+            experience.map((item) => (
+              <li class="cv-item">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-3">
+                  <h3 class="font-semibold text-slate-900 dark:text-white">
+                    {item.role[lang]}
+                    <span class="cv-muted font-normal text-slate-600 dark:text-slate-400">
+                      {" · "}
+                      {item.company}
+                    </span>
+                  </h3>
+                  <span class="cv-muted text-xs text-slate-500 dark:text-slate-400">
+                    {item.period[lang]}
+                  </span>
+                </div>
+                <p class="mt-1 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  {item.description[lang]}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <!-- Education -->
+      <section class="cv-section">
+        <h2 class={sectionTitle}>{t("about.education")}</h2>
+        <ul class="mt-3 space-y-3">
+          {
+            education.map((item) => (
+              <li class="cv-item flex flex-wrap items-baseline justify-between gap-x-3">
+                <h3 class="font-semibold text-slate-900 dark:text-white">
+                  {item.title[lang]}
+                  <span class="cv-muted font-normal text-slate-600 dark:text-slate-400">
+                    {" · "}
+                    {item.institution}
+                  </span>
+                </h3>
+                <span class="cv-muted text-xs text-slate-500 dark:text-slate-400">
+                  {item.period[lang]}
+                  {item.note && ` · ${item.note[lang]}`}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <!-- Projects -->
+      {
+        projects.length > 0 && (
+          <section class="cv-section">
+            <h2 class={sectionTitle}>{t("cv.projects")}</h2>
+            <ul class="mt-3 space-y-4">
+              {projects.map((project) => (
+                <li class="cv-item">
+                  <h3 class="font-semibold text-slate-900 dark:text-white">
+                    {project.data.title}
+                  </h3>
+                  {(project.data.liveUrl || project.data.repoUrl) && (
+                    <a
+                      href={project.data.liveUrl || project.data.repoUrl}
+                      class="cv-link block text-xs text-brand-600 dark:text-brand-400"
+                    >
+                      {bare(project.data.liveUrl || project.data.repoUrl || "")}
+                    </a>
+                  )}
+                  <p class="mt-1 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                    {project.data.description}
+                  </p>
+                  <p class="cv-muted mt-1 text-xs text-slate-500 dark:text-slate-400">
+                    {project.data.stack.join(" · ")}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      <!-- Skills and languages side by side. Stacked, the languages section was
+           the part that spilled onto a second page; next to the skills it costs
+           no height at all, since the skills column is the taller one. The left
+           column sizes to its content, so no skill group wraps, and each language
+           takes its own line so the right column stays narrow. The "last updated"
+           stamp sits at the foot of that column, in the space the languages leave
+           free, rather than on a line of its own below the block. -->
+      <div class="cv-section sm:grid sm:grid-cols-[auto_1fr] sm:gap-x-16">
+        <section class="sm:row-span-2">
+          <h2 class={sectionTitle}>{t("about.skills")}</h2>
+          <ul class="mt-2 space-y-1">
+            {
+              skills.map((group) => (
+                <li class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  <span class="font-semibold">{group.label[lang]}:</span>{" "}
+                  {group.items.join(" · ")}
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section class="mt-6 sm:mt-0">
+          <h2 class={sectionTitle}>{t("cv.languages")}</h2>
+          <ul class="mt-2 space-y-1">
+            {
+              spokenLanguages.map((l) => (
+                <li class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  <span class="font-semibold">{l.name[lang]}:</span>{" "}
+                  {l.level[lang]}
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <p
+          class="cv-updated mt-8 text-right text-xs text-slate-400 sm:mt-0 sm:self-end dark:text-slate-500"
+        >
+          {t("cv.updated")}: {updated}
+        </p>
+      </div>
+    </article>
+  </div>
+</BaseLayout>
+
+<script>
+  document
+    .getElementById("print-cv")
+    ?.addEventListener("click", () => window.print());
+</script>
+
+<style is:global>
+  .cv-section {
+    margin-top: 1.5rem;
+  }
+
+  /* Avoid widows: a lone last word ("Mayoreo.") on its own line reads as a layout slip on
+     paper. `pretty` rebalances only the last lines and never adds one; browsers without
+     support ignore it. */
+  .cv-sheet p {
+    text-wrap: pretty;
+  }
+
+  /* Print styles: clean single-column sheet, no site chrome. */
+  @media print {
+    /* Hide everything from the site shell. */
+    header:not(.cv-sheet header),
+    footer,
+    .no-print {
+      display: none !important;
+    }
+
+    /*
+     * margin: 0 leaves the browser no room to draw its own header/footer
+     * (date, page title, URL, page number), so they disappear. The visual
+     * margin is recreated with padding on the sheet itself.
+     */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    html,
+    body {
+      background: #fff !important;
+      color: #000 !important;
+    }
+
+    /*
+     * The wrapper's screen padding (py-12 ≈ 12.7mm) would stack on top of the
+     * sheet's own margin when printing, so it is zeroed here: `.cv-sheet` is
+     * the single source of the printed margin.
+     */
+    .cv-page {
+      max-width: none !important;
+      padding: 0 !important;
+    }
+
+    /*
+     * No bottom padding: whitespace below the last line still counts towards the
+     * page, and with the Spanish CV a few pixels short of a full A4 a phone's
+     * slightly taller text pushed that padding alone onto a blank second page.
+     * The space the content leaves free is the bottom margin instead.
+     */
+    .cv-sheet {
+      padding: 10mm 13mm 0;
+    }
+
+    /* `min-h-screen` on the body means nothing on paper. */
+    body {
+      min-height: 0 !important;
+    }
+
+    /* Compact the header block and the gaps between entries. */
+    .cv-sheet > header {
+      padding-bottom: 8pt !important;
+    }
+
+    .cv-item + .cv-item {
+      margin-top: 7pt !important;
+    }
+
+    /*
+     * Reset to a light palette so printing from dark mode doesn't produce
+     * white-on-white. This flattens every shade, so the rules right below
+     * restore the hierarchy (muted secondary text, blue headings/links) —
+     * they are more specific, so they win regardless of order.
+     */
+    .cv-sheet,
+    .cv-sheet * {
+      color: #111 !important;
+      background: transparent !important;
+      border-color: #ccc !important;
+    }
+
+    /* Secondary text: contact line, company/institution, dates, stack. */
+    .cv-sheet .cv-muted,
+    .cv-sheet .cv-muted * {
+      color: #595959 !important;
+    }
+
+    .cv-sheet .cv-link {
+      color: #a92a4e !important;
+    }
+
+    .cv-sheet a {
+      text-decoration: none !important;
+    }
+
+    .cv-heading {
+      color: #a92a4e !important;
+      font-size: 10.5pt !important;
+    }
+
+    .cv-sheet h1 {
+      font-size: 20pt !important;
+    }
+
+    .cv-sheet h3 {
+      font-size: 10.5pt !important;
+    }
+
+    .cv-sheet p,
+    .cv-sheet li,
+    .cv-sheet span,
+    .cv-sheet a {
+      font-size: 9.5pt !important;
+      line-height: 1.4 !important;
+    }
+
+    .cv-section {
+      margin-top: 8pt !important;
+    }
+
+    .cv-sheet .cv-updated {
+      font-size: 8pt !important;
+      color: #8a8a8a !important;
+    }
+
+    /* Never split an entry across pages. */
+    .cv-item {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .cv-section {
+      break-inside: avoid-page;
+    }
+  }
+</style>
+

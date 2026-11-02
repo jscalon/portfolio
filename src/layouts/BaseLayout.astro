@@ -18,6 +18,8 @@ interface Props {
   /** Real pixel size of `image`. Must match the file, or clients crop it wrong. */
   imageWidth?: number;
   imageHeight?: number;
+  /** Keep unlisted pages (e.g. company-specific CV variants) out of search engines. */
+  noindex?: boolean;
 }
 
 const {
@@ -26,6 +28,7 @@ const {
   image = SOCIAL_CARD_PATH,
   imageWidth = 1200,
   imageHeight = 630,
+  noindex = false,
 } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -77,6 +80,7 @@ const alternates = hasLocalePrefix
 
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonicalURL} />
     <meta name="author" content={profile.name} />
 
